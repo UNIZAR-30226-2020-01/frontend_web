@@ -15,11 +15,17 @@
 <body>
     <div class="container" id="form">
         <h1 class="text-center">Register</h1>
-        <form class="text-left form" method="post"><label for="user">Username</label><input class="form-control" type="text" id="user" minlength="4" maxlength="10" required=""><label for="email">E-mail</label><input class="form-control" type="email" id="email" required=""><label for="passwd">Password</label>
-            <input
-                class="form-control" type="password" id="passwd" required=""><label for="cpasswd">Confirm Password</label><input class="form-control" type="password" id="cpasswd" required=""><button class="btn btn-primary text-center submit-button" type="submit">Create Account</button></form>
+        <form class="text-left form" method="post">
+            <label for="user">Username</label><input class="form-control" v-model="vusername" type="text" id="user" minlength="4" maxlength="10" required="">
+            <label for="email">E-mail</label><input class="form-control" v-model="vemail" type="email" id="email" required="">
+            <label for="passwd">Password</label><input class="form-control" v-model="vpassword" type="password" id="passwd" required="">
+            <label for="cpasswd">Confirm Password</label><input class="form-control" v-model="vconfpasswd" type="password" id="cpasswd" required="">
+            <button class="btn btn-primary text-center submit-button" @click="agregarusuario" v-on:keyup.enter="agregarusuario" type="submit">Create Account</button>
+        </form>
     </div>
     <script src="assets/js/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="register.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
