@@ -1,0 +1,19 @@
+.genre {
+  display: inline-block;
+}
+
+.genre-pic {
+  border-radius: 25px;
+  height: 110px;
+  width: 110px;
+  margin: 8px;
+}
+
+.list-inline-item {
+  align-items: center;
+}
+
+#content-container {
+  align-items: center;
+}
+
