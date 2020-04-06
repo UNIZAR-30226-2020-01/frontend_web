@@ -17,6 +17,7 @@ const app = new Vue({
                 //meter a la base de datos
             }else{
                 console.log('error');
+                alert('Las contraseñas no coinciden');
             }
             
         }
