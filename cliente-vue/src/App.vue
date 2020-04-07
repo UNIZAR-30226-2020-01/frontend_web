@@ -1,17 +1,22 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <barra-superior></barra-superior>
+    <barra-lateral></barra-lateral>
+    <!-- <keep-alive> -->
+      <router-view/>
+    <!-- </keep-alive> -->
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import BarraSuperior from './components/barraSuperior.vue'
+import BarraLateral from './components/barraLateral.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    'barra-superior': BarraSuperior,
+    'barra-lateral': BarraLateral
   }
 }
 </script>
