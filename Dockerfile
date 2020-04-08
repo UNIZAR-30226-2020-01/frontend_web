@@ -10,6 +10,7 @@ COPY cliente-vue/package*.json ./
 
 # Instalamos las dependencias del proyecto
 RUN npm install
+RUN npm install jquery --save
 
 # Copiamos los ficheros y directorios del proyecto al directorio actual
 COPY cliente-vue/./ ./
