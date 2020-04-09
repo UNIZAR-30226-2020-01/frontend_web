@@ -46,14 +46,14 @@
               console.log(response.body);
               if (response.status == 200) {
                 // TODO: Comprobacion adicional para ver si el token es valido?
-                localStorage.setData('token', response.body.token)
+                localStorage.setItem('token', response.body.token);
                 this.$router.push({
                   path: '/'
                 });
               } else {
                 this.error = true;
               }
-            })
+            });
         }
       }
     },
