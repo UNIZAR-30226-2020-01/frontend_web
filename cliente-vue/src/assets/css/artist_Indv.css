@@ -22,6 +22,7 @@
   width: 75px;
   display: inline;
   margin: 5px;
+  border-radius: 5px;
 }
 
 .individual-songs {

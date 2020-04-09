@@ -1,23 +1,30 @@
-.artist-pic {
+.artist-item {
+  margin: 4px;
+}
+
+.card.text-center {
+  background-color: black;
+  color: white;
+}
+
+#artist-pic {
   width: 150px;
   height: 150px;
-  border-radius: 25PX;
-  margin: 10px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: white;
+  border-radius: 3px;
+  clear: both;
 }
 
-.artist-item {
-  color: white;
-  border-radius: 25px;
-  margin: 8px;
-  max-width: 400px;
+.artist-card {
+  width: 215px;
+  height: auto;
+  max-width: 229px;
 }
 
-.artist-div {
-  background-color: black;
-  /*overflow: auto;*/
-  margin: 10px;
-  border-radius: 25px;
-  padding: 10px;
-  display: inline-block;
+.card.text-center.p-2.artist-card:hover {
+  /*background-color: #837d13;*/
+  color: #FFF200;
 }
 

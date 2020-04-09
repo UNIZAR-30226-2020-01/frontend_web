@@ -3,7 +3,7 @@
     <barra-superior></barra-superior>
     <barra-lateral></barra-lateral>
     <!-- <keep-alive> -->
-      <router-view/>
+      <!-- <router-view/> -->
     <!-- </keep-alive> -->
   </div>
 </template>

@@ -1,6 +1,6 @@
 // Para definir las rutas
 // Import de los componentes
-// import Login from './components/login.vue';
+import Login from './components/login.vue';
 import Albums from './components/albums.vue';
 import Artists from './components/artists.vue';
 import SingleArtist from './components/singleArtists.vue';
@@ -12,10 +12,10 @@ export default [
   //   path: '/',
   //   component: Home
   // }
-  // {
-  //   path: '/login',
-  //   component: Login
-  // },
+  {
+    path: '/login',
+    component: Login
+  },
   {
     path: '/albums',
     component: Albums
