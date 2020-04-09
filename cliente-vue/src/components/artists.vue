@@ -26,8 +26,8 @@
     <div class="container-fluid">
       <div class="genre">
         <ul class="list-inline text-center">
-          <li class="list-inline-item artist-item">
-            <div class="card text-center p-2 artist-card" v-for="artist in artists" :key="artist.name">
+          <li class="list-inline-item artist-item" v-for="artist in artists" :key="artist.name">
+            <div class="card text-center p-2 artist-card" >
               <header class="card-header">
                 <h3 class="card-title artist-name">{{artist.name}}</h3>
                 <h6 class="card-subtitle">Artist</h6>
