@@ -52,6 +52,10 @@ body {
   padding: 10px;
 }
 
+#player-col {
+  top: 50px;
+}
+
 .btn.btn-primary.submit-button {
   margin-left: 56%;
   margin-top: 20px;

@@ -21,12 +21,13 @@
       </div>
     </div>
   </div> -->
-
-  <div class="col-10">
+<div>
+  <div class="col">
     <div class="container-fluid">
       <div class="genre">
         <ul class="list-inline text-center">
           <li class="list-inline-item artist-item" v-for="artist in artists" :key="artist.name">
+            <router-link v-bind:to="'/artists/' + artist.id ">
             <div class="card text-center p-2 artist-card" >
               <header class="card-header">
                 <h3 class="card-title artist-name">{{artist.name}}</h3>
@@ -37,22 +38,27 @@
                 <p class="card-text artist-albums d-inline">&nbsp;{{artist.number_albums}} albums</p>
               </div>
             </div>
+          </router-link>
           </li>
         </ul>
       </div>
     </div>
   </div>
-
+  <player></player>
+</div>
 </template>
 
 <script>
-
+  import Player from './player.vue'
   import artistMixins from '../mixins/artistMixin'
   export default {
     data() {
       return {
         artists: []
       }
+    },
+    components:{
+      'player': Player,
     },
     mixins: [artistMixins],
     created() {
