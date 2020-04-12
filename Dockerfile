@@ -1,7 +1,7 @@
 FROM node:9.11.1-alpine
 
 # Instalamos el sevidor HTTP para el contenido estático
-RUN npm install -g http-server
+#RUN npm install -g http-server
 
 WORKDIR /app
 
@@ -10,7 +10,9 @@ COPY cliente-vue/package*.json ./
 
 # Instalamos las dependencias del proyecto
 RUN npm install
-RUN npm install jquery --save
+#RUN npm install jquery --save
+#RUN npm install bootstrap jquery popper.js
+
 
 # Copiamos los ficheros y directorios del proyecto al directorio actual
 COPY cliente-vue/./ ./

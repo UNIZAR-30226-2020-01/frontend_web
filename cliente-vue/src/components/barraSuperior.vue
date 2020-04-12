@@ -18,7 +18,6 @@
 </template>
 
 <script>
-  import './../assets/js/bootstrap.min';
   export default {
     data() {
       return {}
