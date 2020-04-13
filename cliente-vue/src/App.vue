@@ -8,7 +8,7 @@
         <player-component
         @playtrack="play"
         @pausetrack="pause"
-        :currentTrack="currentTrack"></player-component>
+        v-model="playlist[index]"></player-component>
   </div>
 </template>
 
@@ -26,10 +26,11 @@ export default {
   },
   data(){
     return {
-      playlist: [{title: "micenicienta.mp3", artist: "Ask Again", howl: null, display: true},],
+      key: 0,
+      playlist: [{title: "micenicienta.mp3", artist: "Ask Again", album: "Tuputamadre", howl: null, display: true},],
       index: 0,
       playing: false,
-      currentTrack: null,
+      // currentTrack: null,
       // Aspectos de la reproduccion
       loop: false,
     }
@@ -50,23 +51,42 @@ export default {
     })
   },
   methods:{
-    play: function() {
-      if (this.currentTrack == null){
-        // Establecemos el track al actual
-        this.currentTrack = this.playlist[this.index].howl;
+    setPlaylist: function(playlist){
+      // Paramos la reproduccion actual
+      this.currentTrack.howl.stop();
+      // Setteamos la playlist
+      console.log("Setting playlist: " + playlist);
+      this.playlist = playlist;
+      this.playNew(0);
+    },
+    playNew: function(index){
+      if(index >= 0 && index < this.playlist.length){
+        // Reproducimos la cancion con el indice seleccionado
+        this.currentTrack.howl.play();
       }
-      this.currentTrack.play();
+    },
+    play: function() {
+      // if (this.currentTrack == null){
+      //   // Establecemos el track al actual
+      //   this.currentTrack = this.playlist[this.index].howl;
+      // }
+      this.currentTrack.howl.play();
     },
     pause: function() {
-      if (this.currentTrack == null){
-        // Establecemos el track al actual
-        this.currentTrack = this.playlist[this.index].howl;
-      }
-      this.currentTrack.pause();
+      // if (this.currentTrack == null){
+      //   // Establecemos el track al actual
+      //   this.currentTrack = this.playlist[this.index].howl;
+      // }
+      this.currentTrack.howl.pause();
     },
     // next() {
     //
     // }
+  },
+  computed: {
+    currentTrack: function() {
+      return this.playlist[this.index];
+    }
   }
 }
 </script>

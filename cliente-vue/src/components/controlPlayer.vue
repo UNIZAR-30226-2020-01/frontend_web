@@ -9,11 +9,11 @@
             <img class=song__cover src="http://ecx.images-amazon.com/images/I/51XSHShbPiL.jpg" alt="Album cover">
 
             <div class="body__info">
-              <div class="info__album">{{ this.title() }}</div>
+              <div class="info__album">{{ current.album }}</div>
 
-              <div class="info__song">Final Masquerade</div>
+              <div class="info__song">{{ current.title }}</div>
 
-              <div class="info__artist">Linkin Park</div>
+              <div class="info__artist">{{ current.artist }}</div>
             </div>
 
             <div class="body__buttons">
@@ -48,16 +48,17 @@
   import { Howler } from 'howler'
   export default {
     props: {
-      loop: Boolean,
-      shuffle: Boolean,
-      progress: Number,
-      currentTrack: Object,
+      // loop: Boolean,
+      // shuffle: Boolean,
+      // progress: Number,
+      value: Object,
     },
     data() {
       return {
         volume: 0.5,
         muted: false,
         playing: false,
+        current: null
       }
     },
     computed: {
@@ -66,7 +67,8 @@
       }
     },
     created: function() {
-      Howler.volume(this.volume)
+      Howler.volume(this.volume);
+      this.current = this.value
     },
     methods: {
       playTrack() {
