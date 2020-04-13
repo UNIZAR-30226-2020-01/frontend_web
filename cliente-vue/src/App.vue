@@ -5,7 +5,9 @@
     <!-- <keep-alive> -->
       <!-- <router-view/> -->
     <!-- </keep-alive> -->
-        <player-component @playtrack="play"></player-component>
+        <player-component
+        @playtrack="play"
+        @pausetrack="pause"></player-component>
   </div>
 </template>
 
@@ -26,6 +28,7 @@ export default {
       playlist: [{title: "micenicienta.mp3", artist: "Ask Again", howl: null, display: true},],
       index: 0,
       playing: false,
+      currentTrack: null
     }
   },
   created: function () {
@@ -45,11 +48,14 @@ export default {
   },
   methods:{
     play () {
-      console.log(this.playlist[this.index].howl);
       this.playlist[this.index].howl.play();
-      console.log('salgo');
-      console.log(this.playlist[this.index].howl);
     },
+    pause() {
+      this.playlist[this.index].howl.pause();
+    },
+    // next() {
+    //
+    // }
   }
 }
 </script>
