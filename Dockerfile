@@ -16,7 +16,7 @@ RUN npm install
 
 # Copiamos los ficheros y directorios del proyecto al directorio actual
 COPY cliente-vue/./ ./
-COPY cliente-vue/src ./
+#COPY cliente-vue/src ./
 
 # Construimos la aplicacion para la producción minificada
 #RUN npm run build

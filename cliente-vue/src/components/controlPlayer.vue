@@ -9,7 +9,7 @@
             <img class=song__cover src="http://ecx.images-amazon.com/images/I/51XSHShbPiL.jpg" alt="Album cover">
 
             <div class="body__info">
-              <div class="info__album">The Hunting Party</div>
+              <div class="info__album">{{ this.title() }}</div>
 
               <div class="info__song">Final Masquerade</div>
 
@@ -50,7 +50,8 @@
     props: {
       loop: Boolean,
       shuffle: Boolean,
-      progress: Number
+      progress: Number,
+      currentTrack: Object,
     },
     data() {
       return {
@@ -78,6 +79,14 @@
       },
       stopTrack() {
         this.$emit('stoptrack')
+      },
+      title() {
+        if(this.currentTrack == null){
+          return '';
+        }else{
+          console.log(this.currentTrack.title);
+          return this.currentTrack.title;
+        }
       }
     }
   }

@@ -65,6 +65,7 @@
 
 
 <script>
+import {Howl} from 'howler'
 export default {
   data(){
     return {
@@ -87,6 +88,12 @@ export default {
         if(response.status == 200){
           console.log(response.body);
           this.album = response.body;
+          this.album.songs.forEach((song) =>
+            song.howl = new Howl({
+              src: [song.file.toString().replace('http://', 'https://')],
+              //  TODO: add onend function
+            })
+          )
           this.updateKey();
         }
       }

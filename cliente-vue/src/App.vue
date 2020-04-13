@@ -7,7 +7,8 @@
     <!-- </keep-alive> -->
         <player-component
         @playtrack="play"
-        @pausetrack="pause"></player-component>
+        @pausetrack="pause"
+        :currentTrack="currentTrack"></player-component>
   </div>
 </template>
 
@@ -28,30 +29,40 @@ export default {
       playlist: [{title: "micenicienta.mp3", artist: "Ask Again", howl: null, display: true},],
       index: 0,
       playing: false,
-      currentTrack: null
+      currentTrack: null,
+      // Aspectos de la reproduccion
+      loop: false,
     }
   },
   created: function () {
     this.playlist.forEach( (track) => {
       track.howl = new Howl({
         src: [`https://s7-rest.francecentral.cloudapp.azure.com/media/RAP.mp3`],
-        // onend: () => {
-        //   if (this.loop) {
-        //     this.play(this.index)
-        //   } else {
-        //     this.skip('next')
-        //   }
-        // }
+        onend: () => {
+          if (this.loop) {
+            this.play(this.index)
+          } else {
+            this.skip('next')
+          }
+        }
       })
       console.log(track.howl)
     })
   },
   methods:{
-    play () {
-      this.playlist[this.index].howl.play();
+    play: function() {
+      if (this.currentTrack == null){
+        // Establecemos el track al actual
+        this.currentTrack = this.playlist[this.index].howl;
+      }
+      this.currentTrack.play();
     },
-    pause() {
-      this.playlist[this.index].howl.pause();
+    pause: function() {
+      if (this.currentTrack == null){
+        // Establecemos el track al actual
+        this.currentTrack = this.playlist[this.index].howl;
+      }
+      this.currentTrack.pause();
     },
     // next() {
     //
