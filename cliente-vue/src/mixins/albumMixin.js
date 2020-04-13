@@ -8,6 +8,12 @@ export default {
           if(response.status == 200){
             // Todo ok
             this.albums = response.body;
+            this.albums.forEach((album) => {
+              var list = album.url.split('/');
+              console.log(list);
+              album.id = list[list.length - 2];
+              album.url.replace('http://', 'https://');
+            });
             console.log(this.albums);
           }
         }

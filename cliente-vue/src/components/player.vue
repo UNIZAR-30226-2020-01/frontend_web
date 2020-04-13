@@ -1,6 +1,5 @@
 <template>
 
-<div>
   <div class="col-3 align-self-baseline sticky-top" id="player-col" style="display:none"><div class="wrapper">
     <div class="player__container">
       <div class="player__body">
@@ -40,9 +39,6 @@
     </div>
   </div></div>
         </div>
-        <button class="btn btn-primary fixed-bottom" type="button" v-on:click="open_player_btn"><i class="fas fa-music" style="color: rgb(0,0,0);"></i></button>
-</div>
-
 </template>
 
 <script>
@@ -50,16 +46,6 @@
     export default{
       data(){
         return {};
-      },
-      methods:{
-        open_player_btn: function(){
-          let x = document.getElementById("player-col");
-          if (x.style.display === "none") {
-            x.style.display = "block";
-          } else {
-            x.style.display = "none";
-          }
-        }
       }
     }
 

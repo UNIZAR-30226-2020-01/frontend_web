@@ -1,7 +1,7 @@
 <template>
 
   <div>
-    <div class="row">
+    <div class="row" id="player-col">
       <div class="col-2" id="sidebar">
         <ul class="list-unstyled">
           <li>Home</li>
@@ -21,6 +21,8 @@
             </div>
           </li>
         </ul>
+        <button class="btn btn-primary fixed-bottom" type="button" v-on:click="open_player_btn"><i class="fas fa-music" style="color: rgb(0,0,0);"></i></button>
+        <player-component v-show="this.mostrarRepro"></player-component>
       </div>
       <!-- Codigo de los artistas (de momento) -->
       <router-view/>
@@ -31,14 +33,31 @@
 
 <script>
 
-  // import Artists from './artists'
+  import Player from './player.vue'
   export default {
-    // components: {
-    //   'artists-component': Artists
-    // },
+    components: {
+      'player-component': Player,
+    },
     data() {
-      return {}
-    }
+      return {
+        mostrarRepro: false
+      }
+    },
+    methods:{
+    //   open_player_btn: function(){
+    //     let x = document.getElementById("player-col");
+    //     if (x.style.display === "none") {
+    //       x.style.display = "block";
+    //     } else {
+    //       x.style.display = "none";
+    //     }
+    //   }
+    // }
+        open_player_btn: function(){
+          console.log('cosita');
+          this.mostrarRepro = !this.mostrarRepro;
+        }
+      }
   }
 
 </script>

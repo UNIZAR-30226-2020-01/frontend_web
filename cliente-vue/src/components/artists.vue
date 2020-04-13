@@ -44,12 +44,12 @@
       </div>
     </div>
   </div>
-  <player></player>
+  <!-- <player></player> -->
 </div>
 </template>
 
 <script>
-  import Player from './player.vue'
+  // import Player from './player.vue'
   import artistMixins from '../mixins/artistMixin'
   export default {
     data() {
@@ -57,9 +57,9 @@
         artists: []
       }
     },
-    components:{
-      'player': Player,
-    },
+    // components:{
+    //   'player': Player,
+    // },
     mixins: [artistMixins],
     created() {
       this.getAllArtists
