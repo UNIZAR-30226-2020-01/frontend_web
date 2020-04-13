@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <barra-superior></barra-superior>
-    <barra-lateral></barra-lateral>
+    <barra-lateral ></barra-lateral>
     <!-- <keep-alive> -->
-      <!-- <router-view/> -->
+      <router-view @selectPlaylist="setPlaylist"/>
     <!-- </keep-alive> -->
         <player-component
         @playtrack="play"
@@ -40,18 +40,23 @@ export default {
       track.howl = new Howl({
         src: [`https://s7-rest.francecentral.cloudapp.azure.com/media/RAP.mp3`],
         onend: () => {
-          if (this.loop) {
-            this.play(this.index)
-          } else {
             this.skip('next')
-          }
         }
       })
       console.log(track.howl)
     })
   },
   methods:{
+    initPlaylist: function(songList) {
+      return songList.forEach(song => song.howl = new Howl({
+        src: [song.file],
+        onend: () => {
+            this.skip('next')
+        }
+      }));
+    },
     setPlaylist: function(playlist){
+      console.log(playlist);
       // Paramos la reproduccion actual
       this.currentTrack.howl.stop();
       // Setteamos la playlist
@@ -79,6 +84,15 @@ export default {
       // }
       this.currentTrack.howl.pause();
     },
+    skip: function(what) {
+      if(what == 'next'){
+        // this.$emit('nextSong');
+        this.index++;
+      }else if(what == 'previous'){
+        // this.$emit('previousSong');
+        this.index--;
+      }
+    }
     // next() {
     //
     // }

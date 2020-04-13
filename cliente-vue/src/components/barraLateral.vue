@@ -24,7 +24,7 @@
         <button class="btn btn-primary fixed-bottom" type="button" v-on:click="open_player_btn"><i class="fas fa-music" style="color: rgb(0,0,0);"></i></button>
       </div>
       <!-- Codigo de los artistas (de momento) -->
-      <router-view/>
+      <!-- <router-view/> -->
     </div>
   </div>
 
