@@ -6,7 +6,7 @@
                         <div class="row">
                             <div class="col-lg-4 columna-album1">
                                 <div class="divimagealbum"><img class="individual-img-album" :src="album.icon">
-                                    <h1 class="divimagealbum">{{album.title}}</h1>
+                                    <h6 class="divimagealbum">{{album.title}}</h6>
                                 </div>
                                 <div>
                                     <p class="number-songs">Number of songs: {{album.number_songs}}</p>

@@ -1,54 +1,111 @@
 <template>
 
-  <div class="col-3 align-self-baseline sticky-top" id="player-col" style="display:none"><div class="wrapper">
-    <div class="player__container">
-      <div class="player__body">
-        <div class="body__cover">
+  <control-player
+      :loop="loop"
+      :shuffle="shuffle"
+      @playtrack="play"
+      @pausetrack="pause"
+      @stoptrack="stop">
+    </control-player>
 
-          <img class=song__cover src="http://ecx.images-amazon.com/images/I/51XSHShbPiL.jpg" alt="Album cover">
-
-
-        <div class="body__info">
-          <div class="info__album">The Hunting Party</div>
-
-          <div class="info__song">Final Masquerade</div>
-
-          <div class="info__artist">Linkin Park</div>
-        </div>
-
-        <div class="body__buttons">
-          <ul class="list list--buttons">
-            <li><a href="#" class="list__link"><i class="fa fa-step-backward"></i></a></li>
-
-            <li><a href="#" class="list__link"><i class="fa fa-play"></i></a></li>
-
-            <li><a href="#" class="list__link"><i class="fa fa-step-forward"></i></a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="player__footer">
-        <ul class="list list--footer">
-          <li><a href="#" class="list__link"><i class="fa fa-list-alt"></i></a></li>
-        <li>
-              <a class="list__link" href=""><i class="fas fa-share-alt"></i></a>
-            </li>
-          <li><a href="#" class="list__link"><i class="fa fa-plus"></i></a></li>
-        </ul>
-      </div>
-    </div>
-  </div></div>
-        </div>
 </template>
 
 <script>
-
-    export default{
-      data(){
-        return {};
+    //import {Howl} from 'howler'
+    import Controlplayer from './controlPlayer.vue'
+    export default {
+      components: {
+        'control-player' : Controlplayer
+      },
+      data () {
+      return {
+        playlist: [
+          {title: "micenicienta.mp3", artist: "Ask Again", howl: null, display: true},
+        ],
+        selectedTrack: null,
+        index: 0,
+        playing: false,
+        loop: false,
+        shuffle: false,
+        seek: 0
       }
-    }
+    },
+    // computed: {
+    //   currentTrack () {
+    //     return this.playlist[this.index]
+    //   },
+    //   progress () {
+    //     if (this.currentTrack.howl.duration() === 0) return 0
+    //     return this.seek / this.currentTrack.howl.duration()
+    //   },
+    //   getTrackInfo () {
+    //     let artist = this.currentTrack.artist,
+    //         title = this.currentTrack.title,
+    //         seek = this.seek,
+    //         duration = this.currentTrack.howl.duration()
+    //     return {
+    //       artist,
+    //       title,
+    //       seek,
+    //       duration,
+    //     }
+    //   }
+    // },
+    created: function () {
+      this.playlist.forEach( (track) => {
+        let file = track.title
+        track.howl = new Howl({
+          src: [`./assets/playlist/${file}.mp3`],
+          onend: () => {
+            if (this.loop) {
+              this.play(this.index)
+            } else {
+              this.skip('next')
+            }
+          }
+        })
+      })
+    },
+    methods: {
+      selectTrack (track) {
+        this.selectedTrack = track
+      },
+      play (index) {
+        let selectedTrackIndex = this.playlist.findIndex(track => track === this.selectedTrack)
 
+        if (typeof index === 'number') {
+           index = index
+        } else if (this.selectedTrack) {
+          if (this.selectedTrack != this.currentTrack) {
+            this.stop()
+          }
+          index = selectedTrackIndex
+        } else {
+          index = this.index
+        }
+
+        let track = this.playlist[index].howl
+
+        if (track.playing()) {
+          return
+        } else {
+          track.play()
+        }
+
+        this.selectedTrack = this.playlist[index]
+        this.playing = true
+        this.index = index
+      },
+      pause () {
+        this.currentTrack.howl.pause()
+        this.playing = false
+      },
+      stop () {
+        this.currentTrack.howl.stop()
+        this.playing = false
+      },
+    }
+    }
 </script>
 
 <style>

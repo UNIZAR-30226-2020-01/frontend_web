@@ -22,7 +22,6 @@
           </li>
         </ul>
         <button class="btn btn-primary fixed-bottom" type="button" v-on:click="open_player_btn"><i class="fas fa-music" style="color: rgb(0,0,0);"></i></button>
-        <player-component v-show="this.mostrarRepro"></player-component>
       </div>
       <!-- Codigo de los artistas (de momento) -->
       <router-view/>
@@ -33,11 +32,8 @@
 
 <script>
 
-  import Player from './player.vue'
+
   export default {
-    components: {
-      'player-component': Player,
-    },
     data() {
       return {
         mostrarRepro: false

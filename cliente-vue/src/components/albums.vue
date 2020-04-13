@@ -9,7 +9,7 @@
             <div class="album-div">
               <img class="album-pic" alt="album_pic" v-bind:src="album.icon">
                 <div id="x">
-                  <h2 class="album-name">{{ album.title }}</h2>
+                  <h6 class="album-name" style="color: white">{{ album.title }}</h6>
                   <h6 class="album-artist">{{ album.artist.name }}</h6>
                 </div>
             </div>

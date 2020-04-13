@@ -6,7 +6,6 @@ import Albums from './components/albums.vue';
 import Artists from './components/artists.vue';
 import SingleArtist from './components/singleArtists.vue';
 import SingleAlbum from './components/singleAlbum.vue';
-
 // Exportamos el objeto de rutas
 export default [
   // Cada objeto es una ruta

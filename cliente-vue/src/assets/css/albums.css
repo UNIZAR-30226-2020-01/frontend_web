@@ -1,9 +1,13 @@
 .album-artist {
   text-align: center;
+  color: white;
+  font-size: 12px;
+  font-style: italic;
 }
 
 .album-name {
   text-align: center;
+  color: white;
 }
 
 .album-pic {
@@ -28,4 +32,3 @@
   padding: 10px;
   display: inline-block;
 }
-
