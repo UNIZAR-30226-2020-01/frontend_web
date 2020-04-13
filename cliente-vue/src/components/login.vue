@@ -24,7 +24,6 @@
 
 
 <script>
-
   export default {
     data() {
       return {
@@ -62,7 +61,7 @@
         // TODO: Cambiar por una validación de verdad
         return true
       }
-    }
+    },
   }
 
 </script>
