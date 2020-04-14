@@ -49,7 +49,9 @@
                     </div>
                     <div class="col tres">
                       <div>
-                        <div class="dropdown desp"><button class="btn btn-primary dropdown-toggle points" data-toggle="dropdown" aria-expanded="false"
+                        <div class="dropdown desp"><button class="btn btn-primary dropdown-toggle points"
+                                  data-toggle="dropdown"
+                                  aria-expanded="false"
                                   type="button"><i class="fa fa-ellipsis-v dropdown show"></i></button>
                           <div role="menu" class="dropdown-menu"><a role="presentation" class="dropdown-item" href="#">Play Next</a></div>
                         </div>
@@ -70,6 +72,7 @@
 
 
 <script>
+
   export default {
     data() {
       return {
@@ -95,9 +98,15 @@
         if (response.status == 200) {
           console.log(response.body)
           this.album = response.body
-          this.album.songs.forEach(
-            song => song.howl = null
-          )
+          this.album.songs.forEach(song => {
+            song.howl = null
+            song.album = {
+              title: this.album.title,
+              photoUrl: this.album.icon,
+              artist: this.album.artist
+            }
+            song.file = song.file.toString().replace('http://', 'https://')
+          })
           this.updateKey()
         }
       })

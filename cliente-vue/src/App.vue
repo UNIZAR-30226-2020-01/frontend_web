@@ -8,6 +8,8 @@
         <player-component
         @playtrack="play"
         @pausetrack="pause"
+        @nextTrack="skip"
+        @previousTrack="skip"
         v-model="playlist[index]"></player-component>
   </div>
 </template>
@@ -48,7 +50,7 @@ export default {
   },
   methods:{
     initPlaylist: function(songList) {
-      return songList.forEach(song => song.howl = new Howl({
+      songList.forEach(song => song.howl = new Howl({
         src: [song.file],
         onend: () => {
             this.skip('next')
@@ -58,16 +60,22 @@ export default {
     setPlaylist: function(playlist){
       console.log(playlist);
       // Paramos la reproduccion actual
-      this.currentTrack.howl.stop();
+      if(this.currentTrack.howl){
+        this.currentTrack.howl.pause();
+      }
       // Setteamos la playlist
       console.log("Setting playlist: " + playlist);
+      this.initPlaylist(playlist);
       this.playlist = playlist;
       this.playNew(0);
     },
     playNew: function(index){
       if(index >= 0 && index < this.playlist.length){
         // Reproducimos la cancion con el indice seleccionado
-        this.currentTrack.howl.play();
+        this.playlist[index].howl.play();
+        if(this.playing){
+          this.currentTrack.howl.play();
+        }
       }
     },
     play: function() {
@@ -85,12 +93,19 @@ export default {
       this.currentTrack.howl.pause();
     },
     skip: function(what) {
+      console.log('Skipping what: ' + what);
       if(what == 'next'){
         // this.$emit('nextSong');
-        this.index++;
+        this.currentTrack.howl.stop();
+        console.log('Index: ' + ((this.index + 1) % this.playlist.length));
+        this.index = (this.index + 1) % this.playlist.length;
+        this.currentTrack.howl.play();
       }else if(what == 'previous'){
         // this.$emit('previousSong');
-        this.index--;
+        this.currentTrack.howl.stop();
+        console.log('Index: ' + ((this.index + 1) % this.playlist.length));
+        this.index = (this.index - 1) % this.playlist.length;
+        this.currentTrack.howl.play();
       }
     }
     // next() {
