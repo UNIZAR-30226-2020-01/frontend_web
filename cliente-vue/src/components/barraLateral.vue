@@ -7,19 +7,16 @@
           <li>Home</li>
           <li>Search</li>
           <li><router-link to="/playlists">Your library</router-link></li>
+        </ul>
             <div>
               <div class="dropdown"><button class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false" id="podcasts-dd" type="button">Podcasts</button>
-                <div class="dropdown-menu"
-                     role="menu"><a class="dropdown-item"
-                     role="presentation"
-                     href="#">First Item</a><a class="dropdown-item"
-                     role="presentation"
-                     href="#">Second Item</a><a class="dropdown-item"
-                     role="presentation"
-                     href="#">Third Item</a></div>
+                <div class="dropdown-menu" role="menu">
+                  <a class="dropdown-item" role="presentation" href="#">New Podcasts</a>
+                  <a class="dropdown-item" role="presentation" href="#">Subscriptions</a>
+                  <a class="dropdown-item" role="presentation" href="#">Discover</a>
+                </div>
               </div>
             </div>
-        </ul>
         <button class="btn btn-primary fixed-bottom" type="button" v-on:click="open_player_btn"><i class="fas fa-music" style="color: rgb(0,0,0);"></i></button>
       </div>
       <slot name="repro"></slot>

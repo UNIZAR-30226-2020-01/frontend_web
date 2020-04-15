@@ -15,7 +15,7 @@ Vue.use(Vuetify);
 // Rutas
 const router = new VueRouter({
   routes: Routes,
-  mode: 'hash'
+  mode: 'history'
 });
 
 Vue.config.productionTip = false
