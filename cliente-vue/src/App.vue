@@ -32,6 +32,7 @@ export default {
       playlist: [{title: "micenicienta.mp3", artist: "Ask Again", album: "Tuputamadre", howl: null, display: true},],
       index: 0,
       playing: false,
+      audio: undefined,
       // currentTrack: null,
       // Aspectos de la reproduccion
       loop: false,
@@ -41,9 +42,16 @@ export default {
     this.playlist.forEach( (track) => {
       track.howl = new Howl({
         src: [`https://s7-rest.francecentral.cloudapp.azure.com/media/RAP.mp3`],
-        onend: () => {
-            this.skip('next')
-        }
+          onend: () => {
+              this.audio = undefined;
+              this.skip('next');
+          },
+          onplay: () => {
+              this.playing = true;
+          },
+          onpause: () => {
+              this.playing = false;
+          },
       })
       console.log(track.howl)
     })
@@ -53,7 +61,17 @@ export default {
       songList.forEach(song => song.howl = new Howl({
         src: [song.file],
         onend: () => {
-            this.skip('next')
+            this.audio = undefined;
+            this.skip('next');
+        },
+        onplay: () => {
+            this.playing = true;
+        },
+        onpause: () => {
+            this.playing = false;
+        },
+        onstop: () => {
+            this.playing = false;
         }
       }));
     },
@@ -61,7 +79,8 @@ export default {
       console.log(playlist);
       // Paramos la reproduccion actual
       if(this.currentTrack.howl){
-        this.currentTrack.howl.pause();
+        this.currentTrack.howl.pause(this.audio);
+        this.audio = undefined;
       }
       // Setteamos la playlist
       console.log("Setting playlist: " + playlist);
@@ -72,9 +91,9 @@ export default {
     playNew: function(index){
       if(index >= 0 && index < this.playlist.length){
         // Reproducimos la cancion con el indice seleccionado
-        this.playlist[index].howl.play();
+        this.audio = this.playlist[index].howl.play();
         if(this.playing){
-          this.currentTrack.howl.play();
+          this.currentTrack.howl.play(this.audio);
         }
       }
     },
@@ -83,29 +102,39 @@ export default {
       //   // Establecemos el track al actual
       //   this.currentTrack = this.playlist[this.index].howl;
       // }
-      this.currentTrack.howl.play();
+      if(this.audio != undefined){
+        this.currentTrack.howl.play(this.audio);
+      }else{
+        this.audio = this.currentTrack.howl.play();
+      }
     },
     pause: function() {
       // if (this.currentTrack == null){
       //   // Establecemos el track al actual
       //   this.currentTrack = this.playlist[this.index].howl;
       // }
-      this.currentTrack.howl.pause();
+      if(this.audio != undefined){
+        this.currentTrack.howl.pause(this.audio);
+      }else{
+        this.audio = this.currentTrack.howl.pause();
+      }
     },
     skip: function(what) {
       console.log('Skipping what: ' + what);
       if(what == 'next'){
         // this.$emit('nextSong');
-        this.currentTrack.howl.stop();
+        this.currentTrack.howl.stop(this.audio);
         console.log('Index: ' + ((this.index + 1) % this.playlist.length));
         this.index = (this.index + 1) % this.playlist.length;
-        this.currentTrack.howl.play();
+        // this.audio = undefined;
+        this.audio = this.currentTrack.howl.play();
       }else if(what == 'previous'){
         // this.$emit('previousSong');
-        this.currentTrack.howl.stop();
+        this.currentTrack.howl.stop(this.audio);
         console.log('Index: ' + ((this.index + 1) % this.playlist.length));
         this.index = (this.index - 1) % this.playlist.length;
-        this.currentTrack.howl.play();
+        // this.audio = undefined;
+        this.audio = this.currentTrack.howl.play();
       }
     }
     // next() {

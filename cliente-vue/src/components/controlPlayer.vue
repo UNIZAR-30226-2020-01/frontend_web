@@ -81,7 +81,7 @@
       },
       nextTrack() {
         console.log('Next Track');
-        this.$emit('nexTrack', 'next');
+        this.$emit('nextTrack', 'next');
       },
       previousTrack() {
         console.log('Previous Track');
