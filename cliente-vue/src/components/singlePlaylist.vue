@@ -5,12 +5,12 @@
       <div class="container albumfondo" id="content-container" :key="this.key">
         <div class="row">
           <div class="col-lg-4 columna-album1">
-            <div class="divimagealbum"><img class="individual-img-album" :src="album.icon" @click="selectAlbum()">
-              <h6 class="divimagealbum">{{album.title}}</h6>
+            <div class="divimagealbum"><img class="individual-img-album" :src="playlist.icon" @click="selectPlaylist()">
+              <h6 class="divimagealbum">{{playlist.title}}</h6>
             </div>
             <div>
-              <p class="number-songs">Number of songs: {{album.number_songs}}</p>
-              <p class="day-release">Since: Day release: {{album.date}}</p>
+              <p class="number-songs">Number of songs: {{playlist.number_songs}}</p>
+              <!-- <p class="day-release">Since: Day release: {{playlist.date}}</p> -->
             </div>
           </div>
           <div class="col">
@@ -34,7 +34,7 @@
                 </div>
               </li>
             </ul>
-            <ul class="lista" v-for="songs in album.songs" :key="songs.title" style="filter: blur(0px) contrast(200%) grayscale(0%);">
+            <ul class="lista" v-for="songs in playlist.songs" :key="songs.title" style="filter: blur(0px) contrast(200%) grayscale(0%);">
 
               <li style="filter: contrast(200%);">
                 <div>
@@ -78,31 +78,31 @@
       return {
         key: 0,
         id: this.$route.params.id,
-        album: {}
+        playlist: {}
       }
     },
     methods: {
       updateKey: function() {
         this.key = 1 - this.key
       },
-      selectAlbum: function() {
+      selectPlaylist: function() {
         console.log('selecting')
-        this.$emit('selectPlaylist', this.album.songs)
+        this.$emit('selectPlaylist', this.playlist.songs)
       }
     },
     created() {
       // Llamada para traer los datos del artista
       console.log('creating')
-      var url = 'https://s7-rest.francecentral.cloudapp.azure.com/albums/'
+      var url = 'https://s7-rest.francecentral.cloudapp.azure.com/playlists/'
       this.$http.get(url + this.id + '/?format=json').then(function(response) {
         if (response.status == 200) {
           console.log(response.body)
-          this.album = response.body
-          this.album.songs.forEach(song => {
+          this.playlist = response.body
+          this.playlist.songs.forEach(song => {
             song.howl = null
             song.album = {
               title: this.album.title,
-              icon: this.album.icon,
+              photoUrl: this.album.icon,
               artist: this.album.artist
             }
             song.file = song.file.toString().replace('http://', 'https://')

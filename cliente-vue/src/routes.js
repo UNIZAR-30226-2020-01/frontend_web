@@ -6,6 +6,8 @@ import Albums from './components/albums.vue';
 import Artists from './components/artists.vue';
 import SingleArtist from './components/singleArtists.vue';
 import SingleAlbum from './components/singleAlbum.vue';
+import Playlists from './components/playlists.vue';
+import SinglePlaylist from './components/singlePlaylist.vue';
 // Exportamos el objeto de rutas
 export default [
   // Cada objeto es una ruta
@@ -36,5 +38,13 @@ export default [
   {
     path: '/albums/:id',
     component: SingleAlbum
-  }
+  },
+  {
+    path: '/playlists',
+    component: Playlists
+  },
+  {
+    path: '/playlists/:id',
+    component: SinglePlaylist
+  },
 ]

@@ -1,34 +1,77 @@
 <template>
   <div id="app">
     <barra-superior></barra-superior>
-    <barra-lateral ></barra-lateral>
+    <barra-lateral @showPlayer="visible = !visible"><router-view slot="repro" @selectPlaylist="setPlaylist"/></barra-lateral>
     <!-- <keep-alive> -->
-      <router-view @selectPlaylist="setPlaylist"/>
+
     <!-- </keep-alive> -->
-        <player-component
+        <!-- <player-component
         @playtrack="play"
         @pausetrack="pause"
         @nextTrack="skip"
         @previousTrack="skip"
-        v-model="playlist[index]"></player-component>
+        v-model="playlist[index]"></player-component> -->
+
+        <div class="col-3 align-self-baseline sticky-top" id="player-col" v-show="visible">
+          <div class="wrapper">
+            <div class="player__container">
+              <div class="player__body">
+                <div class="body__cover">
+
+                  <img class=song__cover :src="currentTrack.album.icon" alt="Album cover">
+
+                  <div class="body__info">
+                    <div class="info__album">{{ album }}</div>
+
+                    <div class="info__song">{{ currentTrack.title }}</div>
+
+                    <div class="info__artist">{{ artist }}</div>
+                  </div>
+
+                  <div class="body__buttons">
+                    <ul class="list list--buttons">
+                      <li @click="previous()"><i class="fa fa-step-backward"></i></li>
+                      <li @click="play()"  v-show="!playing"><i class="fa fa-play"></i></li>
+                      <li @click="pause()" v-show="playing"><i class="fa fa-pause"></i></li>
+                      <li @click="next()"><i class="fa fa-step-forward"></i></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="player__footer">
+                  <ul class="list list--footer">
+                    <li><a href="#" class="list__link"><i class="fa fa-list-alt"></i></a></li>
+                    <li>
+                      <a class="list__link" href=""><i class="fas fa-share-alt"></i></a>
+                    </li>
+                    <li><a href="#" class="list__link"><i class="fa fa-plus"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
   </div>
 </template>
 
 <script>
 import BarraSuperior from './components/barraSuperior.vue'
 import BarraLateral from './components/barraLateral.vue'
-import Player from './components/controlPlayer.vue'
-import {Howl} from 'howler'
+// import Player from './components/controlPlayer.vue'
+import {Howl, Howler} from 'howler'
 export default {
   name: 'App',
   components: {
     'barra-superior': BarraSuperior,
     'barra-lateral': BarraLateral,
-    'player-component': Player,
+    // 'player-component': Player,
   },
   data(){
     return {
       key: 0,
+      visible: false,
       playlist: [{title: "micenicienta.mp3", artist: "Ask Again", album: "Tuputamadre", howl: null, display: true},],
       index: 0,
       playing: false,
@@ -39,12 +82,14 @@ export default {
     }
   },
   created: function () {
+    // TODO: Cambiar si eso
+    Howler.volume(0.5);
     this.playlist.forEach( (track) => {
       track.howl = new Howl({
         src: [`https://s7-rest.francecentral.cloudapp.azure.com/media/RAP.mp3`],
           onend: () => {
               this.audio = undefined;
-              this.skip('next');
+              this.next();
           },
           onplay: () => {
               this.playing = true;
@@ -62,7 +107,7 @@ export default {
         src: [song.file],
         onend: () => {
             this.audio = undefined;
-            this.skip('next');
+            this.next();
         },
         onplay: () => {
             this.playing = true;
@@ -76,6 +121,7 @@ export default {
       }));
     },
     setPlaylist: function(playlist){
+      this.visible = true;
       console.log(playlist);
       // Paramos la reproduccion actual
       if(this.currentTrack.howl){
@@ -102,11 +148,12 @@ export default {
       //   // Establecemos el track al actual
       //   this.currentTrack = this.playlist[this.index].howl;
       // }
-      if(this.audio != undefined){
-        this.currentTrack.howl.play(this.audio);
-      }else{
+      console.log('this.audio = ' + this.audio);
+      // if(this.audio != undefined){
+      //   this.audio = this.currentTrack.howl.play();
+      // }else{
         this.audio = this.currentTrack.howl.play();
-      }
+      // }
     },
     pause: function() {
       // if (this.currentTrack == null){
@@ -119,31 +166,43 @@ export default {
         this.audio = this.currentTrack.howl.pause();
       }
     },
-    skip: function(what) {
-      console.log('Skipping what: ' + what);
-      if(what == 'next'){
-        // this.$emit('nextSong');
-        this.currentTrack.howl.stop(this.audio);
-        console.log('Index: ' + ((this.index + 1) % this.playlist.length));
-        this.index = (this.index + 1) % this.playlist.length;
-        // this.audio = undefined;
-        this.audio = this.currentTrack.howl.play();
-      }else if(what == 'previous'){
-        // this.$emit('previousSong');
-        this.currentTrack.howl.stop(this.audio);
-        console.log('Index: ' + ((this.index + 1) % this.playlist.length));
-        this.index = (this.index - 1) % this.playlist.length;
-        // this.audio = undefined;
-        this.audio = this.currentTrack.howl.play();
-      }
+    next() {
+      this.currentTrack.howl.stop(this.audio);
+      console.log('Index: ' + ((this.index + 1) % this.playlist.length));
+      this.index = (this.index + 1) % this.playlist.length;
+      // this.audio = undefined;
+      this.audio = this.currentTrack.howl.play();
+    },
+    previous() {
+      this.currentTrack.howl.stop(this.audio);
+      console.log('Index: ' + ((this.index + 1) % this.playlist.length));
+      this.index = (this.index - 1) % this.playlist.length;
+      // this.audio = undefined;
+      this.audio = this.currentTrack.howl.play();
     }
-    // next() {
-    //
-    // }
   },
   computed: {
     currentTrack: function() {
-      return this.playlist[this.index];
+      if(this.visible){
+        return this.playlist[this.index];
+      }else{
+        return {
+          'title': 'Titulo',
+          'album': {
+            'title': 'Album',
+            'photoUrl': '',
+            'artist': {
+              'name': 'Artista',
+            },
+          },
+        };
+      }
+    },
+    album: function() {
+      return this.currentTrack.album.title;
+    },
+    artist: function() {
+      return this.currentTrack.album.artist.name;
     }
   }
 }

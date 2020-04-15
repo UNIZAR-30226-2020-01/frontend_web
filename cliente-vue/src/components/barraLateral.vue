@@ -6,7 +6,7 @@
         <ul class="list-unstyled">
           <li>Home</li>
           <li>Search</li>
-          <li>Your library
+          <li><router-link to="/playlists">Your library</router-link></li>
             <div>
               <div class="dropdown"><button class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false" id="podcasts-dd" type="button">Podcasts</button>
                 <div class="dropdown-menu"
@@ -19,10 +19,10 @@
                      href="#">Third Item</a></div>
               </div>
             </div>
-          </li>
         </ul>
         <button class="btn btn-primary fixed-bottom" type="button" v-on:click="open_player_btn"><i class="fas fa-music" style="color: rgb(0,0,0);"></i></button>
       </div>
+      <slot name="repro"></slot>
       <!-- Codigo de los artistas (de momento) -->
       <!-- <router-view/> -->
     </div>
@@ -50,8 +50,7 @@
     //   }
     // }
         open_player_btn: function(){
-          console.log('cosita');
-          this.mostrarRepro = !this.mostrarRepro;
+          this.$emit('showPlayer');
         }
       }
   }

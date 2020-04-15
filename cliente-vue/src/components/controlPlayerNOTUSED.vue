@@ -59,35 +59,35 @@
         playing: false
       }
     },
-    computed: {
-      trackProgress() {
-        return this.progress * 100
-      }
-    },
-    created: function() {
-      Howler.volume(this.volume);
-    },
-    methods: {
-      playTrack() {
-        this.$emit('playtrack');
-        this.playing = !this.playing;
-      },
-      pauseTrack() {
-        this.$emit('pausetrack');
-        this.playing = !this.playing;
-      },
-      stopTrack() {
-        this.$emit('stoptrack');
-      },
-      nextTrack() {
-        console.log('Next Track');
-        this.$emit('nextTrack', 'next');
-      },
-      previousTrack() {
-        console.log('Previous Track');
-        this.$emit('previousTrack', 'previous');
-      }
-    }
+    // computed: {
+    //   trackProgress() {
+    //     return this.progress * 100
+    //   }
+    // },
+    // created: function() {
+    //   Howler.volume(this.volume);
+    // },
+    // methods: {
+    //   playTrack() {
+    //     this.$emit('playtrack');
+    //     this.playing = !this.playing;
+    //   },
+    //   pauseTrack() {
+    //     this.$emit('pausetrack');
+    //     this.playing = !this.playing;
+    //   },
+    //   stopTrack() {
+    //     this.$emit('stoptrack');
+    //   },
+    //   nextTrack() {
+    //     console.log('Next Track');
+    //     this.$emit('nextTrack', 'next');
+    //   },
+    //   previousTrack() {
+    //     console.log('Previous Track');
+    //     this.$emit('previousTrack', 'previous');
+    //   }
+    //}
   }
 
 </script>

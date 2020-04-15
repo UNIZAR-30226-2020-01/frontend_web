@@ -5,9 +5,12 @@
   padding-top: 20px;
   max-width: 150px;
   min-width: 0px;
+  display: block;
+  position: fixed;
+  margin-left: auto;
+  height: 100%
 }
 
 #podcasts-dd {
   color: #FFF200;
 }
-
