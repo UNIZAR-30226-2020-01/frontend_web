@@ -3,7 +3,7 @@
   <div id="content">
     <div class="container" id="content-container">
       <div class="artists">
-        <ul class="list-unstyled text-center">
+        <ul class="list-inline-item text-center">
           <li class="d-table-row album-item" v-for="album in albums" :key="album.title">
             <router-link v-bind:to="'/albums/' + album.id ">
             <div class="album-div">
