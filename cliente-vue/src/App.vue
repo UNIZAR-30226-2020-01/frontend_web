@@ -70,6 +70,9 @@ export default {
         onpause: () => {
             this.playing = false;
         },
+        onstop: () => {
+            this.playing = false;
+        }
       }));
     },
     setPlaylist: function(playlist){
@@ -121,21 +124,17 @@ export default {
       if(what == 'next'){
         // this.$emit('nextSong');
         this.currentTrack.howl.stop(this.audio);
-        this.playing = false;
         console.log('Index: ' + ((this.index + 1) % this.playlist.length));
         this.index = (this.index + 1) % this.playlist.length;
         // this.audio = undefined;
         this.audio = this.currentTrack.howl.play();
-        this.playing = true;
       }else if(what == 'previous'){
         // this.$emit('previousSong');
         this.currentTrack.howl.stop(this.audio);
-        this.playing = false;
         console.log('Index: ' + ((this.index + 1) % this.playlist.length));
         this.index = (this.index - 1) % this.playlist.length;
         // this.audio = undefined;
         this.audio = this.currentTrack.howl.play();
-        this.playing = true;
       }
     }
     // next() {
