@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <barra-superior></barra-superior>
-    <barra-lateral @showPlayer="visible = !visible"><router-view slot="repro" @selectPlaylist="setPlaylist"/></barra-lateral>
+    <barra-lateral @showPlayer="showPlayer"><router-view slot="repro" @selectPlaylist="setPlaylist"/></barra-lateral>
     <!-- <keep-alive> -->
 
     <!-- </keep-alive> -->
@@ -72,7 +72,7 @@ export default {
     return {
       key: 0,
       visible: false,
-      playlist: [{title: "micenicienta.mp3", artist: "Ask Again", album: "Tuputamadre", howl: null, display: true},],
+      playlist: [],
       index: 0,
       playing: false,
       audio: undefined,
@@ -84,22 +84,22 @@ export default {
   created: function () {
     // TODO: Cambiar si eso
     Howler.volume(0.5);
-    this.playlist.forEach( (track) => {
-      track.howl = new Howl({
-        src: [`https://s7-rest.francecentral.cloudapp.azure.com/media/RAP.mp3`],
-          onend: () => {
-              this.audio = undefined;
-              this.next();
-          },
-          onplay: () => {
-              this.playing = true;
-          },
-          onpause: () => {
-              this.playing = false;
-          },
-      })
-      console.log(track.howl)
-    })
+    // this.playlist.forEach( (track) => {
+    //   track.howl = new Howl({
+    //     src: [`https://s7-rest.francecentral.cloudapp.azure.com/media/RAP.mp3`],
+    //       onend: () => {
+    //           this.audio = undefined;
+    //           this.next();
+    //       },
+    //       onplay: () => {
+    //           this.playing = true;
+    //       },
+    //       onpause: () => {
+    //           this.playing = false;
+    //       },
+    //   })
+    //   console.log(track.howl)
+    // })
   },
   methods:{
     initPlaylist: function(songList) {
@@ -179,11 +179,16 @@ export default {
       this.index = (this.index - 1) % this.playlist.length;
       // this.audio = undefined;
       this.audio = this.currentTrack.howl.play();
+    },
+    showPlayer() {
+      if(this.hasSongs){
+        this.visible = !this.visible;
+      }
     }
   },
   computed: {
     currentTrack: function() {
-      if(this.visible){
+      if(this.hasSongs){
         return this.playlist[this.index];
       }else{
         return {
@@ -197,6 +202,9 @@ export default {
           },
         };
       }
+    },
+    hasSongs: function() {
+      return this.playlist.length > 0;
     },
     album: function() {
       return this.currentTrack.album.title;
