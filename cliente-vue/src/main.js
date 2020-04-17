@@ -28,11 +28,18 @@ router.beforeEach(
         next();
       }else{
         console.log("No hay token");
+        alert("Usted no tiene la sesión iniciada. Redirigiendo al inicio de sesión");
         next({path: '/login', replace: false});
       }
     }else{
-      // Permitimos el acceso sin token al registro o a iniciar sesion
-      next();
+      if(localStorage.getItem('token') != "null"){
+        // El usuario esta autentificado. Le redirigimos
+        alert("Tiene la sesión iniciada. Redirigiendo");
+        next({ path: "/playlists", replace: true});
+      }else{
+        // Permitimos el acceso sin token al registro o a iniciar sesion
+        next();
+      }
     }
   }
 );

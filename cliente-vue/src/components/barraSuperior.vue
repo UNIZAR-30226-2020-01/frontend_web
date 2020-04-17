@@ -1,7 +1,7 @@
 <template>
 
   <nav class="navbar navbar-dark navbar-expand-md sticky-top bg-dark">
-        <div class="container-fluid"><a class="navbar-brand" href="/" style="color: rgb(255,242,0);">Logo</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container-fluid"><router-link class="navbar-brand" to="/" style="color: rgb(255,242,0);">Logo</router-link><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div
                 class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav mx-auto">
