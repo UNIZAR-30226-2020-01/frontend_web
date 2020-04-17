@@ -23,8 +23,8 @@ router.beforeEach(
     // console.log(to)
     if(to.path !== "/login" && to.path !== "/register"){
       // Antes de cambiar a cualquier localizacion comprobamos si el usuario esta logueado
-      if(localStorage.getItem('token') != "null"){
-        console.log("Hay token");
+      if(localStorage.getItem('token') != null){
+        console.log("Hay token" );
         next();
       }else{
         console.log("No hay token");
@@ -32,7 +32,7 @@ router.beforeEach(
         next({path: '/login', replace: false});
       }
     }else{
-      if(localStorage.getItem('token') != "null"){
+      if(localStorage.getItem('token') !== null){
         // El usuario esta autentificado. Le redirigimos
         alert("Tiene la sesión iniciada. Redirigiendo");
         next({ path: "/playlists", replace: true});
