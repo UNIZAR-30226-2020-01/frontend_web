@@ -36,7 +36,11 @@ export default {
     // Llamada para traer los datos del artista
     console.log('creating');
     var url = "https://s7-rest.francecentral.cloudapp.azure.com/artists/";
-    this.$http.get(url + this.id + "/?format=json").then(
+    this.$http.get(url + this.id + "/?format=json", {
+      headers: {
+        Authorization: 'Token ' + localStorage.getItem('token'),
+      }
+    }).then(
       function(response) {
         if(response.status == 200){
           console.log(response.body);

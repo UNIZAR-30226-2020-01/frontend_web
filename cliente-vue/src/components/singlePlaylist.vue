@@ -35,7 +35,8 @@
               </li>
             </ul>
             <ul class="lista" v-for="songs in playlist.songs" :key="songs.title" style="filter: blur(0px) contrast(200%) grayscale(0%);">
-
+              <!-- TODO: Cambiar esto. es para pruebas -->
+              <p>Favorita: {{ songs.is_fav }}</p>
               <li style="filter: contrast(200%);">
                 <div>
                   <div class="row">
@@ -94,7 +95,11 @@
       // Llamada para traer los datos del artista
       console.log('creating')
       var url = 'https://s7-rest.francecentral.cloudapp.azure.com/playlists/'
-      this.$http.get(url + this.id + '/?format=json').then(function(response) {
+      this.$http.get(url + this.id + '/?format=json', {
+        headers: {
+          Authorization: 'Token ' + localStorage.getItem('token'),
+        }
+      }).then(function(response) {
         if (response.status == 200) {
           console.log(response.body)
           this.playlist = response.body
