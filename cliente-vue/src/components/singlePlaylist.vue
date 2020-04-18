@@ -36,7 +36,7 @@
             </ul>
             <ul class="lista" v-for="songs in playlist.songs" :key="songs.title" style="filter: blur(0px) contrast(200%) grayscale(0%);">
               <!-- TODO: Cambiar esto. es para pruebas -->
-              <p>Favorita: {{ songs.is_fav }}</p>
+              <p @click="setFavorite(songs,!songs.is_fav)">Favorita: {{ songs.is_fav }}</p>
               <li style="filter: contrast(200%);">
                 <div>
                   <div class="row">
@@ -73,7 +73,7 @@
 
 
 <script>
-
+import favoriteMixin from '../mixins/favoriteMixin.js'
   export default {
     data() {
       return {
@@ -95,28 +95,33 @@
       // Llamada para traer los datos del artista
       console.log('creating')
       var url = 'https://s7-rest.francecentral.cloudapp.azure.com/playlists/'
-      this.$http.get(url + this.id + '/?format=json', {
+      this.$http.get(url + this.id, {
         headers: {
           Authorization: 'Token ' + localStorage.getItem('token'),
         }
       }).then(function(response) {
         if (response.status == 200) {
-          console.log(response.body)
-          this.playlist = response.body
-          this.playlist.songs.forEach(song => {
-            song.howl = null
-            song.album = {
-              title: this.album.title,
-              photoUrl: this.album.icon,
-              artist: this.album.artist
-            }
-            song.file = song.file.toString().replace('http://', 'https://')
-          })
+          console.log(response.body);
+          this.playlist = response.body;
+          this.playlist.url.replace('http://', 'https://');
+          this.playlist.songs.forEach(function(song) {
+            console.log(song);
+            song.howl = null;
+            song.file = song.file.toString().replace('http://', 'https://');
+            song.url = song.url.toString().replace('http://', 'https://');
+            // song.album = {
+            //   title: this.album.title,
+            //   photoUrl: this.album.icon,
+            //   artist: this.album.artist
+            // };
+          });
+          console.log(response.body);
           this.updateKey()
         }
       })
       // this.updateKey();
-    }
+    },
+    mixins: [favoriteMixin]
   }
 
 </script>

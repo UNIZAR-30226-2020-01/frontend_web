@@ -35,7 +35,8 @@
               </li>
             </ul>
             <ul class="lista" v-for="songs in album.songs" :key="songs.title" style="filter: blur(0px) contrast(200%) grayscale(0%);">
-
+              <!-- TODO: Cambiar esto. es para pruebas -->
+              <p @click="setFavorite(songs,!songs.is_fav)">Favorita: {{ songs.is_fav }}</p>
               <li style="filter: contrast(200%);">
                 <div>
                   <div class="row">
@@ -72,7 +73,7 @@
 
 
 <script>
-
+  import favoriteMixin from '../mixins/favoriteMixin.js'
   export default {
     data() {
       return {
@@ -94,7 +95,7 @@
       // Llamada para traer los datos del artista
       console.log('creating')
       var url = 'https://s7-rest.francecentral.cloudapp.azure.com/albums/'
-      this.$http.get(url + this.id + '/?format=json', {
+      this.$http.get(url + this.id, {
         headers: {
           Authorization: 'Token ' + localStorage.getItem('token'),
         }
@@ -110,12 +111,14 @@
               artist: this.album.artist
             }
             song.file = song.file.toString().replace('http://', 'https://')
+            song.url = song.url.toString().replace('http://', 'https://');
           })
           this.updateKey()
         }
       })
       // this.updateKey();
-    }
+    },
+    mixins: [favoriteMixin]
   }
 
 </script>
