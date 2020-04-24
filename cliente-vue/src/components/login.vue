@@ -15,9 +15,10 @@
              type="password"
              id="passwd"
              required=""
-             v-model="password">
+             v-model.lazy="password">
       <h2 v-show="error"> Usuario o contraseña incorrectos </h2>
       <button class="btn btn-primary text-center submit-button" type="submit">Enter</button></form>
+      <p>¿No tienes cuenta? <router-link to="/register"> Regístrate aqui </router-link></p>
   </div>
 
 </template>
@@ -50,8 +51,14 @@
                   path: '/'
                 });
               } else {
+                console.log('Hay un error. Codigo de error: ' + response.status);
                 this.error = true;
               }
+            },
+            function(response){
+              // On error
+              console.log('Hay un error. Codigo de error: ' + response.status);
+              this.error = true;
             });
         }
       }

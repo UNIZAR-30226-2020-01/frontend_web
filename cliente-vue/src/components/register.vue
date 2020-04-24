@@ -11,6 +11,7 @@
       <input class="form-control" type="password" id="cpasswd" required="">
       <button class="btn btn-primary text-center submit-button" type="submit">Create Account</button>
     </form>
+    <p>¿Ya tienes cuenta? <router-link to="/login">Inicia sesión aqui</router-link></p>
   </div>
 
 </template>
