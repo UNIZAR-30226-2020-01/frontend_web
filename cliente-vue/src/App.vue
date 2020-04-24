@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <barra-superior></barra-superior>
+    <!-- Cuando nos llegue el logout -> Stop reproduction -->
+    <!-- TODO: Eliminar la cola de reproduccion cuando llegue logout -->
+    <barra-superior @logout="stop()"></barra-superior>
     <barra-lateral @showPlayer="showPlayer"><router-view slot="repro" @selectPlaylist="setPlaylist"/></barra-lateral>
     <!-- <keep-alive> -->
 
@@ -164,6 +166,13 @@ export default {
         this.currentTrack.howl.pause(this.audio);
       }else{
         this.audio = this.currentTrack.howl.pause();
+      }
+    },
+    stop: function() {
+      if(this.audio != undefined){
+        this.currentTrack.howl.stop(this.audio);
+      }else{
+        this.audio = this.currentTrack.howl.stop();
       }
     },
     next() {
