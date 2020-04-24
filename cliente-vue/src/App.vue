@@ -2,57 +2,61 @@
   <div id="app">
     <!-- Cuando nos llegue el logout -> Stop reproduction -->
     <barra-superior @logout="logout()"></barra-superior>
-    <barra-lateral @showPlayer="showPlayer"><router-view slot="repro" @selectPlaylist="setPlaylist"/></barra-lateral>
-    <!-- <keep-alive> -->
+      <barra-lateral @showPlayer="showPlayer">
+        <router-view slot="router" @selectPlaylist="setPlaylist"/>
 
-    <!-- </keep-alive> -->
-        <!-- <player-component
-        @playtrack="play"
-        @pausetrack="pause"
-        @nextTrack="skip"
-        @previousTrack="skip"
-        v-model="playlist[index]"></player-component> -->
+        <div class="col-3 align-self-baseline sticky-top" id="player-col" v-show="visible" slot="repro">
+            <div class="wrapper">
+              <div class="player__container">
+                <div class="player__body">
+                  <div class="body__cover">
 
-        <div class="col-3 align-self-baseline sticky-top" id="player-col" v-show="visible">
-          <div class="wrapper">
-            <div class="player__container">
-              <div class="player__body">
-                <div class="body__cover">
+                    <img class=song__cover :src="currentTrack.album.icon" alt="Album cover">
 
-                  <img class=song__cover :src="currentTrack.album.icon" alt="Album cover">
+                    <div class="body__info">
+                      <div class="info__album">{{ album }}</div>
 
-                  <div class="body__info">
-                    <div class="info__album">{{ album }}</div>
+                      <div class="info__song">{{ currentTrack.title }}</div>
 
-                    <div class="info__song">{{ currentTrack.title }}</div>
+                      <div class="info__artist">{{ artist }}</div>
+                    </div>
 
-                    <div class="info__artist">{{ artist }}</div>
+                    <div class="body__buttons">
+                      <ul class="list list--buttons">
+                        <li @click="previous()"><i class="fa fa-step-backward"></i></li>
+                        <li @click="play()"  v-show="!playing"><i class="fa fa-play"></i></li>
+                        <li @click="pause()" v-show="playing"><i class="fa fa-pause"></i></li>
+                        <li @click="next()"><i class="fa fa-step-forward"></i></li>
+                      </ul>
+                    </div>
                   </div>
 
-                  <div class="body__buttons">
-                    <ul class="list list--buttons">
-                      <li @click="previous()"><i class="fa fa-step-backward"></i></li>
-                      <li @click="play()"  v-show="!playing"><i class="fa fa-play"></i></li>
-                      <li @click="pause()" v-show="playing"><i class="fa fa-pause"></i></li>
-                      <li @click="next()"><i class="fa fa-step-forward"></i></li>
+                  <div class="player__footer">
+                    <ul class="list list--footer">
+                      <li><a href="#" class="list__link"><i class="fa fa-list-alt"></i></a></li>
+                      <li>
+                        <a class="list__link" href=""><i class="fas fa-share-alt"></i></a>
+                      </li>
+                      <li><a href="#" class="list__link"><i class="fa fa-plus"></i></a></li>
                     </ul>
                   </div>
-                </div>
-
-                <div class="player__footer">
-                  <ul class="list list--footer">
-                    <li><a href="#" class="list__link"><i class="fa fa-list-alt"></i></a></li>
-                    <li>
-                      <a class="list__link" href=""><i class="fas fa-share-alt"></i></a>
-                    </li>
-                    <li><a href="#" class="list__link"><i class="fa fa-plus"></i></a></li>
-                  </ul>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
+      </barra-lateral>
+      <!-- <keep-alive> -->
+
+      <!-- </keep-alive> -->
+          <!-- <player-component
+          @playtrack="play"
+          @pausetrack="pause"
+          @nextTrack="skip"
+          @previousTrack="skip"
+          v-model="playlist[index]"></player-component> -->
+
+          
 
   </div>
 </template>

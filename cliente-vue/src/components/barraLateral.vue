@@ -1,7 +1,6 @@
 <template>
-
-  <div>
-    <div class="row" id="player-col">
+    <div class="row">
+      <slot name="router"></slot>
       <div class="col-2" id="sidebar">
         <ul class="list-unstyled">
           <li>Home</li>
@@ -23,7 +22,6 @@
       <!-- Codigo de los artistas (de momento) -->
       <!-- <router-view/> -->
     </div>
-  </div>
 
 </template>
 

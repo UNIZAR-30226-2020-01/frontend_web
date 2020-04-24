@@ -1,6 +1,6 @@
 <template>
 
-  <div class="col-10">
+  <div class="col">
     <div id="content">
       <div class="container albumfondo" id="content-container" :key="this.key">
         <div class="row">

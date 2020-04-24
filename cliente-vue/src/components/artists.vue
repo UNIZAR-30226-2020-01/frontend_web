@@ -1,6 +1,5 @@
 <template>
 
-<div>
   <div class="col">
     <div class="container-fluid">
       <div class="genre">
@@ -22,7 +21,6 @@
         </ul>
       </div>
     </div>
-  </div>
   <!-- <player></player> -->
 </div>
 

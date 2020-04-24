@@ -1,5 +1,5 @@
 <template>
-  <div id="content">
+  <div id="content" class="col">
       <div class="container degradado" id="content-container" :key="this.key">
           <div class="artist-display"><img class="individual-img" :src="artist.image">
               <div class="artist-info">
