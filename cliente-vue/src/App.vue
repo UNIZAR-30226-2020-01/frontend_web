@@ -1,8 +1,7 @@
 <template>
   <div id="app">
     <!-- Cuando nos llegue el logout -> Stop reproduction -->
-    <!-- TODO: Eliminar la cola de reproduccion cuando llegue logout -->
-    <barra-superior @logout="stop()"></barra-superior>
+    <barra-superior @logout="logout()"></barra-superior>
     <barra-lateral @showPlayer="showPlayer"><router-view slot="repro" @selectPlaylist="setPlaylist"/></barra-lateral>
     <!-- <keep-alive> -->
 
@@ -193,6 +192,11 @@ export default {
       if(this.hasSongs){
         this.visible = !this.visible;
       }
+    },
+    logout() {
+      this.stop()
+      this.visible = false
+      this.playlist = []
     }
   },
   computed: {
