@@ -2,24 +2,22 @@
 
   <div class="col">
     <div class="container-fluid">
-      <div class="genre">
-        <ul class="list-inline text-center">
-          <li class="list-inline-item artist-item" v-for="artist in artists" :key="artist.name">
-            <router-link v-bind:to="'/artists/' + artist.id ">
-            <div class="card text-center p-2 artist-card" >
-              <header class="card-header">
-                <h3 class="card-title artist-name">{{artist.name}}</h3>
-                <h6 class="card-subtitle">Artist</h6>
-              </header>
-              <div class="card-body"><img id="artist-pic" class="m-auto mx-auto d-block" v-bind:src="artist.image">
-                <p id="artist-songs" class="card-text artist-songs d-inline">{{artist.number_songs}} songs</p>
-                <p class="card-text artist-albums d-inline">&nbsp;{{artist.number_albums}} albums</p>
-              </div>
+      <ul class="list-inline text-center">
+        <li class="list-inline-item artist-item" v-for="artist in artists" :key="artist.name">
+          <router-link v-bind:to="'/artists/' + artist.id ">
+          <div class="card text-center p-2 artist-card" >
+            <header class="card-header">
+              <h3 class="card-title artist-name">{{artist.name}}</h3>
+              <h6 class="card-subtitle">Artist</h6>
+            </header>
+            <div class="card-body"><img id="artist-pic" class="m-auto mx-auto d-block" v-bind:src="artist.image">
+              <p id="artist-songs" class="card-text artist-songs d-inline">{{artist.number_songs}} songs</p>
+              <p class="card-text artist-albums d-inline">&nbsp;{{artist.number_albums}} albums</p>
             </div>
-          </router-link>
-          </li>
-        </ul>
-      </div>
+          </div>
+        </router-link>
+        </li>
+      </ul>
     </div>
   <!-- <player></player> -->
 </div>

@@ -1,5 +1,5 @@
 <template>
-
+<!--
   <div id="content">
     <div class="container" id="content-container">
       <div class="artists">
@@ -19,6 +19,28 @@
       </div>
     </div>
   </div>
+-->
+
+  <div class="col">
+    <div class="container-fluid">
+      <div class="artists">
+        <ul class="list-inline text-center">
+          <li class="d-table-row album-item" v-for="album in albums" :key="album.title">
+            <router-link v-bind:to="'/albums/' + album.id ">
+            <div class="album-div">
+              <img class="album-pic" alt="album_pic" v-bind:src="album.icon">
+                <div id="x">
+                  <h6 class="album-name" style="color: white">{{ album.title }}</h6>
+                  <h6 class="album-artist">{{ album.artist.name }}</h6>
+                </div>
+            </div>
+          </router-link>
+          </li>
+        </ul>
+      </div>
+    </div>
+</div>
+  
 
 </template>
 
