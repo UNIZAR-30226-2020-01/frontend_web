@@ -1,6 +1,5 @@
 <template>
     <div class="row">
-      <slot name="router"></slot>
       <div class="col-2" id="sidebar">
         <ul class="list-unstyled">
           <li>Home</li>
@@ -18,6 +17,7 @@
             </div>
         <button class="btn btn-primary fixed-bottom" type="button" v-on:click="open_player_btn"><i class="fas fa-music" style="color: rgb(0,0,0);"></i></button>
       </div>
+      <slot name="router"></slot>
       <slot name="repro"></slot>
       <!-- Codigo de los artistas (de momento) -->
       <!-- <router-view/> -->
