@@ -13,4 +13,7 @@ chmod 0600 $FILE
 ssh -i $FILE -o 'StrictHostKeyChecking no' $USER@$IP << EOF
   cd ~PS/frontend_web
   git pull origin master
+  # Reiniciamos el servicio
+  cd ~PS
+  sudo docker-compose down && sudo docker-compose build %% sudo docker-compose up -d
 EOF
