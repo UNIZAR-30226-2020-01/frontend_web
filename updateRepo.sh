@@ -15,5 +15,5 @@ ssh -i $FILE -o 'StrictHostKeyChecking no' $USER@$IP << EOF
   git pull origin master
   # Reiniciamos el servicio
   cd ~PS
-  sudo docker-compose down && sudo docker-compose build %% sudo docker-compose up -d
+  sudo docker-compose down && sudo docker-compose build && sudo docker-compose up -d
 EOF
