@@ -7,7 +7,7 @@
           <router-link v-bind:to="'/artists/' + artist.id ">
           <div class="card text-center p-2 artist-card" >
             <header class="card-header">
-              <h3 class="card-title artist-name">{{artist.name}}</h3>
+              <h3 class="card-title artist-name" style="font-size: 16px">{{artist.name}}</h3>
               <h6 class="card-subtitle">Artist</h6>
             </header>
             <div class="card-body"><img id="artist-pic" class="m-auto mx-auto d-block" v-bind:src="artist.image">
