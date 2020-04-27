@@ -7,7 +7,22 @@
                   <p>{{ artist.number_albums }} albums</p>
                   <p>{{ artist.number_songs }} songs</p>
                   <div class="individual-songs">
-                      <h3>Songs</h3><img class="individual-song" src="assets/img/81aBBHak07L._SS500_.jpg"><img class="individual-song" src="assets/img/81aBBHak07L._SS500_.jpg"><img class="individual-song" src="assets/img/81aBBHak07L._SS500_.jpg"><img class="individual-song" src="assets/img/81aBBHak07L._SS500_.jpg"></div>
+                    <ul class="list-inline text-center">
+                    <li class="list-inline-item album-item" v-for="album in artist.albums" :key="album.title">
+                      <router-link v-bind:to="'/albums/' + album.url.substr(55,10) ">
+                      <div class="card text-center p-2 album-card">
+                        <header class="card-header">
+                          <h3 class="card-title" style="font-size: 90%" >{{album.title}}</h3>
+                          <h6 class="card-subtitle">Album</h6>
+                        </header>
+                        <div class="card-body"><img id="album-pic" class="m-auto mx-auto d-block" v-bind:src="album.icon">
+                          <p id="card-text album-songs d-inline" style="font-size: 16px" >{{ album.artist.name }}</p>
+                        </div>
+                      </div>
+                      </router-link>
+                    </li>
+                  </ul>
+                  </div>
               </div>
           </div>
           <div class="bio">

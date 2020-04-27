@@ -33,7 +33,7 @@
 
                   <div class="player__footer">
                     <ul class="list list--footer">
-                      <li><a href="#" class="list__link"><i class="fa fa-list-alt"></i></a></li>
+                      <li @click="lyrics()"><a href="#" class="list__link"><i class="fa fa-list-alt"></i></a></li>
                       <li>
                         <a class="list__link" href=""><i class="fas fa-share-alt"></i></a>
                       </li>
@@ -56,7 +56,7 @@
           @previousTrack="skip"
           v-model="playlist[index]"></player-component> -->
 
-          
+
 
   </div>
 </template>
@@ -202,11 +202,21 @@ export default {
       this.visible = false
       this.playlist = []
     },
-    lyrics(){
-      
-    }
-
-  },
+    lyrics: function(){
+        console.log('cositas');
+        let x = document.getElementById("song__cover");
+        //let y = document.getElementById("letra");
+        if (x.style.transform === "rotateY(180deg)") {
+          x.style.transform = "rotateY(0deg)";
+          x.style.opacity = 1;
+          //y.style.display = "none";
+        }else { //caso inicial
+          x.style.transform = "rotateY(180deg)";
+          x.style.opacity = 0.25;
+          //y.style.display = "block";
+        }
+      }
+},
   computed: {
     currentTrack: function() {
       if(this.hasSongs){
