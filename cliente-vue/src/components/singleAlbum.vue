@@ -36,15 +36,15 @@
             </ul>
             <ul class="lista" v-for="songs in album.songs" :key="songs.title" style="filter: blur(0px) contrast(200%) grayscale(0%);">
               <!-- TODO: Cambiar esto. es para pruebas -->
-              <p @click="setFavorite(songs,!songs.is_fav)">Favorita: 
-                <i v-if="songs.is_fav" class="fa fa-check"></i>
-                <i v-else class="fa fa-times-circle"></i>
-              </p>
               <li style="filter: contrast(200%);">
                 <div>
                   <div class="row">
                     <div class="col-lg-6">
-                      <p class="name-song-list">{{songs.title}}</p>
+                      <div @click="setFavorite(songs,!songs.is_fav)" style="display: inline;"> 
+                        <i v-if="songs.is_fav" class="fa fa-star" style="color: rgb(181,146,20);"></i>
+                        <i v-else class="fa fa-star"></i>
+                      </div>
+                      <p class="name-song-list" style="display: inline;">{{songs.title}} </p>
                     </div>
                     <div class="col-lg-2">
                       <div class="tiempo">
