@@ -36,7 +36,10 @@
             </ul>
             <ul class="lista" v-for="songs in playlist.songs" :key="songs.title" style="filter: blur(0px) contrast(200%) grayscale(0%);">
               <!-- TODO: Cambiar esto. es para pruebas -->
-              <p @click="setFavorite(songs,!songs.is_fav)">Favorita: {{ songs.is_fav }}</p>
+              <p @click="setFavorite(songs,!songs.is_fav)">Favorita: 
+                <i v-if="songs.is_fav" class="fa fa-check"></i>
+                <i v-else class="fa fa-times-circle"></i>
+              </p>
               <li style="filter: contrast(200%);">
                 <div>
                   <div class="row">

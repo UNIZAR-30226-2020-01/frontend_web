@@ -146,3 +146,7 @@ a {
   opacity: 0.9;
 }
 
+#song__cover{
+  transition: 2s;
+}
+

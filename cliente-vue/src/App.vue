@@ -201,7 +201,11 @@ export default {
       this.stop()
       this.visible = false
       this.playlist = []
+    },
+    lyrics(){
+      
     }
+
   },
   computed: {
     currentTrack: function() {
