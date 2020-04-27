@@ -1,35 +1,29 @@
-.album-artist {
-  text-align: center;
-  color: white;
-  font-size: 12px;
-  font-style: italic;
+.album-item {
+  margin: 4px;
 }
 
-.album-name {
-  text-align: center;
+.card.text-center {
+  background-color: black;
   color: white;
 }
 
-.album-pic {
+#album-pic {
   width: 150px;
   height: 150px;
-  border-radius: 25PX;
-  margin: 10px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: white;
+  border-radius: 3px;
+  clear: both;
 }
 
-.album-item {
-  color: white;
-  border-radius: 25px;
-  margin: 8px;
-  max-width: 400px;
+
+.album-card {
+  width: 215px;
+  height: auto;
+  max-width: 229px;
 }
 
-.album-div {
-  background-color: black;
-  /*overflow: auto;*/
-  margin: 10px;
-  border-radius: 25px;
-  padding: 10px;
-  display: block;
-  margin-left: 250px;
+.card.text-center.p-2.album-card:hover {
+  color: #FFF200;
 }
