@@ -10,9 +10,10 @@
               <div class="player__container">
                 <div class="player__body">
                   <div class="body__cover">
-
-                    <img class=song__cover :src="currentTrack.album.icon" alt="Album cover">
-
+                    <transition name="animated" enter-active-class="animated flipInY delay" leave-active-class="animated flipInY">
+                    <img v-if="animated" class=song__cover :src="currentTrack.album.icon" alt="Album cover">
+                    </transition>
+                    <img v-if="!animated" class=song__cover :src="currentTrack.album.icon" alt="Album cover">
                     <div class="body__info">
                       <div class="info__album">{{ album }}</div>
 
@@ -33,7 +34,9 @@
 
                   <div class="player__footer">
                     <ul class="list list--footer">
-                      <li @click="lyrics()"><a href="#" class="list__link"><i class="fa fa-list-alt"></i></a></li>
+                      <li @click="animated = !animated">
+                        <a href="#" class="list__link"><i class="fa fa-list-alt"></i></a>
+                      </li>
                       <li>
                         <a class="list__link" href=""><i class="fas fa-share-alt"></i></a>
                       </li>
@@ -75,6 +78,7 @@ export default {
   },
   data(){
     return {
+      animated: true,
       key: 0,
       visible: false,
       playlist: [],
