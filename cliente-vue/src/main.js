@@ -12,6 +12,9 @@ Vue.use(VueResource);
 Vue.use(VueRouter);
 Vue.use(Vuetify);
 
+// Bus de comunicacion
+export const bus = new Vue();
+
 // Rutas
 const router = new VueRouter({
   routes: Routes,

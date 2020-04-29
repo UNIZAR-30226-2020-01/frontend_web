@@ -1,0 +1,48 @@
+#singlePodcastCover {
+  float: left;
+  max-width: 258px;
+  border-style: solid;
+  border-color: black;
+  border-width: 4px;
+}
+
+#chapter_cover {
+  max-width: 104px;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: medium;
+  border-color: black;
+}
+
+#chapter_cover_col {
+  text-align: center;
+}
+
+#chapter_content_col {
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+}
+
+#sub_btn {
+  background-color: black;
+  margin-left: 0px;
+  margin-top: 31px;
+  position: absolute;
+  bottom: 0px;
+}
+
+#related_podcast_card {
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+#related_podcast_cover {
+  max-width: 80px;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: white;
+  border-width: medium;
+}
+

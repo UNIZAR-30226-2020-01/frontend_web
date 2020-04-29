@@ -8,6 +8,10 @@ import SingleArtist from './components/singleArtists.vue';
 import SingleAlbum from './components/singleAlbum.vue';
 import Playlists from './components/playlists.vue';
 import SinglePlaylist from './components/singlePlaylist.vue';
+import NewPodcasts from './components/newPodcasts.vue';
+import PodcastSeries from './components/podcastSeries.vue';
+import SinglePodcast from './components/singlePodcast.vue';
+
 // Exportamos el objeto de rutas
 export default [
   // Cada objeto es una ruta
@@ -46,5 +50,17 @@ export default [
   {
     path: '/playlists/:id',
     component: SinglePlaylist
+  },
+  {
+    path: '/newPodcasts',
+    component: NewPodcasts
+  },
+  {
+    path: '/podcastSeries',
+    component: PodcastSeries
+  },
+  {
+    path: '/singlePodcast',
+    component: SinglePodcast
   },
 ]

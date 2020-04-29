@@ -1,10 +1,17 @@
 <template>
 
   <nav class="navbar navbar-dark navbar-expand-md sticky-top bg-dark">
-        <div class="container-fluid"><router-link class="navbar-brand" to="/"><img id="spoti_logo" src="./../assets/img/spotiseven.png"></router-link><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container-fluid"><router-link class="navbar-brand" to="/">
+          <img id="spoti_logo" src="./../assets/img/spotiseven.png"><p v-if="mostrarMenuPodcasts">Podcasts</p></router-link><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+          </button>
             <div
                 class="collapse navbar-collapse" id="navcol-1">
-                <ul class="nav navbar-nav mx-auto">
+                <ul v-if="mostrarMenuPodcasts" class="nav navbar-nav mx-auto">
+                    <li class="nav-item" role="presentation"><router-link class="nav-link" to="/">NewPodcasts</router-link></li>
+                    <li class="nav-item" role="presentation"><router-link class="nav-link" to="/artists/">Subscription</router-link></li>
+                    <li class="nav-item" role="presentation"><router-link class="nav-link" to="/">Discover</router-link></li>
+                </ul>
+                <ul v-else class="nav navbar-nav mx-auto">
                     <li class="nav-item" role="presentation"><router-link class="nav-link" to="/">Following</router-link></li>
                     <li class="nav-item" role="presentation"><router-link class="nav-link" to="/artists/">Artists</router-link></li>
                     <li class="nav-item" role="presentation"><router-link class="nav-link" to="/">Genres</router-link></li>
@@ -20,7 +27,15 @@
 </template>
 
 <script>
+
+  import { bus } from '../main'
+ 
   export default {
+    props:{
+      mostrarMenuPodcasts:{
+        type: Boolean
+      }
+    },
     data() {
       return {}
     },
@@ -37,7 +52,12 @@
       isLoggedIn: function() {
         return localStorage.getItem('token') !== null;
       }
-    }
+    },
+    created(){
+      bus.$on('MenuChanged', (data) => {
+        this.mostrarMenuPodcasts = data;
+      });
+    },
   }
 
 </script>

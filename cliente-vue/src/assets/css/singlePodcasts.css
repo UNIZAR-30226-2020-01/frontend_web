@@ -1,0 +1,21 @@
+#singlePodcast_Img {
+  max-width: 250px;
+  border-radius: 5px;
+  border-color: white;
+  border: 5px;
+  border-style: solid;
+  float: left;
+  margin: 10px;
+}
+
+#podcast_container {
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  margin-top: 5px;
+}
+
+#single-podcast-info {
+  padding: 10px;
+}
+
