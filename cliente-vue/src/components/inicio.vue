@@ -3,7 +3,7 @@
       <div class="container">
           <div class="row">
               <div class="col-md-12">
-                  <div class="jumbotron"><img id="logo" src="assets/img/logo.png">
+                  <div class="jumbotron"><img id="logo" src="../assets/img/logo_circular.png">
                       <h1 class="text-center">Welcome to SpotiSeven</h1>
                       <p class="text-center">SpotiSeven is a free opensource player that gives you all your favorite music. No payments, no publicity abuse and no limits.</p>
                       <p class="text-center"><a class="btn btn-primary text-dark" role="button">Learn more</a></p>
@@ -17,7 +17,7 @@
       </div>
   <div class="login-dark">
       <form class="text-left" method="post">
-          <h1 class="text-center" id="Login_text">Login</h1><img id="logo_login" src="assets/img/logo.png">
+          <h1 class="text-center" id="Login_text">Login</h1><img id="logo_login" src="../assets/img/logo_circular.png">
           <h2 class="sr-only">Login Form</h2>
           <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
           <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>

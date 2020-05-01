@@ -2,7 +2,7 @@
     <div class="row">
       <div class="col-2" id="sidebar">
         <ul class="list-unstyled">
-          <li>Home</li>
+          <li><router-link to="/inicio">Home</router-link></li>
           <li>Search</li>
           <li><router-link to="/playlists">Your library</router-link></li>
         </ul>
