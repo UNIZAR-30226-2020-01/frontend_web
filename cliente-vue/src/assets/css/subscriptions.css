@@ -1,0 +1,55 @@
+#subscribed_podc_cover {
+  width: 175px;
+  float: left;
+}
+
+#unsub_btn {
+  color: white;
+  background-color: black;
+  width: 130px;
+  bottom: 0px;
+}
+
+#div_subs_text {
+  float: right;
+  margin-right: 100px;
+  margin-left: 5px;
+}
+
+#subscribed_podc_cover {
+  float: left;
+  max-width: 258px;
+  border-style: solid;
+  border-color: black;
+  border-width: 4px;
+}
+
+#popular_cover {
+  width: 70px;
+  float: left;
+  margin-right: 10px;
+}
+
+#subscribed-podcast-card {
+  /*border-color: black;*/
+  /*border: 4px;*/
+  /*border-width: 4px;*/
+}
+
+#popular_podcast_card {
+  border-width: 2px;
+  border-color: black;
+  border-radius: 50px;
+}
+
+#popular_cover {
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 50px;
+}
+
+#subscribed-podcast-card {
+  border-color: black;
+}
+

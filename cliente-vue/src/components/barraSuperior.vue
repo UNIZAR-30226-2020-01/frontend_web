@@ -7,8 +7,8 @@
             <div
                 class="collapse navbar-collapse" id="navcol-1">
                 <ul v-if="mostrarMenuPodcasts" class="nav navbar-nav mx-auto">
-                    <li class="nav-item" role="presentation"><router-link class="nav-link" to="/">NewPodcasts</router-link></li>
-                    <li class="nav-item" role="presentation"><router-link class="nav-link" to="/artists/">Subscription</router-link></li>
+                    <li class="nav-item" role="presentation"><router-link class="nav-link" to="/newPodcasts/">NewPodcasts</router-link></li>
+                    <li class="nav-item" role="presentation"><router-link class="nav-link" to="/subscriptionsPodcasts/">Subscription</router-link></li>
                     <li class="nav-item" role="presentation"><router-link class="nav-link" to="/">Discover</router-link></li>
                 </ul>
                 <ul v-else class="nav navbar-nav mx-auto">
