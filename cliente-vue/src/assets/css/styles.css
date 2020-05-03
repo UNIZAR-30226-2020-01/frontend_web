@@ -14,10 +14,16 @@ body {
   margin: 10px;
   border-style: none;
   border-radius: 15px;
-  background-color: #73AFC5;
+  background-color: #FFD300;
   border-color: transparent;
 }
 
+.btn-primary.focus, .btn-primary:focus {
+  color: #FFD300;
+  background-color: #FFD300;
+  border-color: #FFD300;
+  box-shadow: 0 0 0 .2rem rgba(255,211,0,0.5);
+}
 .btn-group {
   display: block;
 }
