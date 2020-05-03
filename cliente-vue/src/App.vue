@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <!-- Cuando nos llegue el logout -> Stop reproduction -->
-    <barra-superior @logout="logout()"></barra-superior>
-      <barra-lateral @showPlayer="showPlayer">
+    <barra-superior v-bind:mostrarModoPodcast="mostrarPodcastObject" @logout="logout()"></barra-superior>
+      <barra-lateral @showPlayer="showPlayer" @MenuChanged="changePodcast_Songs">
         <router-view slot="router" @selectPlaylist="setPlaylist"/>
 
         <div class="col-3 align-self-baseline sticky-top" id="player-col" v-show="visible" slot="repro">
@@ -88,6 +88,7 @@ export default {
       // currentTrack: null,
       // Aspectos de la reproduccion
       loop: false,
+      mostrarPodcast: false,
     }
   },
   created: function () {
@@ -219,9 +220,18 @@ export default {
           x.style.opacity = 0.25;
           //y.style.display = "block";
         }
+      },
+      changePodcast_Songs: function(){
+        this.mostrarPodcast  = !this.mostrarPodcast;
+        console.log(this.mostrarPodcast);
       }
 },
   computed: {
+    mostrarPodcastObject: function(){
+      return {
+        boolean: this.mostrarPodcast,
+      }
+    },
     currentTrack: function() {
       if(this.hasSongs){
         return this.playlist[this.index];

@@ -35,7 +35,7 @@
 
 <script>
 
-  import { bus } from '../main'
+  //import { bus } from '../main'
 
   export default {
     data() {
@@ -58,8 +58,9 @@
           this.$emit('showPlayer');
         },
         changeMenu: function(){
+          console.log(this.mostrarMenuPodcasts);
           this.mostrarMenuPodcasts = !this.mostrarMenuPodcasts;
-          bus.$emit('MenuChanged', this.mostrarMenuPodcasts)
+          this.$emit('MenuChanged', this.mostrarMenuPodcasts)
         }
       }
   }
