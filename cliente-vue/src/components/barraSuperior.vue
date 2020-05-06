@@ -12,14 +12,14 @@
                     <li class="nav-item" role="presentation"><router-link class="nav-link" to="/">Discover</router-link></li>
                 </ul>
                 <ul v-else class="nav navbar-nav mx-auto">
-                    <li class="nav-item" role="presentation"><router-link class="nav-link" to="/">Following</router-link></li>
+                    <li class="nav-item" role="presentation"><router-link class="nav-link" to="/following">Following</router-link></li>
                     <li class="nav-item" role="presentation"><router-link class="nav-link" to="/artists/">Artists</router-link></li>
                     <li class="nav-item" role="presentation"><router-link class="nav-link" to="/">Genres</router-link></li>
                     <li class="nav-item" role="presentation"><router-link class="nav-link" to="/albums/">Albums</router-link></li>
                     <li class="nav-item" role="presentation"><router-link class="nav-link" to="/">Discover</router-link></li>
                 </ul>
                 <!-- TODO: esto es provisional. Quitar o mejorar -->
-                <div><button @click="cerrarSesion()" v-show="isLoggedIn">Cerrar sesión</button></div>
+                <div><button type="button" @click="cerrarSesion()" v-show="isLoggedIn">Cerrar sesión</button></div>
         </div>
         </div>
     </nav>

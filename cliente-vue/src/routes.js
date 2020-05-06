@@ -13,6 +13,7 @@ import PodcastSeries from './components/podcastSeries.vue';
 import SinglePodcast from './components/singlePodcast.vue';
 import Inicio from './components/inicio.vue';
 import SubscriptionsPodcasts from './components/subscriptionsPodcasts.vue';
+import Following from './components/following.vue'
 // Exportamos el objeto de rutas
 export default [
   // Cada objeto es una ruta
@@ -68,8 +69,14 @@ export default [
     path: '/subscriptionsPodcasts',
     component: SubscriptionsPodcasts
   },
-  
 
-  {path: '/inicio',
-  component: Inicio}
+  {
+    path: '/inicio',
+  component: Inicio
+},
+  {
+    path: '/following',
+  component: Following
+  }
+
 ]
