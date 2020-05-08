@@ -110,11 +110,47 @@ export default {
     //   })
     //   console.log(track.howl)
     // })
+    if(localStorage.getItem('token') !== null ){
+      // El usuario tiene la sesión iniciada. Obtenemos la playlist del remoto
+      this.obtainSongFromRemote();
+    }
   },
   methods:{
+    obtainSongFromRemote: function() {
+      this.$http.get('https://s7-rest.francecentral.cloudapp.azure.com/current-user/',{
+        headers: {
+           Authorization: 'Token ' + localStorage.getItem('token'),
+        }
+      }).then(
+        function(response) {
+          console.log(response);
+          // Analizamos la respuesta
+          if(response.status == 200){
+            // Ha ido bien -> Obtenemos el estado de la cancion
+            if(response.body[0]['playing'] !== null && response.body[0]['timestamp']){
+              // Preparamos la cancion para reproducirse
+              this.initPlaylist([response.body[0]['playing']]);
+              // Asignamos la cancion del remoto a la actual
+              this.playlist = [response.body[0]['playing']];
+              // Actualizamos a https
+              this.playlist.forEach(function(s) {
+                s.url = s.url.toString().replace('http://', 'https://');
+              } );
+              // Avanzamos la reproducción al punto actual
+              this.currentTrack.howl.seek(response.body[0]['timestamp']);
+            }else{
+              console.log('El usuario no tenía song seleccionada en el remoto');
+            }
+          }
+        }
+      );
+    },
     initPlaylist: function(songList) {
       songList.forEach(song => song.howl = new Howl({
         src: [song.file],
+        onload: function () {
+            console.log("LOADED");
+        },
         onend: () => {
             this.audio = undefined;
             this.next();
@@ -159,11 +195,11 @@ export default {
       //   this.currentTrack = this.playlist[this.index].howl;
       // }
       console.log('this.audio = ' + this.audio);
-      // if(this.audio != undefined){
-      //   this.audio = this.currentTrack.howl.play();
-      // }else{
+      if(this.audio != undefined){
         this.audio = this.currentTrack.howl.play();
-      // }
+      }else{
+        this.audio = this.currentTrack.howl.play();
+      }
     },
     pause: function() {
       // if (this.currentTrack == null){
@@ -175,6 +211,7 @@ export default {
       }else{
         this.audio = this.currentTrack.howl.pause();
       }
+      this.saveSongStatusToRemote();
     },
     stop: function() {
       if(this.audio != undefined){
@@ -189,6 +226,7 @@ export default {
       this.index = (this.index + 1) % this.playlist.length;
       // this.audio = undefined;
       this.audio = this.currentTrack.howl.play();
+      this.saveSongStatusToRemote();
     },
     previous() {
       this.currentTrack.howl.stop(this.audio);
@@ -196,6 +234,7 @@ export default {
       this.index = (this.index - 1) % this.playlist.length;
       // this.audio = undefined;
       this.audio = this.currentTrack.howl.play();
+      this.saveSongStatusToRemote();
     },
     showPlayer() {
       if(this.hasSongs){
@@ -224,6 +263,34 @@ export default {
       changePodcast_Songs: function(){
         this.mostrarPodcast  = !this.mostrarPodcast;
         console.log(this.mostrarPodcast);
+      },
+      saveSongStatusToRemote: function() {
+        // Para guardar el estado de la reproducción en el backend
+        console.log('Sending song to backend');
+        let time = Number(this.currentTrack.howl.seek());
+        if (isNaN(time)) {
+          console.log('El seek no funciona');
+          time = parseInt(this.currentTrack.howl._sounds[0]._seek, 10);
+        }else{
+          console.log('El seek funciona????');
+          time = parseInt(time.toString(), 10);
+        }
+        console.log(time);
+        this.$http.get(this.currentTrack.url + 'set_playing?t=' + time, {
+          headers: {
+            Authorization: 'Token ' + localStorage.getItem('token'),
+          }
+        }).then(
+          function(response) {
+            if (response.status == 200) {
+              // Todo ha ido bien
+              console.log(response.body);
+            }else{
+              // Ha habido un fallo
+              console.log('Error al guardar en el remoto');
+            }
+          }
+        );
       }
 },
   computed: {
