@@ -24,7 +24,7 @@
                       </div>
                     </div>
                     <div class="col-lg-2 offset-lg-0">
-                      <div class="tiempo"><i class="material-icons">timer</i></div>
+                      <div class="tiempo"><i class="far fa-clock"></i></div>
                     </div>
                     <div class="col-lg-4 tres">
                       <div></div>

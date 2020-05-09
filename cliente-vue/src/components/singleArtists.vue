@@ -16,7 +16,7 @@
                           <h6 class="card-subtitle">Album</h6>
                         </header>
                         <div class="card-body"><img id="album-pic" class="m-auto mx-auto d-block" v-bind:src="album.icon">
-                          <p id="card-text album-songs d-inline" style="font-size: 16px" >{{ album.artist.name }}</p>
+                          <!-- <p id="card-text album-songs d-inline" style="font-size: 16px" >{{ album.artist.name }}</p> -->
                         </div>
                       </div>
                       </router-link>
