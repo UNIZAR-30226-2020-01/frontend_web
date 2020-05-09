@@ -20,6 +20,7 @@
       </div>
       <slot name="router"></slot>
       <slot name="repro"></slot>
+
       <!-- Codigo de los artistas (de momento) -->
       <!-- <router-view/> -->
 

@@ -11,6 +11,7 @@ body {
 }
 
 .btn.btn-primary {
+  color: black;
   margin: 10px;
   border-style: none;
   border-radius: 15px;
@@ -18,6 +19,9 @@ body {
   border-color: transparent;
 }
 
+.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 .2rem rgba(255,211,0,0.5);
+}
 .btn-primary.focus, .btn-primary:focus {
   color: #FFD300;
   background-color: #FFD300;
@@ -27,7 +31,13 @@ body {
 .btn-group {
   display: block;
 }
+.btn-primary:hover {background-color: #FFD300}
 
+.btn-primary:active {
+  background-color: #FFD300;
+  box-shadow: 0 5px #FFD300;
+  transform: translateY(4px);
+}
 #primero {
   font-size: 10vw;
   font-weight: 300;
