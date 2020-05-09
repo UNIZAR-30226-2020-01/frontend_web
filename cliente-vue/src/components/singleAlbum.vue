@@ -53,11 +53,19 @@
                     </div>
                     <div class="col tres">
                       <div>
-                        <div class="dropdown desp"><button class="btn btn-primary dropdown-toggle points"
-                                  data-toggle="dropdown"
-                                  aria-expanded="false"
-                                  type="button"><i class="fa fa-ellipsis-v dropdown show"></i></button>
-                          <div role="menu" class="dropdown-menu"><a role="presentation" class="dropdown-item" href="#">Add to playlist</a><a role="presentation" class="dropdown-item" href="#">Play Next</a></div>
+                        <div class="dropdown desp"><button class="btn btn-primary dropdown-toggle points" data-toggle="dropdown" aria-expanded="false" type="button"><i class="fa fa-ellipsis-v dropdown show"></i></button>
+                          <div role="menu" class="dropdown-menu">
+                            <a role="presentation" class="dropdown-item" href="#">Play Next</a>
+                          </div>
+                        </div>
+                        <div class="btn-group">
+                              <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Add to Playlist
+                              </button>
+                              <div class="dropdown-menu">
+                                <a role="presentation" class="dropdown-item" href="#">New Playlist</a>
+                                <a role="presentation" class="dropdown-item" href="#" v-for="playlist in playlists" :key="playlist.name" @click="addToPlaylist(songs,playlist)">{{playlist.title}}</a>
+                              </div>
                         </div>
                       </div>
                     </div>
@@ -76,12 +84,16 @@
 
 <script>
   import favoriteMixin from '../mixins/favoriteMixin.js'
+  import addToPlaylistMixin from '../mixins/addToPlaylist.js'
+  import createPlaylistMixin from '../mixins/createPlaylist.js'
+  import playlistMixin from '../mixins/playlistMixin'
   export default {
     data() {
       return {
         key: 0,
         id: this.$route.params.id,
-        album: {}
+        album: {},
+        playlists: {}
       }
     },
     methods: {
@@ -96,6 +108,7 @@
     created() {
       // Llamada para traer los datos del artista
       console.log('creating')
+      this.getAllPlaylists
       var url = 'https://s7-rest.francecentral.cloudapp.azure.com/albums/'
       this.$http.get(url + this.id, {
         headers: {
@@ -120,7 +133,7 @@
       })
       // this.updateKey();
     },
-    mixins: [favoriteMixin]
+    mixins: [favoriteMixin,addToPlaylistMixin,createPlaylistMixin,playlistMixin]
   }
 
 </script>
