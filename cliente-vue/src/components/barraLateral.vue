@@ -3,7 +3,7 @@
       <div class="col-2" id="sidebar">
         <ul class="list-unstyled">
           <li><router-link to="/inicio">Home</router-link></li>
-          <li>Search</li>
+          <li><router-link to="/search">Search</router-link></li>
           <li v-if="!mostrarMenuPodcasts"><router-link to="/playlists">Your library</router-link></li>
           <li @click=changeMenu()>
             <div v-if="mostrarMenuPodcasts">
