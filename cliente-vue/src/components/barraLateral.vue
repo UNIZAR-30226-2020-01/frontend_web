@@ -6,9 +6,8 @@
           <li>Search</li>
           <li><router-link to="/playlists">Your library</router-link></li>
         </ul>
-        <div>
-      
-          <div @click=changeMenu()  v-if="mostrarMenuPodcasts" class="dropdown"><button class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false" id="podcasts-dd" type="button"><router-link to="/playlists" id="podcasts-dd">Songs</router-link></button>
+        <div id="sidebar_content">
+          <div @click=changeMenu()  v-if="mostrarMenuPodcasts"  class="dropdown"><button class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false" id="podcasts-dd" type="button"><router-link to="/playlists" id="podcasts-dd">Songs</router-link></button>
             <div class="dropdown-menu" role="menu">
               <a class="dropdown-item" role="presentation" href="#">New Podcasts</a>
               <a class="dropdown-item" role="presentation" href="#">Subscriptions</a>
@@ -27,6 +26,7 @@
       </div>
       <slot name="router"></slot>
       <slot name="repro"></slot>
+
       <!-- Codigo de los artistas (de momento) -->
       <!-- <router-view/> -->
 
