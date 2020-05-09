@@ -6,7 +6,7 @@
           <li><router-link to="/search">Search</router-link></li>
           <li v-if="!mostrarMenuPodcasts"><router-link to="/playlists">Your library</router-link></li>
           <li @click=changeMenu()>
-            <div v-if="mostrarMenuPodcasts">
+            <div v-if="!mostrarMenuPodcasts">
               <router-link to="/newPodcasts">Podcasts</router-link>
             </div>
             <div v-else>
