@@ -57,12 +57,11 @@
                                   data-toggle="dropdown"
                                   aria-expanded="false"
                                   type="button"><i class="fa fa-ellipsis-v dropdown show"></i></button>
-                          <div role="menu" class="dropdown-menu"><a role="presentation" class="dropdown-item" href="#">Play Next</a></div>
+                          <div role="menu" class="dropdown-menu"><a role="presentation" class="dropdown-item" href="#">Add to playlist</a><a role="presentation" class="dropdown-item" href="#">Play Next</a></div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <hr>
                 </div>
               </li>
             </ul>
