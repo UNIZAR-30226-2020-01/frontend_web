@@ -1,0 +1,13 @@
+#searchBar {
+}
+
+#textSearchBar {
+  border-radius: 20px;
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+#headingSearchBar {
+}
