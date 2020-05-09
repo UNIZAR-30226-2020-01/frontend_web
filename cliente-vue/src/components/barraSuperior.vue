@@ -19,7 +19,7 @@
                     <li class="nav-item" role="presentation"><router-link class="nav-link" to="/">Discover</router-link></li>
                 </ul>
                 <!-- TODO: esto es provisional. Quitar o mejorar -->
-                <div><button type="button" @click="cerrarSesion()" v-show="isLoggedIn">Cerrar sesión</button></div>
+                <div><button type="button" class="btn btn-primary btn-block" @click="cerrarSesion()" v-show="isLoggedIn">Cerrar sesión</button></div>
         </div>
         </div>
     </nav>

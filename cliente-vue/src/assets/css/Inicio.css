@@ -1,6 +1,4 @@
-.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-primary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 .2rem rgba(255,211,1,0.5);
-}
+
 
 .jumbotron {
   padding: 2rem 1rem;
