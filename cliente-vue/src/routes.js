@@ -70,6 +70,10 @@ export default [
     path: '/subscriptionsPodcasts',
     component: SubscriptionsPodcasts
   },
+  {
+    path: '/subscriptionsPodcasts/:id',
+    component: PodcastSeries
+  },
 
   {
     path: '/inicio',

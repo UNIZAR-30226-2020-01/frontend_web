@@ -12,6 +12,18 @@
               <p class="number-songs">Number of songs: {{album.number_songs}}</p>
               <p class="day-release">Since: Day release: {{album.date}}</p>
             </div>
+            <div class="dropdown desp"><button class="btn btn-primary dropdown-toggle points"
+                      data-toggle="dropdown"
+                      aria-expanded="false"
+                      type="button"><i class="fa fa-ellipsis-v dropdown show"></i></button>
+              <div role="menu" class="dropdown-menu">
+                <a role="presentation" class="dropdown-item" href="#">Share</a>
+                <a role="presentation" class="dropdown-item" href="#">Follow</a>
+                <a role="presentation" class="dropdown-item" href="#" @click="dateOrder">Order by date</a>
+                <a role="presentation" class="dropdown-item" href="#" @click="artistOrder">Order by artist</a>
+                <a role="presentation" class="dropdown-item" href="#" @click="alphOrder">Alphabetical order</a>
+              </div>
+            </div>
           </div>
           <div class="col">
             <ul class="lista" style="filter: blur(0px) contrast(200%) grayscale(0%);">
@@ -40,7 +52,7 @@
                 <div>
                   <div class="row">
                     <div class="col-lg-6">
-                      <div @click="setFavorite(songs,!songs.is_fav)" style="display: inline;"> 
+                      <div @click="setFavorite(songs,!songs.is_fav)" style="display: inline;">
                         <i v-if="songs.is_fav" class="fa fa-star" style="color: rgb(181,146,20);"></i>
                         <i v-else class="fa fa-star"></i>
                       </div>
@@ -103,7 +115,23 @@
       selectAlbum: function() {
         console.log('selecting')
         this.$emit('selectPlaylist', this.album.songs)
-      }
+      },
+      alphOrder: function(){
+        return this.album.songs.sort(function (a, b) {
+          if (a.title > b.title) {
+            return 1;
+          }
+          if (a.title < b.title) {
+            return -1;
+          }
+          // a must be equal to b
+          return 0;
+        });
+      },
+      artistOrder: function(){ //No tiene sentido
+      },
+      dateOrder: function(){ //Las canciones de un album salen a la vez
+      },
     },
     created() {
       // Llamada para traer los datos del artista
