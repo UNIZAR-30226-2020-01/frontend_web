@@ -3,7 +3,7 @@ export default {
     getAllPlaylists: function() {
       // Esto es un mixin que utilizara un objeto Vue asi que podemos usar
       // peticiones HTTP con el atributo $http
-      this.$http.get('https://s7-rest.francecentral.cloudapp.azure.com/user/playlists/?format=json', {
+      this.$http.get('https://s7-rest.francecentral.cloudapp.azure.com/user/playlists/', {
         headers: {
           Authorization: 'Token ' + localStorage.getItem('token'),
         }
