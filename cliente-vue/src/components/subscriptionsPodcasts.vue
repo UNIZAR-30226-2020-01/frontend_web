@@ -6,6 +6,7 @@
             <h4 class="border-bottom">Subscriptions</h4>
             <ul class="list-inline">
                 <li class="list-inline-item m-1" v-for="podcast in podcasts" :key="podcast.title" >
+                  <router-link v-bind:to="'/subscriptionsPodcasts/' + podcast.id ">
                     <div class="card m-2" id="subscribed-podcast-card">
                         <div class="card-body" id="subscribed_podc"><img id="subscribed_podc_cover" class="m-2 rounded" v-bind:src="podcast.image">
                             <div id="div_subs_text">
@@ -14,6 +15,7 @@
                                 <h6>{{podcast.number_episodes}}</h6>
                             </div>
                         </div><button class="btn btn-primary m-2" id="unsub_btn" type="button">Unsubscribe&nbsp;<i class="fa fa-minus"></i></button></div>
+                  </router-link>
                 </li>
             </ul>
         </div>
