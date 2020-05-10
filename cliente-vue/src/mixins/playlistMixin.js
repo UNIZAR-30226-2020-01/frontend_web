@@ -17,7 +17,7 @@ export default {
               var list = playlist.url.split('/');
               console.log(list);
               playlist.id = list[list.length - 2];
-              playlist.url.replace('http://', 'https://');
+              playlist.url = playlist.url.toString().replace('http://', 'https://');
               // Para cada cancion del playlist
             });
           }

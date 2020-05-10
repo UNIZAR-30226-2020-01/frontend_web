@@ -3,10 +3,11 @@ export default {
         addToPlaylist: function(song, playlist) {
           console.log(song);
           console.log(playlist);
-            this.$http.post(playlist.url + 'add_song/?song=' + song.url,{
-                headers: {
-                    Authorization: 'Token ' + localStorage.getItem('token'),
-                }
+          console.log('Token ' + localStorage.getItem('token'));
+            this.$http.post(playlist.url + 'add_song/?song=' + song.url,{}, {
+              headers: {
+                Authorization: 'Token ' + localStorage.getItem('token'),
+              }
             }
             ).then(
                 function(response) {

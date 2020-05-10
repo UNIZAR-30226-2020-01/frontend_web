@@ -29,7 +29,7 @@
             <div class="card text-center p-2 artist-card" >
               <header class="card-header">
                 <h3 class="card-title artist-name" style="font-size: 90%" >{{ playlist.title }}</h3>
-                <h6 class="card-subtitle">Artist</h6>
+                <h6 class="card-subtitle">Playlist</h6>
               </header>
               <div class="card-body"><img id="artist-pic" class="m-auto mx-auto d-block" v-bind:src="playlist.icon">
                 <p id="artist-songs" class="card-text artist-songs d-inline">{{ playlist.number_songs }} songs</p>

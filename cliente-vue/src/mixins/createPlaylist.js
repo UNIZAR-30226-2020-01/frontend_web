@@ -6,8 +6,7 @@ export default {
             fd.append('title', title);
             fd.append('icon', image);
             // Realizamos la peticion
-            this.$http.post('https://s7-rest.francecentral.cloudapp.azure.com/playlists/',{
-                body: fd,
+            this.$http.post('https://s7-rest.francecentral.cloudapp.azure.com/playlists/', fd, {
                 headers: {
                     Authorization: 'Token ' + localStorage.getItem('token'),
                 }
