@@ -3,11 +3,12 @@
         <div class="row">
             <div class="col">
                 <div class="row">
-                    <div class="col m-2"><img id="singlePodcastCover" class="m-2 rounded" src="./../assets/img/81aBBHak07L._SS500_.jpg">
+                    <div class="col m-2"><img id="singlePodcastCover" class="m-2 rounded" :src="podcast.image">
                         <div style="text-align: left;">
-                        <h2>Title</h2>
-                        <h5>Author</h5>
-                        <h6>10 Caps</h6><button class="btn btn-primary" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div>
+                        <br>
+                        <h2 style="font-size: 100%">{{podcast.title}}</h2>
+                        <h5 style="font-size: 100%">{{podcast.channel.name}}</h5>
+                        <h6>{{podcast.number_episodes}} Caps</h6><button class="btn btn-primary" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div>
                         </div>
                 </div>
                 <div class="row">
@@ -44,58 +45,16 @@
             </div>
             <div class="col m-2 col-8">
                 <h4 class="border-bottom">Chapters</h4>
-                <ol reversed="">
+                <ol reversed="" v-for="episode in podcast.episodes" :key="episode.title">
                     <li>
                         <div class="card border-0">
                             <div class="card-body border-0">
                                 <div class="row">
-                                    <div class="col col-4" id="chapter_cover_col"><img id="chapter_cover" src="./../assets/img/81aBBHak07L._SS500_.jpg"></div>
+                                    <div class="col col-4" id="chapter_cover_col"><img id="chapter_cover" :src="episode.image"></div>
                                     <div class="col" id="chapter_content_col">
-                                        <h4>Title</h4>
-                                        <h6 class="text-muted mb-2">Subtitle</h6>
-                                        <h6 class="text-muted mb-2">Author</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="card border-0">
-                            <div class="card-body border-0">
-                                <div class="row">
-                                    <div class="col col-4" id="chapter_cover_col"><img id="chapter_cover" src="./../assets/img/81aBBHak07L._SS500_.jpg"></div>
-                                    <div class="col" id="chapter_content_col">
-                                        <h4>Title</h4>
-                                        <h6 class="text-muted mb-2">Subtitle</h6>
-                                        <h6 class="text-muted mb-2">Author</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="card border-0">
-                            <div class="card-body border-0">
-                                <div class="row">
-                                    <div class="col col-4" id="chapter_cover_col"><img id="chapter_cover" src="./../assets/img/81aBBHak07L._SS500_.jpg"></div>
-                                    <div class="col" id="chapter_content_col">
-                                        <h4>Title</h4>
-                                        <h6 class="text-muted mb-2">Subtitle</h6>
-                                        <h6 class="text-muted mb-2">Author</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="card border-0">
-                            <div class="card-body border-0">
-                                <div class="row">
-                                    <div class="col col-4" id="chapter_cover_col"><img id="chapter_cover" src="./../assets/img/81aBBHak07L._SS500_.jpg"></div>
-                                    <div class="col" id="chapter_content_col">
-                                        <h4>Title</h4>
-                                        <h6 class="text-muted mb-2">Subtitle</h6>
-                                        <h6 class="text-muted mb-2">Author</h6>
+                                        <h4>{{episode.title}}</h4>
+                                        <h6 class="text-muted mb-2">{{episode.description}}</h6>
+                                        <h6 class="text-muted mb-2">{{podcast.channel.name}}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -113,10 +72,30 @@
   export default {
     data() {
       return {
+        key: 0,
+        id: this.$route.params.id,
+        podcast: {},
       }
     },
     methods: {
-    }
+    },
+    created() {
+      // Llamada para traer los datos del artista
+      console.log('creating')
+      console.log(this.$route.params)
+      var url = 'https://s7-rest.francecentral.cloudapp.azure.com/podcasts/'
+      this.$http.get(url + this.id, {
+        headers: {
+          Authorization: 'Token ' + localStorage.getItem('token'),
+        }
+      }).then(function(response) {
+        if (response.status == 200) {
+          console.log(response.body)
+          this.podcast = response.body
+        }
+      })
+      // this.updateKey();
+    },
   }
 
 </script>
