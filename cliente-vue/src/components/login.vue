@@ -62,10 +62,6 @@
           console.log(googleUser);
 
           console.log(googleUser.tc.access_token);
-          console.log(googleUser.access_token);
-          // This only gets the user information: id, name, imageUrl and email
-          console.log(googleUser.getBasicProfile());
-
 
           // Login al backend con googleUser
           console.log('Intento el login con el token de Google')
@@ -81,7 +77,8 @@
               console.log(response.body);
               if (response.status == 200) {
                 // TODO: Comprobacion adicional para ver si el token es valido?
-                localStorage.setItem('token', response.body.token);
+                console.log(response.body.access_token)
+                localStorage.setItem('token', response.body.access_token);
                 this.$router.push({
                   path: '/'
                 });
