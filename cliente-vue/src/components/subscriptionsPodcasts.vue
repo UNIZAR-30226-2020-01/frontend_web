@@ -12,7 +12,7 @@
                             <div id="div_subs_text">
                                 <h4>{{podcast.title}}</h4>
                                 <h6>{{podcast.channel.name}}</h6>
-                                <h6>{{podcast.number_episodes}}</h6>
+                                <h6>{{podcast.number_episodes}} episodes</h6>
                             </div>
                         </div><button class="btn btn-primary m-2" id="unsub_btn" type="button">Unsubscribe&nbsp;<i class="fa fa-minus"></i></button></div>
                   </router-link>
