@@ -1,3 +1,4 @@
+
 <template>
 
   <!-- Codigo del login -->
@@ -18,6 +19,10 @@
              v-model.lazy="password">
       <h2 v-show="error"> Usuario o contraseña incorrectos </h2>
       <button class="btn btn-primary text-center submit-button" type="submit">Enter</button></form>
+      <!-- // Button to login with google ui rendered using the renderParams object
+    // The rendered button can't be use to logout since it is rendered by the google api and will only login
+    // If you add the logoutButton param to true it will show a normal button without styles -->
+      <google-login :params="params" :renderParams="renderParams" :onSuccess="onSuccess" :onFailure="onFailure"></google-login>
       <p>¿No tienes cuenta? <router-link to="/register"> Regístrate aqui </router-link></p>
   </div>
 
@@ -25,15 +30,43 @@
 
 
 <script>
+
+ import GoogleLogin from 'vue-google-login';
   export default {
+    components: {
+      'google-login': GoogleLogin,
+      // 'player-component': Player,
+    },
     data() {
       return {
         username: '',
         password: '',
-        error: false
+        error: false,
+        // para auth con google (https://www.npmjs.com/package/vue-google-login):
+        // client_id is the only required property but you can add several more params, full list down bellow on the Auth api section
+        params: {
+            client_id: "315592854144-vmlqopbbu8os9un2aksdirfktks8s81p.apps.googleusercontent.com"
+        },
+        // only needed if you want to render the button with the google ui
+        renderParams: {
+            width: 250,
+            height: 50,
+            longtitle: true
+        },
       }
     },
+
     methods: {
+
+      onSuccess(googleUser) {
+          console.log(googleUser);
+
+          // This only gets the user information: id, name, imageUrl and email
+          console.log(googleUser.getBasicProfile());
+      },
+      onFailure() {
+        console.log("fallo de auth con Google");
+      },
       login: function() {
         console.log('Intento el login')
         if (this.userAndPasswordValid) {
