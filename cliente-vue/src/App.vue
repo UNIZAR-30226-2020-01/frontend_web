@@ -13,7 +13,8 @@
                     <transition name="animated" enter-active-class="animated flipInY delay" leave-active-class="animated flipInY">
                     <img v-if="animated" class=song__cover :src="currentTrack.album.icon" alt="Album cover">
                     </transition>
-                    <img v-if="!animated" class=song__cover :src="currentTrack.album.icon" alt="Album cover">
+                    <img v-if="!animated" class=song__cover :src="currentTrack.album.icon" style="opacity: 15%" alt="Album cover">
+                    <div v-if="!animated">{{currentTrack.lyrics}} AA</div>
                     <div class="body__info">
                       <div class="info__album">{{ album }}</div>
 
