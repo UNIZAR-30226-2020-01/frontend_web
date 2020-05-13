@@ -14,7 +14,7 @@
                     <img v-if="animated" class=song__cover :src="currentTrack.album.icon" alt="Album cover">
                     </transition>
                     <img v-if="!animated" class=song__cover :src="currentTrack.album.icon" style="opacity: 15%" alt="Album cover">
-                    <div v-if="!animated">{{currentTrack.lyrics}} AA</div>
+                    <div v-if="!animated">{{currentTrack.lyrics}}</div>
                     <div class="body__info">
                       <div class="info__album">{{ album }}</div>
 
@@ -35,7 +35,7 @@
 
                   <div class="player__footer">
                     <ul class="list list--footer">
-                      <li @click="animated = !animated">
+                      <li @click="loadLyrics">
                         <a href="#" class="list__link"><i class="fa fa-list-alt"></i></a>
                       </li>
                       <li>
@@ -322,6 +322,34 @@ export default {
             }
           }
         );
+      },
+      loadLyrics: function() {
+        if(this.animated){
+          // No tienes las lyrics -> Las cargas
+          this.$http.get(this.currentTrack.url, {
+            headers: {
+              Authorization: 'Token ' + localStorage.getItem('token'),
+            }
+          }).then(
+            function(response){
+              if(response.status == 200){
+                // Ha ido bien -> Cargamos las lyrics
+                if(response.body.lyrics.toString().trim() != ""){
+                  // Nos aseguramos de que no es vacia
+                  this.currentTrack.lyrics = response.body.lyrics;
+                }else{
+                  // No tiene lyrics
+                  this.currentTrack.lyrics = "La cancion no dispone de letra";
+                }
+                this.animated = !this.animated
+              }
+            }
+          );
+        }else{
+          // Esconder el reproductor
+          this.animated = !this.animated;
+        }
+        
       }
 },
   computed: {
