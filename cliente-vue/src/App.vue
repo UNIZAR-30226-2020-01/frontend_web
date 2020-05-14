@@ -41,7 +41,7 @@
                       <li>
                         <a class="list__link" href=""><i class="fas fa-share-alt"></i></a>
                       </li>
-                      <li><a href="#" class="list__link"><i class="fa fa-plus"></i></a></li>
+                      <li><a href="#" class="list__link" @click="loop = !loop"><i class="fa fa-plus"></i></a></li>
                     </ul>
                   </div>
                 </div>
@@ -183,8 +183,13 @@ export default {
             console.log("LOADED");
         },
         onend: () => {
-            this.audio = undefined;
-            this.next();
+            if(!this.loop){
+              this.audio = undefined;
+              this.next();
+            }
+            else {
+              this.audio = this.currentTrack.howl.play();
+            }
         },
         onplay: () => {
             this.playing = true;
@@ -261,8 +266,8 @@ export default {
     },
     previous() {
       this.currentTrack.howl.stop(this.audio);
-      console.log('Index: ' + ((this.index + 1) % this.playlist.length));
-      this.index = (this.index - 1) % this.playlist.length;
+      console.log('Index: ' + ((this.index - 1 ) % this.playlist.length));
+      this.index = (this.index - 1 + this.playlist.length) % this.playlist.length;
       // this.audio = undefined;
       this.audio = this.currentTrack.howl.play();
       this.saveSongStatusToRemote();
