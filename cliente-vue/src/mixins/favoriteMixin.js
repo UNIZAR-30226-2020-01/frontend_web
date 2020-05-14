@@ -6,7 +6,7 @@ export default {
         // Marcamos como favorito
         this.$http.get(song.url + 'set_favorite/', {
           headers: {
-            Authorization: 'Token ' + localStorage.getItem('token'),
+                Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
           }
         }).then(
           function(response) {
@@ -23,7 +23,7 @@ export default {
         // Desmarcamos como favorito
         this.$http.get(song.url + 'remove_favorite/', {
           headers: {
-            Authorization: 'Token ' + localStorage.getItem('token'),
+                Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
           }
         }).then(
           function(response) {

@@ -86,7 +86,7 @@
       var url = 'https://s7-rest.francecentral.cloudapp.azure.com/podcasts/'
       this.$http.get(url + this.id, {
         headers: {
-          Authorization: 'Token ' + localStorage.getItem('token'),
+          Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
         }
       }).then(function(response) {
         if (response.status == 200) {

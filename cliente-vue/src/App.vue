@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <!-- Cuando nos llegue el logout -> Stop reproduction -->
-    <barra-superior v-bind:mostrarModoPodcast="mostrarPodcastObject" @logout="logout()"></barra-superior>
-      <barra-lateral @showPlayer="showPlayer" @MenuChanged="changePodcast_Songs">
+    <barra-superior v-if="checkRouter" v-bind:mostrarModoPodcast="mostrarPodcastObject" @logout="logout()"></barra-superior>
+      <barra-lateral v-bind:checkRouterObject="checkRouterObject" @showPlayer="showPlayer" @MenuChanged="changePodcast_Songs">
         <router-view slot="router" @selectPlaylist="setPlaylist"/>
 
         <div class="col-3 align-self-baseline sticky-top" id="player-col" v-show="visible" slot="repro">
@@ -150,7 +150,7 @@ export default {
     obtainSongFromRemote: function() {
       this.$http.get('https://s7-rest.francecentral.cloudapp.azure.com/current-user/',{
         headers: {
-           Authorization: 'Token ' + localStorage.getItem('token'),
+           Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
         }
       }).then(
         function(response) {
@@ -309,7 +309,7 @@ export default {
         console.log(time);
         this.$http.get(this.currentTrack.url + 'set_playing?t=' + time, {
           headers: {
-            Authorization: 'Token ' + localStorage.getItem('token'),
+            Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
           }
         }).then(
           function(response) {
@@ -328,7 +328,7 @@ export default {
           // No tienes las lyrics -> Las cargas
           this.$http.get(this.currentTrack.url, {
             headers: {
-              Authorization: 'Token ' + localStorage.getItem('token'),
+              Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
             }
           }).then(
             function(response){
@@ -349,13 +349,23 @@ export default {
           // Esconder el reproductor
           this.animated = !this.animated;
         }
-        
+
       }
 },
   computed: {
+    checkRouter: function(){
+      console.log(this.$route.path);
+      return  ((this.$route.path != '/register') && (this.$route.path != '/login'))
+    },
     mostrarPodcastObject: function(){
       return {
         boolean: this.mostrarPodcast,
+      }
+    },
+    checkRouterObject: function(){
+      console.log(this.checkRouter);
+      return {
+        boolean: this.checkRouter,
       }
     },
     currentTrack: function() {

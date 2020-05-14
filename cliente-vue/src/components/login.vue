@@ -79,7 +79,8 @@
                 // TODO: Comprobacion adicional para ver si el token es valido?
                 console.log(response.body.access_token)
                 // En este caso en vez de "Token [el token]", la cadena sera "Bearer [el token]"
-                localStorage.setItem('token', response.body.token_type + ' ' + response.body.access_token);
+                localStorage.setItem('token', response.body.access_token);
+                localStorage.setItem('type', response.body.token_type);
                 this.$router.push({
                   path: '/'
                 });
@@ -104,7 +105,8 @@
               console.log(response.body);
               if (response.status == 200) {
                 // TODO: Comprobacion adicional para ver si el token es valido?
-                localStorage.setItem('token', 'Token' + response.body.token);
+                localStorage.setItem('token', response.body.token);
+                localStorage.setItem('type', 'Token');
                 this.$router.push({
                   path: '/'
                 });

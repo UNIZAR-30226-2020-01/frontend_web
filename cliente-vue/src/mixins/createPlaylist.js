@@ -8,7 +8,7 @@ export default {
             // Realizamos la peticion
             this.$http.post('https://s7-rest.francecentral.cloudapp.azure.com/playlists/', fd, {
                 headers: {
-                    Authorization: 'Token ' + localStorage.getItem('token'),
+                    Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
                 }
             }
             ).then(

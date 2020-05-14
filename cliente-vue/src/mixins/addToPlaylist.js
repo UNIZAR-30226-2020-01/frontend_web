@@ -6,7 +6,7 @@ export default {
           console.log('Token ' + localStorage.getItem('token'));
             this.$http.post(playlist.url + 'add_song/?song=' + song.url,{}, {
               headers: {
-                Authorization: 'Token ' + localStorage.getItem('token'),
+                Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
               }
             }
             ).then(

@@ -52,6 +52,7 @@
                 function(response) {
                   if(response.status == 200){
                     localStorage.setItem('token', response.body.token);
+                    localStorage.setItem('type', 'Token');
                     this.$router.push({
                       path: '/'
                     });

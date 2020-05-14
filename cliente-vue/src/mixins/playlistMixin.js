@@ -5,7 +5,7 @@ export default {
       // peticiones HTTP con el atributo $http
       this.$http.get('https://s7-rest.francecentral.cloudapp.azure.com/user/playlists/', {
         headers: {
-          Authorization: 'Token ' + localStorage.getItem('token'),
+          Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
         }
       }).then(
         function(response){

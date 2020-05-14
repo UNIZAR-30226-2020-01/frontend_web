@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-      <div class="col-2" id="sidebar">
+      <div class="col-2" id="sidebar" v-if="mostrarSidebar">
         <ul class="list-unstyled">
           <li><router-link to="/inicio">Home</router-link></li>
           <li><router-link to="/search">Search</router-link></li>
@@ -33,6 +33,11 @@
   //import { bus } from '../main'
 
   export default {
+    props: {
+      checkRouterObject:{
+        type: Object
+      }
+    },
     data() {
       return {
         mostrarRepro: false,
@@ -56,6 +61,12 @@
           console.log(this.mostrarMenuPodcasts);
           this.mostrarMenuPodcasts = !this.mostrarMenuPodcasts;
           this.$emit('MenuChanged', this.mostrarMenuPodcasts)
+        }
+      },
+      computed:{
+        mostrarSidebar: function(){
+          console.log(this.checkRouterObject);
+          return this.checkRouterObject.boolean
         }
       }
   }
