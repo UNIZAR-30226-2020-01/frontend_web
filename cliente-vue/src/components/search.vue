@@ -53,6 +53,62 @@
         console.log(list)
         let id = list[list.length - 1]
         return id
+      },
+      // Busca el parámetro en: título del album o en el nombre del artista
+      searchAlbums: function(albums){
+        this.$http.get('https://s7-rest.francecentral.cloudapp.azure.com/albums/?search=' + album, {
+          Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
+        }).then(
+          function(response){
+            if(response.status == 200){
+              return response.body;
+            }else{
+              console.log("Error al buscar un album. Codigo de error: " + response.status);
+            }
+          }
+        );
+      },
+      // Busca el parámetro en: nombre del artista
+      searchArtists: function(artist){
+        this.$http.get('https://s7-rest.francecentral.cloudapp.azure.com/artists/?search=' + artist, {
+          Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
+        }).then(
+          function(response){
+            if(response.status == 200){
+              return response.body;
+            }else{
+              console.log("Error al buscar un artist. Codigo de error: " + response.status);
+            }
+          }
+        );
+      },
+      // Busca el parámetro en: título de la cancion o nombre del artista
+      searchSongs: function(song){
+        this.$http.get('https://s7-rest.francecentral.cloudapp.azure.com/songs/?search=' + song, {
+          Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
+        }).then(
+          function(response){
+            if(response.status == 200){
+              return response.body;
+            }else{
+              console.log("Error al buscar un song. Codigo de error: " + response.status);
+            }
+          }
+        );
+      },
+      // Busca el parámetro en: nombre del usuario y en sus playlists
+      searchUsers: function(user){
+        this.$http.get('https://s7-rest.francecentral.cloudapp.azure.com/user/?search=' + user, {
+          Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
+        }).then(
+          function(response){
+            if(response.status == 200){
+              return response.body;
+            }else{
+              console.log("Error al buscar un user. Codigo de error: " + response.status);
+            }
+          }
+        );
       }
     }
   }
