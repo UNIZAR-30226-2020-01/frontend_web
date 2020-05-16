@@ -55,7 +55,7 @@
         return id
       },
       // Busca el parámetro en: título del album o en el nombre del artista
-      searchAlbums: function(albums){
+      searchAlbums: function(album){
         this.$http.get('https://s7-rest.francecentral.cloudapp.azure.com/albums/?search=' + album, {
           Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
         }).then(
