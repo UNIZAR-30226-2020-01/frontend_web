@@ -5,13 +5,13 @@
               <div class="jumbotron"><img id="logo" src="../assets/img/logo_circular.png">
                   <h1 class="text-center">Welcome to SpotiSeven</h1>
                   <p class="text-center">SpotiSeven is a free opensource player that gives you all your favorite music. No payments, no publicity abuse and no limits.</p>
-                  <p class="text-center"><a class="btn btn-primary text-dark" role="button">Learn more</a></p>
+                  <p class="text-center"><a class="btn btn-primary" role="button">Learn more</a></p>
               </div>
           </div>
       </div>
       <div class="row">
           <div class="col-md-12 text-center">
-              <h1>Aye you using a mobile phone? Download our app</h1><button class="btn btn-primary" id="boton_download" type="button"><strong>Download</strong></button></div>
+              <h1>Aye you using a mobile phone? Download our app</h1><button class="btn-primary" id="boton_download" type="button"><strong>Download</strong></button></div>
       </div>
   <div class="login-dark">
       <form class="text-left" method="post">

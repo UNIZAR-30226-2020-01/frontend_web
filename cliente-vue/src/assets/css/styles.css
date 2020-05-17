@@ -19,9 +19,6 @@ body {
   border-color: transparent;
 }
 
-.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-primary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 .2rem rgba(255,211,0,0.5);
-}
 .btn-primary.focus, .btn-primary:focus {
   color: #FFD300;
   background-color: #FFD300;
