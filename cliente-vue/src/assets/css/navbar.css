@@ -1,6 +1,17 @@
-#spoti_logo {
+#spoti_logo_podcast {
   position: absolute;
-  transform: translate(-15%, -46%);
-  width: 0px;
-  min-width: 150px;
+  transform: translate(0, -46%);
+  height: 80%;
+  width: 26%;
+  max-height:120px;
+  max-width: 350px;
+}
+
+#spoti_logo{
+  position: absolute;
+  transform: translate(-5%, -46%);
+  height: 200%;
+  width: 25%;
+  max-height:120px;
+  max-width: 250px;
 }
