@@ -71,7 +71,7 @@
                           </div>
                         </div>
                         <div class="btn-group">
-                              <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <button type="button" class="btn btn-primary btn-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Add to Playlist
                               </button>
                               <div class="dropdown-menu">
