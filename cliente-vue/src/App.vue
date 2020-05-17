@@ -2,7 +2,7 @@
   <div id="app">
     <!-- Cuando nos llegue el logout -> Stop reproduction -->
     <barra-superior v-if="checkRouter" v-bind:mostrarModoPodcast="mostrarPodcastObject" @logout="logout()"></barra-superior>
-      <barra-lateral v-bind:checkRouterObject="checkRouterObject" @showPlayer="showPlayer" @MenuChanged="changePodcast_Songs">
+      <barra-lateral v-bind:checkRouterObject="checkRouterObject" v-bind:showButtonPlayer="showButtonPlayer" @showPlayer="showPlayer" @MenuChanged="changePodcast_Songs">
         <router-view slot="router" @selectPlaylist="setPlaylist" @playnext="addToQueue"/>
 
         <div class="col-3 align-self-baseline sticky-top" id="player-col" v-show="visible" slot="repro">
@@ -389,6 +389,9 @@ export default {
       console.log(this.$route.path);
       return  ((this.$route.path != '/register') && (this.$route.path != '/login'))
     },
+    checkShowButtonPlayer: function(){
+      return  this.playlist.length != 0
+    },
     mostrarPodcastObject: function(){
       return {
         boolean: this.mostrarPodcast,
@@ -398,6 +401,12 @@ export default {
       console.log(this.checkRouter);
       return {
         boolean: this.checkRouter,
+      }
+    },
+    showButtonPlayer: function(){
+      console.log(this.checkShowButtonPlayer);
+      return {
+        boolean: this.checkShowButtonPlayer,
       }
     },
     currentTrack: function() {
