@@ -25,10 +25,14 @@
 
                     <div class="body__buttons">
                       <ul class="list list--buttons">
-                        <li @click="previous()"><i class="fa fa-step-backward"></i></li>
-                        <li @click="play()"  v-show="!playing"><i class="fa fa-play"></i></li>
-                        <li @click="pause()" v-show="playing"><i class="fa fa-pause"></i></li>
-                        <li @click="next()"><i class="fa fa-step-forward"></i></li>
+                        <li @click="loop = !loop" v-show="!loop"><a class="list__link"><i class="fa fa-retweet"></i></a></li>
+                        <li @click="loop = !loop" v-show="loop"><a class="list__link list__link__active"><i class="fa fa-retweet"></i></a></li>
+                        <li @click="previous()"><a class="list__link"><i class="fa fa-step-backward"></i></a></li>
+                        <li @click="play()"  v-show="!playing"><a class="list__link"><i class="fa fa-play"></i></a></li>
+                        <li @click="pause()" v-show="playing"><a class="list__link"><i class="fa fa-pause"></i></a></li>
+                        <li @click="next()"><a class="list__link"><i class="fa fa-step-forward"></i></a></li>
+                        <li @click="loop = !loop" v-show="!loop"><a class="list__link"><i class="fa fa-retweet"></i></a></li>
+                        <li @click="loop = !loop" v-show="loop"><a class="list__link list__link__active"><i class="fa fa-retweet"></i></a></li>
                       </ul>
                     </div>
                   </div>
