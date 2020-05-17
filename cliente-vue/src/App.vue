@@ -2,7 +2,7 @@
   <div id="app">
     <!-- Cuando nos llegue el logout -> Stop reproduction -->
     <barra-superior v-if="checkRouter" v-bind:mostrarModoPodcast="mostrarPodcastObject" @logout="logout()"></barra-superior>
-      <barra-lateral v-bind:checkRouterObject="checkRouterObject" @showPlayer="showPlayer" @MenuChanged="changePodcast_Songs">
+      <barra-lateral v-bind:checkRouterObject="checkRouterObject" v-bind:showButtonPlayer="showButtonPlayer" @showPlayer="showPlayer" @MenuChanged="changePodcast_Songs">
         <router-view slot="router" @selectPlaylist="setPlaylist" @playnext="addToQueue"/>
 
         <div class="col-3 align-self-baseline sticky-top" id="player-col" v-show="visible" slot="repro">
@@ -25,10 +25,14 @@
 
                     <div class="body__buttons">
                       <ul class="list list--buttons">
-                        <li @click="previous()"><i class="fa fa-step-backward"></i></li>
-                        <li @click="play()"  v-show="!playing"><i class="fa fa-play"></i></li>
-                        <li @click="pause()" v-show="playing"><i class="fa fa-pause"></i></li>
-                        <li @click="next()"><i class="fa fa-step-forward"></i></li>
+                        <li @click="loop = !loop" v-show="!loop"><a class="list__link"><i class="fa fa-retweet"></i></a></li>
+                        <li @click="loop = !loop" v-show="loop"><a class="list__link list__link__active"><i class="fa fa-retweet"></i></a></li>
+                        <li @click="previous()"><a class="list__link"><i class="fa fa-step-backward"></i></a></li>
+                        <li @click="play()"  v-show="!playing"><a class="list__link"><i class="fa fa-play"></i></a></li>
+                        <li @click="pause()" v-show="playing"><a class="list__link"><i class="fa fa-pause"></i></a></li>
+                        <li @click="next()"><a class="list__link"><i class="fa fa-step-forward"></i></a></li>
+                        <li @click="loop = !loop" v-show="!loop"><a class="list__link"><i class="fa fa-retweet"></i></a></li>
+                        <li @click="loop = !loop" v-show="loop"><a class="list__link list__link__active"><i class="fa fa-retweet"></i></a></li>
                       </ul>
                     </div>
                   </div>
@@ -389,6 +393,9 @@ export default {
       console.log(this.$route.path);
       return  ((this.$route.path != '/register') && (this.$route.path != '/login'))
     },
+    checkShowButtonPlayer: function(){
+      return  this.playlist.length != 0
+    },
     mostrarPodcastObject: function(){
       return {
         boolean: this.mostrarPodcast,
@@ -398,6 +405,12 @@ export default {
       console.log(this.checkRouter);
       return {
         boolean: this.checkRouter,
+      }
+    },
+    showButtonPlayer: function(){
+      console.log(this.checkShowButtonPlayer);
+      return {
+        boolean: this.checkShowButtonPlayer,
       }
     },
     currentTrack: function() {

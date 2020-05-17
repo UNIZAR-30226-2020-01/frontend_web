@@ -80,11 +80,8 @@ a {
   -webkit-box-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  justify-content: center;
-}
+  justify-content: space-between;
 
-.list--buttons li:nth-of-type(n + 2) {
-  margin-left: 1.25rem;
 }
 
 .list--buttons a {
@@ -103,7 +100,8 @@ a {
   box-shadow: 0 6px 9px rgba(33, 33, 33, 0.1), 0 6px 16px rgba(33, 33, 33, 0.15);
 }
 
-.list--buttons li:nth-of-type(2) a {
+
+.list--buttons li:nth-of-type(4) a {
   padding-top: 0.82rem;
   padding-right: 1rem;
   padding-bottom: 0.82rem;
@@ -113,10 +111,23 @@ a {
   color: rgba(165,157,11,0.95);
 }
 
+.list--buttons li:nth-of-type(5) a {
+  padding-top: 0.82rem;
+  padding-right: 1rem;
+  padding-bottom: 0.82rem;
+  padding-left: 1.19rem;
+  margin-left: 0.5rem;
+  font-size: 1.25rem;
+  color: rgba(165,157,11,0.95);
+}
+
+.list--buttons li:nth-of-type(2) a, .list--buttons li:nth-of-type(7) {
+  font-size: 0.95rem;
+}
+
 .list--buttons li:first-of-type a, .list--buttons li:last-of-type a {
   font-size: 0.95rem;
   color: #212121;
-  opacity: 0.5;
 }
 
 .list--buttons li:first-of-type a:focus, .list--buttons li:first-of-type a:hover, .list--buttons li:last-of-type a:focus, .list--buttons li:last-of-type a:hover {
@@ -130,6 +141,12 @@ a {
 }
 
 .list__link:focus, .list__link:hover {
+  color: rgba(165,157,11,1);
+}
+
+.list__link.list__link__active {
+  -webkit-transition: all 0.25s cubic-bezier(0.4, 0, 1, 1);
+  transition: all 0.25s cubic-bezier(0.4, 0, 1, 1);
   color: rgba(165,157,11,1);
 }
 

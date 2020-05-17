@@ -16,7 +16,7 @@
         </ul>
         <div>
         </div>
-        <button class="btn btn-primary fixed-bottom" type="button" v-on:click="open_player_btn"><i class="fas fa-music" style="color: rgb(0,0,0);"></i></button>
+        <button v-if="mostarButton" class="btn btn-primary fixed-bottom" type="button" v-on:click="open_player_btn"><i class="fas fa-music" style="color: rgb(0,0,0);"></i></button>
       </div>
       <slot name="router"></slot>
       <slot name="repro"></slot>
@@ -35,6 +35,9 @@
   export default {
     props: {
       checkRouterObject:{
+        type: Object
+      },
+      showButtonPlayer:{
         type: Object
       }
     },
@@ -67,6 +70,9 @@
         mostrarSidebar: function(){
           console.log(this.checkRouterObject);
           return this.checkRouterObject.boolean
+        },
+        mostarButton: function(){
+          return this.showButtonPlayer.boolean
         }
       }
   }

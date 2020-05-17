@@ -69,7 +69,7 @@
                                   data-toggle="dropdown"
                                   aria-expanded="false"
                                   type="button"><i class="fa fa-ellipsis-v dropdown show"></i></button>
-                          <div role="menu" class="dropdown-menu"><a role="presentation" class="dropdown-item" href="#">Play Next</a></div>
+                          <div role="menu" class="dropdown-menu"><a role="presentation" class="dropdown-item" href="#" @click="playNext(songs)">Play Next</a></div>
                         </div>
                       </div>
                     </div>
@@ -104,6 +104,10 @@ import favoriteMixin from '../mixins/favoriteMixin.js'
       selectPlaylist: function() {
         console.log('selecting')
         this.$emit('selectPlaylist', this.playlist.songs)
+      },
+      playNext: function(songs) {
+        console.log('adding to play next')
+        this.$emit('playnext', songs)
       },
       alphOrder: function(){
         return this.playlist.songs.sort(function (a, b) {
