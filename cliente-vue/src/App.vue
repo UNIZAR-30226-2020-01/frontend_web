@@ -3,7 +3,7 @@
     <!-- Cuando nos llegue el logout -> Stop reproduction -->
     <barra-superior v-if="checkRouter" v-bind:mostrarModoPodcast="mostrarPodcastObject" @logout="logout()"></barra-superior>
       <barra-lateral v-bind:checkRouterObject="checkRouterObject" @showPlayer="showPlayer" @MenuChanged="changePodcast_Songs">
-        <router-view slot="router" @selectPlaylist="setPlaylist"/>
+        <router-view slot="router" @selectPlaylist="setPlaylist" @playnext="addToQueue"/>
 
         <div class="col-3 align-self-baseline sticky-top" id="player-col" v-show="visible" slot="repro">
             <div class="wrapper">
@@ -215,6 +215,33 @@ export default {
       this.initPlaylist(playlist);
       this.playlist = playlist;
       this.playNew(0);
+    },
+    addToQueue: function(songs){
+      songs.howl = new Howl({
+        src: [songs.file],
+        onload: function () {
+            console.log("LOADED");
+        },
+        onend: () => {
+            if(!this.loop){
+              this.audio = undefined;
+              this.next();
+            }
+            else {
+              this.audio = this.currentTrack.howl.play();
+            }
+        },
+        onplay: () => {
+            this.playing = true;
+        },
+        onpause: () => {
+            this.playing = false;
+        },
+        onstop: () => {
+            this.playing = false;
+        }
+      })
+      this.playlist[this.index] = songs
     },
     playNew: function(index){
       if(index >= 0 && index < this.playlist.length){
