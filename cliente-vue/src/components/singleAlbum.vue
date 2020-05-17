@@ -171,8 +171,8 @@
 </script>
 
 
-<style>
-
+<style scoped>
+@import './../assets/css/styles.css';
 @import './../assets/css/album_Indv.css';
 
 </style>
