@@ -15,7 +15,6 @@
                 <ul v-else class="nav navbar-nav mx-auto">
                     <li class="nav-item" role="presentation"><router-link class="nav-link" to="/following">Following</router-link></li>
                     <li class="nav-item" role="presentation"><router-link class="nav-link" to="/artists/">Artists</router-link></li>
-                    <li class="nav-item" role="presentation"><router-link class="nav-link" to="/">Genres</router-link></li>
                     <li class="nav-item" role="presentation"><router-link class="nav-link" to="/albums/">Albums</router-link></li>
                     <li class="nav-item" role="presentation"><router-link class="nav-link" to="/">Discover</router-link></li>
                 </ul>
