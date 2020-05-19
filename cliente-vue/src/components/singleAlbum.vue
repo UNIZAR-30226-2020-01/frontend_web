@@ -56,7 +56,7 @@
                         <i v-if="songs.is_fav" class="fa fa-star" style="color: rgb(181,146,20);"></i>
                         <i v-else class="fa fa-star"></i>
                       </div>
-                      <p class="name-song-list" style="display: inline;">{{songs.title}} </p>
+                      <p class="name-song-list" @click="playNow(songs)" style="display: inline;">{{songs.title}} </p>
                     </div>
                     <div class="col-lg-2">
                       <div class="tiempo">
@@ -119,6 +119,10 @@
       playNext: function(songs) {
         console.log('adding to play next')
         this.$emit('playnext', songs)
+      },
+      playNow: function(songs) {
+        console.log('play now')
+        this.$emit('playnow', songs)
       },
       alphOrder: function(){
         return this.album.songs.sort(function (a, b) {
