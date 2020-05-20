@@ -15,6 +15,7 @@ import Inicio from './components/inicio.vue';
 import SubscriptionsPodcasts from './components/subscriptionsPodcasts.vue';
 import Following from './components/following.vue'
 import Search from './components/search.vue'
+import DiscoverPodcast from './components/discoverPodcast.vue'
 // Exportamos el objeto de rutas
 export default [
   // Cada objeto es una ruta
@@ -85,5 +86,9 @@ export default [
   {
     path: '/search',
     component: Search
+  },
+  {
+    path: '/discover',
+    component: DiscoverPodcast
   }
 ]
