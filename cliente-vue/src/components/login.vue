@@ -49,7 +49,7 @@
         },
         // only needed if you want to render the button with the google ui
         renderParams: {
-            width: 500,
+            width: 480,
             height: 50,
             longtitle: true
         },
