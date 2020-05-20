@@ -127,6 +127,7 @@ export default {
     }
   },
   created: function () {
+
     // TODO: Cambiar si eso
     Howler.volume(0.5);
     // this.playlist.forEach( (track) => {
@@ -145,7 +146,28 @@ export default {
     //   })
     //   console.log(track.howl)
     // })
-    if(localStorage.getItem('token') !== null ){
+    if(localStorage.getItem('token') !== null ){ // tenemos token o refresh_token
+      if (localStorage.getItem('refresh_token') !== null) { // tenemos refresh_token
+      //////////////////////////////////// REFRESCAR TOKEN (con refresh_token):
+      this.$http.post('https://s7-rest.francecentral.cloudapp.azure.com/auth/token/', {
+          grant_type: 'refresh_token',
+          client_id: 'rPllY8pG9tdFdROaiX7ZwIsCdQ4xzwhskdW1oCaH',
+          client_secret: 'GSBMVcRbAjz6C3l2QbfNhXs0jIF3uvBXGqNTdJ27d0fhuGeAJg4YoTMaqOeMS9HqDJtk9Kd8yar8ZVMZOOG5PZJKaRPQwvMnhnp7R1H3TixGA1ZYWPigRUUx2uOv9FkW',
+          refresh_token: localStorage.getItem('refresh_token'),
+        }).then(function(response) {
+          console.log(response.body);
+          if (response.status == 200) {
+            // TODO: Comprobacion adicional para ver si el token es valido?
+            console.log(response.body.access_token)
+            // En este caso en vez de "Token [el token]", la cadena sera "Bearer [el token]"
+            localStorage.setItem('token', response.body.access_token);
+            localStorage.setItem('refresh_token', response.body.refresh_token);
+            localStorage.setItem('type', response.body.token_type);
+          }
+        });
+      }
+      ////////////////////////////////////
+
       // El usuario tiene la sesión iniciada. Obtenemos la playlist del remoto
       this.obtainSongFromRemote();
     }

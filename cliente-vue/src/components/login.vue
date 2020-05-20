@@ -80,6 +80,7 @@
                 console.log(response.body.access_token)
                 // En este caso en vez de "Token [el token]", la cadena sera "Bearer [el token]"
                 localStorage.setItem('token', response.body.access_token);
+                localStorage.setItem('refresh_token', response.body.refresh_token);
                 localStorage.setItem('type', response.body.token_type);
                 this.$router.push({
                   path: '/'
