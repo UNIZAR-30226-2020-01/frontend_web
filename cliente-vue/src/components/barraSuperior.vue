@@ -1,6 +1,6 @@
 <template>
 
-  <nav class="navbar navbar-dark navbar-expand-md sticky-top bg-dark">
+  <nav class="navbar navbar-dark navbar-expand-md sticky-top bg-dark" id="barra-nav">
         <div class="container-fluid"><router-link class="navbar-brand" to="/">
           <img id="spoti_logo_podcast" v-if="mostrarPodcast" src="./../assets/img/spoticast-v2.png"><img id="spoti_logo" v-else src="./../assets/img/spotiseven.png"></router-link><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span>
 
@@ -71,5 +71,10 @@
   @import './../assets/css/styles.css';
   @import './../assets/css/navbar.css';
   @import './../assets/css/bootstrap.min.css';
+
+  #barra-nav{
+	background-color: black;
+	color: white;
+  }
 
 </style>

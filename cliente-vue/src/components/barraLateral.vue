@@ -1,8 +1,7 @@
 <template>
     <div class="row">
       <div class="col-2" id="sidebar" v-if="mostrarSidebar">
-        <ul class="list-unstyled">
-          <li><router-link to="/inicio">Home</router-link></li>
+        <ul class="list-unstyled" id="lista-lateral">
           <li><router-link to="/search">Search</router-link></li>
           <li v-if="!mostrarMenuPodcasts"><router-link to="/playlists">Your library</router-link></li>
           <li @click=changeMenu()>
@@ -84,4 +83,9 @@
   @import './../assets/css/styles.css';
   @import './../assets/css/sidebar.css';
 
+  #lista-lateral{
+    position: inherit;
+    padding-left:15%;
+    padding-top: 10%;
+  }
 </style>

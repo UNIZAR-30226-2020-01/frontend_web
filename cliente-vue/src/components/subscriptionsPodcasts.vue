@@ -66,6 +66,7 @@
 
   #sub_btn{
     color:white;
+    display:inline-block;
     position:relative;
   }
 
