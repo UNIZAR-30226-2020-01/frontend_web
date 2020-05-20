@@ -25,7 +25,8 @@
                 <li class="m-2" v-for="tpodcast in trending_podcasts" :key="tpodcast.title" >
                     <div class="card" id="popular_podcast_card">
                         <div class="card-body"><img id="popular_cover" v-bind:src="tpodcast.image">
-                            <h5>{{tpodcast.title}}: {{tpodcast.publisher}}</h5><button class="btn btn-primary" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div>
+                            <h5>{{tpodcast.title}}: {{tpodcast.publisher}}</h5>
+                            <button class="btn btn-primary" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div>
                     </div>
                 </li>
             </ul>
@@ -62,5 +63,10 @@
 
   @import './../assets/css/styles.css';
   @import './../assets/css/subscriptions.css';
+
+  #sub_btn{
+    color:white;
+    position:relative;
+  }
 
 </style>
