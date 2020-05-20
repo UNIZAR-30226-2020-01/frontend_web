@@ -1,31 +1,46 @@
 
 <template>
-
+  <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="jumbotron"><img id="logo" src="../assets/img/logo_circular.png">
+                <h1 class="text-center">Welcome to SpotiSeven</h1>
+                <p class="text-center">SpotiSeven is a free opensource player that gives you all your favorite music. No payments, no publicity abuse and no limits.</p>
+                <p class="text-center"><a class="btn btn-primary text-dark" role="button">Learn more</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h1>Aye you using a mobile phone? Download our app</h1><button class="btn btn-primary" id="boton_download" type="button"><strong>Download</strong></button>
+        </div>
+    </div>
   <!-- Codigo del login -->
-  <div class="container" id="form">
-    <h1 class="text-center">Log in</h1>
-    <form class="text-left form"
-          method="POST"
-          @submit.prevent="login"><label for="user">Username</label><input class="form-control"
-             type="text"
-             id="user"
-             minlength="4"
-             maxlength="10"
-             required=""
-             v-model="username"><label for="passwd">Password</label><input class="form-control"
-             type="password"
-             id="passwd"
-             required=""
-             v-model.lazy="password">
-      <h2 v-show="error"> Usuario o contraseña incorrectos </h2>
-      <button class="btn btn-primary text-center submit-button" type="submit">Enter</button></form>
-      <!-- // Button to login with google ui rendered using the renderParams object
-    // The rendered button can't be use to logout since it is rendered by the google api and will only login
-    // If you add the logoutButton param to true it will show a normal button without styles -->
-      <google-login :params="params" :renderParams="renderParams" :onSuccess="onSuccess" :onFailure="onFailure"></google-login>
-      <p>¿No tienes cuenta? <router-link to="/register"> Regístrate aqui </router-link></p>
-  </div>
 
+    <div class="container" id="form">
+      <h1 class="text-center">Log in</h1>
+      <form class="text-left form"
+            method="POST"
+            @submit.prevent="login"><label for="user">Username</label><input class="form-control"
+               type="text"
+               id="user"
+               minlength="4"
+               maxlength="10"
+               required=""
+               v-model="username"><label for="passwd">Password</label><input class="form-control"
+               type="password"
+               id="passwd"
+               required=""
+               v-model.lazy="password">
+        <h2 v-show="error"> Usuario o contraseña incorrectos </h2>
+        <button class="btn btn-primary text-center submit-button" type="submit">Enter</button></form>
+        <!-- // Button to login with google ui rendered using the renderParams object
+      // The rendered button can't be use to logout since it is rendered by the google api and will only login
+      // If you add the logoutButton param to true it will show a normal button without styles -->
+        <google-login :params="params" :renderParams="renderParams" :onSuccess="onSuccess" :onFailure="onFailure"></google-login>
+        <p>¿No tienes cuenta? <router-link to="/register"> Regístrate aqui </router-link></p>
+    </div>
+</div>
 </template>
 
 
@@ -137,7 +152,9 @@
 
 <style>
 
+  @import './../assets/css/Inicio.css';
   @import './../assets/css/styles.css';
   @import './../assets/css/bootstrap.min.css';
+
 
 </style>

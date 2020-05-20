@@ -11,15 +11,16 @@
       </div>
       <div class="row">
           <div class="col-md-12 text-center">
-              <h1>Aye you using a mobile phone? Download our app</h1><button class="btn btn-primary" id="boton_download" type="button"><strong>Download</strong></button></div>
+              <h1>Aye you using a mobile phone? Download our app</h1><button class="btn btn-primary" id="boton_download" type="button"><strong>Download</strong></button>
+          </div>
       </div>
-  <div class="login-dark">
-      <form class="text-left" method="post">
-          <h1 class="text-center" id="Login_text">Login</h1><img id="logo_login" src="../assets/img/logo_circular.png">
-          <h2 class="sr-only">Login Form</h2>
-          <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
-          <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
-          <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Log In</button></div><a class="forgot" href="#">Forgot your email or password?</a></form>
+      <div class="login-dark">
+        <form class="text-left" method="post">
+            <h1 class="text-center" id="Login_text">Login</h1><img id="logo_login" src="../assets/img/logo_circular.png">
+            <h2 class="sr-only">Login Form</h2>
+            <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
+            <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
+            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Log In</button></div><a class="forgot" href="#">Forgot your email or password?</a></form>
   </div>
 </div>
 </template>
