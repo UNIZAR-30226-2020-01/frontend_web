@@ -3,8 +3,8 @@
   <div class="col">
     <div class="container-fluid">
       <ul class="list-inline text-center">
-        <li class="list-inline-item artist-item" v-for="artist in artists" :key="artist.name">
-          <router-link v-bind:to="'/artists/' + artist.id ">
+        <li class="list-inline-item artist-item" v-for="playlist in playlistFollowed" :key="playlist.name">
+          <router-link v-bind:to="'/playlist/' + playlist.id ">
           <div class="card text-center p-2 artist-card" >
             <header class="card-header">
               <h3 class="card-title artist-name" style="font-size: 16px">{{artist.name}}</h3>
@@ -26,19 +26,22 @@
 
 <script>
   // import Player from './player.vue'
-  import artistMixins from '../mixins/artistMixin'
+  import followingMixin from '../mixins/followingActions'
   export default {
     data() {
       return {
-        artists: []
+        playlistFollowed: []
       }
     },
     // components:{
     //   'player': Player,
     // },
-    mixins: [artistMixins],
+    mixins: [followingMixin],
     created() {
-      this.getAllArtists
+      this.playlistFollowed = this.getFollowingPlaylists
+      console.log(this.getFollowingPlaylists)
+      console.log("yaaaaaaaaaaaaaaaa")
+      console.log(this.playlistFollowed);
     },
     methods: {
       getId: function(artist) {
