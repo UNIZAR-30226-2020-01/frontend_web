@@ -14,7 +14,6 @@
   /*background: #475d62 url(../../assets/img/star-sky.jpg);*/
   background-size: cover;
   position: relative;
-
   padding-bottom: 42%;
 }
 
@@ -39,13 +38,10 @@
   height: inherit;
 }
 
-#logo_login {
-  display: block;
-  height: 100px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 #Login_text {
   color: black;
+}
+
+#form{
+  padding-top:-400px;
 }

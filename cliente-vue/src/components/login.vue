@@ -16,29 +16,32 @@
         </div>
     </div>
   <!-- Codigo del login -->
-
-    <div class="container" id="form">
-      <h1 class="text-center">Log in</h1>
-      <form class="text-left form"
-            method="POST"
-            @submit.prevent="login"><label for="user">Username</label><input class="form-control"
-               type="text"
-               id="user"
-               minlength="4"
-               maxlength="10"
-               required=""
-               v-model="username"><label for="passwd">Password</label><input class="form-control"
-               type="password"
-               id="passwd"
-               required=""
-               v-model.lazy="password">
-        <h2 v-show="error"> Usuario o contraseña incorrectos </h2>
-        <button class="btn btn-primary text-center submit-button" type="submit">Enter</button></form>
-        <!-- // Button to login with google ui rendered using the renderParams object
-      // The rendered button can't be use to logout since it is rendered by the google api and will only login
-      // If you add the logoutButton param to true it will show a normal button without styles -->
-        <google-login :params="params" :renderParams="renderParams" :onSuccess="onSuccess" :onFailure="onFailure"></google-login>
-        <p>¿No tienes cuenta? <router-link to="/register"> Regístrate aqui </router-link></p>
+      <div class="row">
+          <div class="col-md-12">
+            <div class="jumbotron">
+            <h1 class="text-center">Log in</h1>
+            <form class="text-left form"
+                  method="POST"
+                  @submit.prevent="login"><label for="user">Username</label><input class="form-control"
+                     type="text"
+                     id="user"
+                     minlength="4"
+                     maxlength="10"
+                     required=""
+                     v-model="username"><label for="passwd">Password</label><input class="form-control"
+                     type="password"
+                     id="passwd"
+                     required=""
+                     v-model.lazy="password">
+              <h2 v-show="error"> Usuario o contraseña incorrectos </h2>
+              <button class="btn btn-primary text-center submit-button" type="submit">Enter</button></form>
+              <!-- // Button to login with google ui rendered using the renderParams object
+            // The rendered button can't be use to logout since it is rendered by the google api and will only login
+            // If you add the logoutButton param to true it will show a normal button without styles -->
+              <google-login :params="params" :renderParams="renderParams" :onSuccess="onSuccess" :onFailure="onFailure"></google-login>
+              <p>¿No tienes cuenta? <router-link to="/register"> Regístrate aqui </router-link></p>
+            </div>
+      </div>
     </div>
 </div>
 </template>
@@ -153,8 +156,55 @@
 <style>
 
   @import './../assets/css/Inicio.css';
-  @import './../assets/css/styles.css';
-  @import './../assets/css/bootstrap.min.css';
+  /*@import './../assets/css/styles.css';*/
+  /*@import './../assets/css/bootstrap.min.css';*/
 
+  .btn-primary:hover {background-color: #FFD800}
+  .btn.btn-primary {
+    color: black;
+    margin: 10px;
+    border-style: none;
+    border-radius: 15px;
+    background-color: #FFD300;
+    border-color: transparent;
+  }
+
+  .button:focus{
+    color: #FFD300;
+    background-color: #FFD300;
+    border-color: #FFD300;
+    box-shadow: 0 0 0 .2rem rgba(255,211,0,0.5);
+  }
+  /*
+  .btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 .2rem rgba(255,211,0,0.5);
+  }*/
+
+  .btn-primary.focus, .btn-primary.btn-block:focus {
+    color: #FFD300;
+    background-color: #FFD300;
+    border-color: #FFD300;
+    box-shadow: 0 0 0 .2rem rgba(255,211,0,0.5);
+  }
+  .btn-group {
+    display: block;
+  }
+  .btn-primary:hover {background-color: #FFD300}
+
+  .btn-primary.btn-block:active {
+    background-color: #FFD300;
+    box-shadow: 0 5px #FFD300;
+    transform: translateY(4px);
+  }
+
+  .btn.btn-primary.submit-button {
+    margin-left: 56%;
+    margin-top: 20px;
+    min-width: 44%;
+  }
+
+  .text-left.form {
+    max-width: 500px;
+  }
 
 </style>
