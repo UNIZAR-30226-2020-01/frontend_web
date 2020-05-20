@@ -60,10 +60,27 @@ export default {
                 function (response) {
                     if (response.status == 200) {
                         // Ha ido bien, devolvemos la lista de usuarios a los que seguimos
-                        return response.body.following;
+                        return response.body[0].following;
                     } else {
                         // Ha habido un error
                         console.log("Ha habido un error al recuperar los usuarios seguidos. Codigo de error: " + response.status);
+                    }
+                }
+            );
+        },
+        getFollowerUsers: function () {
+            this.$http.get('https://s7-rest.francecentral.cloudapp.azure.com/current-user/', {
+                headers: {
+                    Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
+                }
+            }).then(
+                function (response) {
+                    if (response.status == 200) {
+                        // Ha ido bien, devolvemos la lista de usuarios a los que seguimos
+                        return response.body[0].followers;
+                    } else {
+                        // Ha habido un error
+                        console.log("Ha habido un error al recuperar los usuarios seguidores. Codigo de error: " + response.status);
                     }
                 }
             );

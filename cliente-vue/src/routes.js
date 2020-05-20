@@ -74,11 +74,10 @@ export default [
     path: '/subscriptionsPodcasts/:id',
     component: PodcastSeries
   },
-
   {
     path: '/inicio',
   component: Inicio
-},
+  },
   {
     path: '/following',
   component: Following
@@ -87,5 +86,4 @@ export default [
     path: '/search',
     component: Search
   }
-
 ]

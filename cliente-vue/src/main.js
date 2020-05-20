@@ -22,24 +22,24 @@ const router = new VueRouter({
 });
 
 router.beforeEach(
-  function(to, from, next) {
+  function (to, from, next) {
     // console.log(to)
-    if(to.path !== "/login" && to.path !== "/register"){
+    if (to.path !== "/login" && to.path !== "/register" && to.path !== "/inicio") {
       // Antes de cambiar a cualquier localizacion comprobamos si el usuario esta logueado
-      if(localStorage.getItem('token') != null){
-        console.log("Hay token" );
+      if (localStorage.getItem('token') != null) {
+        console.log("Hay token");
         next();
-      }else{
+      } else {
         console.log("No hay token");
-        alert("Usted no tiene la sesión iniciada. Redirigiendo al inicio de sesión");
-        next({path: '/login', replace: false});
+        console.log("Tiene la sesión iniciada. Redirigiendo al inicio de sesión");
+        next({ path: '/login', replace: false });
       }
-    }else{
-      if(localStorage.getItem('token') !== null){
+    } else {
+      if (localStorage.getItem('token') !== null) {
         // El usuario esta autentificado. Le redirigimos
-        alert("Tiene la sesión iniciada. Redirigiendo");
-        next({ path: "/playlists", replace: true});
-      }else{
+        console.log("Tiene la sesión iniciada. Redirigiendo");
+        next({ path: "/playlists", replace: true });
+      } else {
         // Permitimos el acceso sin token al registro o a iniciar sesion
         next();
       }
