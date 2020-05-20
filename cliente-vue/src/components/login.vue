@@ -34,7 +34,7 @@
                        id="passwd"
                        required=""
                        v-model.lazy="password">
-                <h2 v-show="error"> Usuario o contraseña incorrectos </h2>
+                <h3 v-show="error"> Usuario o contraseña incorrectos </h3>
                 <!-- // Button to login with google ui rendered using the renderParams object
               // The rendered button can't be use to logout since it is rendered by the google api and will only login
               // If you add the logoutButton param to true it will show a normal button without styles -->
@@ -42,7 +42,6 @@
                 <button class="btn btn-primary text-center submit-button" type="submit">Enter</button></form>
 
             </div>
-
             <p>¿No tienes cuenta? <router-link to="/register"> Regístrate aqui </router-link></p>
             </div>
       </div>
