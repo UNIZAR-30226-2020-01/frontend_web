@@ -47,20 +47,22 @@
                 <h4 class="border-bottom">Chapters</h4>
                 <ol>
                     <li reversed="" v-for="episode in podcast.episodes" :key="episode.title" @click="selectPodcast(episode)">
-                      <router-link v-bind:to="'/subscriptionsPodcasts/' + episode.id + '/singlePodcast' ">
+
                         <div class="card border-0">
                             <div class="card-body border-0">
                                 <div class="row">
                                     <div class="col col-4" id="chapter_cover_col"><img id="chapter_cover" :src="episode.image"></div>
                                     <div class="col" id="chapter_content_col">
+                                      <router-link v-bind:to="'/subscriptionsPodcasts/' + episode.id + '/singlePodcast' ">
                                         <h4>{{episode.title}}</h4>
                                         <h6 class="text-muted mb-2">{{episode.description.substr(0,10)}} ...</h6>
                                         <h6 class="text-muted mb-2">{{podcast.channel.name}}</h6>
+                                        </router-link>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                      </router-link>
+
                     </li>
                 </ol>
             </div>
