@@ -30,7 +30,7 @@
             <div class="col m-2 col-8">
                 <h4 class="border-bottom">Chapters</h4>
                 <ol>
-                    <li reversed="" v-for="episode in podcast.episodes" :key="episode.title" @click="selectPodcast(episode)">
+                    <li reversed v-for="episode in podcast.episodes" :key="episode.title" @click="selectPodcast(episode)">
 
                         <div class="card border-0">
                             <div class="card-body border-0">

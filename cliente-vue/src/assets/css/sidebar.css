@@ -21,3 +21,11 @@
 #podcasts-dd {
   color: #FFF200;
 }
+
+a{
+  color:  white;
+}
+
+a:hover{
+  color:  #FFF300;
+}
