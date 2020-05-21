@@ -4,7 +4,7 @@
     <div id="content">
       <div class="container albumfondo" id="content-container" :key="this.key">
         <div class="row">
-          <div class="col-lg-4 columna-album1">
+          <div class="col-3 columna-album1">
             <div class="divimagealbum"><img class="individual-img-album" :src="album.icon" @click="selectAlbum()">
               <h6 class="divimagealbum">{{album.title}}</h6>
             </div>
@@ -30,15 +30,13 @@
               <li>
                 <div>
                   <div class="row">
-                    <div class="col-lg-6">
-                      <div class="col">
+                    <div class="col-4">
                         <p class="name-song">TITLE</p>
-                      </div>
                     </div>
-                    <div class="col-lg-2 offset-lg-0">
+                    <div class="col-1 offset-lg-0">
                       <div class="tiempo"><i class="far fa-clock"></i></div>
                     </div>
-                    <div class="col-lg-4 tres">
+                    <div class="col tres">
                       <div></div>
                     </div>
                   </div>
@@ -52,35 +50,36 @@
               <li style="filter: contrast(200%);">
                 <div>
                   <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-4">
                       <div @click="setFavorite(songs,!songs.is_fav)" style="display: inline;">
                         <i v-if="songs.is_fav" class="fa fa-star" style="color: rgb(181,146,20);"></i>
                         <i v-else class="fa fa-star"></i>
                       </div>
                       <p class="name-song-list" @click="playNow(songs)" style="display: inline;">{{songs.title}} </p>
                     </div>
-                    <div class="col-lg-2">
+                    <div class="col-1">
                       <div class="tiempo">
                         <p>{{songs.duration}}</p>
                       </div>
                     </div>
                     <div class="col tres">
-                      <div>
-                        <div class="dropdown desp"><button class="btn btn-primary dropdown-toggle points" data-toggle="dropdown" aria-expanded="false" type="button"><i class="fa fa-ellipsis-v dropdown show"></i></button>
+                      <div style="display: inline;">
+                        <div class="dropdown desp" style="display: inline;"><button class="btn btn-primary dropdown-toggle points" data-toggle="dropdown" aria-expanded="false" type="button"><i class="fa fa-ellipsis-v dropdown show"></i></button>
                           <div role="menu" class="dropdown-menu">
                             <a role="presentation" class="dropdown-item" href="#" @click="playNext(songs)">Play Next</a>
                           </div>
                         </div>
-                        <div class="btn-group">
-                              <button type="button" class="btn btn-primary btn-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Add to Playlist
-                              </button>
-                              <div class="dropdown-menu">
-                                <a role="presentation" class="dropdown-item" href="#">New Playlist</a>
-                                <a role="presentation" class="dropdown-item" href="#" v-for="playlist in playlists" :key="playlist.name" @click="addToPlaylist(songs,playlist)">{{playlist.title}}</a>
-                              </div>
-                        </div>
+                        
                       </div>
+                      <div class="btn-group btn-group-sm" style="display: inline;">
+                            <button type="button" class="btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Add to Playlist
+                            </button>
+                            <div class="dropdown-menu">
+                              <a role="presentation" class="dropdown-item" href="#">New Playlist</a>
+                              <a role="presentation" class="dropdown-item" href="#" v-for="playlist in playlists" :key="playlist.name" @click="addToPlaylist(songs,playlist)">{{playlist.title}}</a>
+                            </div>
+                          </div>
                     </div>
                   </div>
                 </div>
