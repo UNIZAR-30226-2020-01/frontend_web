@@ -13,28 +13,12 @@
                 </div>
                 <div class="row">
                     <div class="col m-2">
-                        <h4 class="border-bottom">Related Podcasts</h4>
+                        <h4 class="border-bottom">Related genres</h4>
                         <ul class="list-inline">
-                            <li class="list-inline-item m-1">
+                            <li class="list-inline-item m-1" v-for="genre in podcast.genre" :key="genre.name">
                                 <div class="card" id="related_podcast_card">
                                     <div class="card-body"><img id="related_podcast_cover" src="./../assets/img/81aBBHak07L._SS500_.jpg">
-                                        <h5 class="card-title m-2">Title</h5>
-                                        <h6 class="text-muted card-subtitle mb-2">Author</h6>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-inline-item m-1">
-                                <div class="card" id="related_podcast_card">
-                                    <div class="card-body"><img id="related_podcast_cover" src="./../assets/img/81aBBHak07L._SS500_.jpg">
-                                        <h5 class="card-title m-2">Title</h5>
-                                        <h6 class="text-muted card-subtitle mb-2">Author</h6>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-inline-item m-1">
-                                <div class="card" id="related_podcast_card">
-                                    <div class="card-body"><img id="related_podcast_cover" src="./../assets/img/81aBBHak07L._SS500_.jpg">
-                                        <h5 class="card-title m-2">Title</h5>
+                                        <h5 class="card-title m-2">{{genre.name}}</h5>
                                         <h6 class="text-muted card-subtitle mb-2">Author</h6>
                                     </div>
                                 </div>
@@ -119,7 +103,6 @@
           this.podcast.episodes.forEach((pod) => {
                 var list = pod.url.split('/');
                 console.log(list);
-                console.log('cosaaaaaaaaaa')
                 pod.id = list[list.length - 2];
                 pod.url.replace('http://', 'https://');
            });
