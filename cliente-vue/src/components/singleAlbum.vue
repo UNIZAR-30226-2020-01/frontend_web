@@ -47,7 +47,7 @@
             <ul class="lista" v-for="songs in album.songs" :key="songs.title" style="filter: blur(0px) contrast(200%) grayscale(0%);"
               @click="selectAlbum(); playSong(songs);">
               <!-- TODO: Cambiar esto. es para pruebas -->
-              <li style="filter: contrast(200%);">
+              <li style="filter: contrast(200%); margin-bottom:35px">
                 <div>
                   <div class="row">
                     <div class="col-4">
@@ -71,7 +71,7 @@
                         </div>
                         
                       </div>
-                      <div class="btn-group btn-group-sm" style="display: inline;">
+                      <div class="btn-group btn-group-sm dropright" style="display: inline;">
                             <button type="button" class="btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               Add to Playlist
                             </button>
