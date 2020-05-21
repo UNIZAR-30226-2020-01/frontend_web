@@ -91,7 +91,7 @@
                 file: episode.URI,
                 album: {
                     title: this.podcast.title,
-                    photoUrl: episode.image,
+                    icon: episode.image,
                     artist: {
                         name: this.podcast.channel.name
                     }
