@@ -41,7 +41,8 @@
           </div>
         </li>
       </ul>
-      <ul class="lista" v-for="songs in songs" :key="songs.title" style="filter: blur(0px) contrast(200%) grayscale(0%);">
+      <ul class="lista" v-for="songs in songs" :key="songs.title" style="filter: blur(0px) contrast(200%) grayscale(0%);"
+        @click="playSong(songs)">
         <!-- TODO: Cambiar esto. es para pruebas -->
         <li style="filter: contrast(200%);">
           <div>
@@ -285,6 +286,11 @@ export default {
             );
           }
         });
+    },
+    playSong: function (song) {
+      this.$emit('selectPlaylist', [song])
+      console.log("Pidiendo la reproducción de: " + song.title);
+      this.$emit("playSong", song);
     }
   }
 };
