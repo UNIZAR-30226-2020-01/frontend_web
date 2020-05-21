@@ -46,7 +46,8 @@
                 </div>
               </li>
             </ul>
-            <ul class="lista" v-for="songs in album.songs" :key="songs.title" style="filter: blur(0px) contrast(200%) grayscale(0%);">
+            <ul class="lista" v-for="songs in album.songs" :key="songs.title" style="filter: blur(0px) contrast(200%) grayscale(0%);"
+              @click="selectAlbum(); playSong(songs);">
               <!-- TODO: Cambiar esto. es para pruebas -->
               <li style="filter: contrast(200%);">
                 <div>
@@ -140,6 +141,10 @@
       },
       dateOrder: function(){ //Las canciones de un album salen a la vez
       },
+      playSong: function (song) {
+        console.log("Pidiendo la reproducción de: " + song.title);
+        this.$emit("playSong", song);
+      }
     },
     created() {
       // Llamada para traer los datos del artista

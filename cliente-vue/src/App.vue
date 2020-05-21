@@ -3,7 +3,7 @@
     <!-- Cuando nos llegue el logout -> Stop reproduction -->
     <barra-superior v-if="checkRouter" v-bind:mostrarModoPodcast="mostrarPodcastObject" @logout="logout()"></barra-superior>
       <barra-lateral v-bind:checkRouterObject="checkRouterObject" v-bind:showButtonPlayer="showButtonPlayer" @showPlayer="showPlayer" @MenuChanged="changePodcast_Songs">
-        <router-view slot="router" @selectPlaylist="setPlaylist" @playnext="addToQueue" @playnow="playIndSong"/>
+        <router-view slot="router" @selectPlaylist="setPlaylist" @playnext="addToQueue" @playnow="playIndSong" @playSong="playSong"/>
 
         <div class="col-3 align-self-baseline sticky-top" id="player-col" v-show="visible" slot="repro">
             <div class="wrapper">
@@ -240,8 +240,8 @@ export default {
       console.log("Setting playlist: " + playlist);
       this.initPlaylist(playlist);
       this.playlist = playlist;
-      this.playNew(0);
-      this.play();
+      // this.playNew(0);
+      // this.play();
     },
     addToQueue: function(songs){
       songs.howl = new Howl({
@@ -439,8 +439,17 @@ export default {
           this.animated = !this.animated;
         }
 
+      },
+      playSong: function(song) {
+        let i = this.playlist.indexOf(song)
+        if(i != -1){
+          // Existe el elemento a reproducir en la playlist.
+          console.log("La cancion existe");
+          this.index = i;
+          this.playNew(i);
+        }
       }
-},
+  },
   computed: {
     checkRouter: function(){
       console.log(this.$route.path);
