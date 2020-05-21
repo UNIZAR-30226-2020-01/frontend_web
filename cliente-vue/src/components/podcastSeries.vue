@@ -45,8 +45,8 @@
             </div>
             <div class="col m-2 col-8">
                 <h4 class="border-bottom">Chapters</h4>
-                <ol reversed="" v-for="episode in podcast.episodes" :key="episode.title">
-                    <li>
+                <ol>
+                    <li reversed="" v-for="episode in podcast.episodes" :key="episode.title" @click="selectPodcast(episode)">
                         <div class="card border-0">
                             <div class="card-body border-0">
                                 <div class="row">
@@ -78,6 +78,26 @@
       }
     },
     methods: {
+        selectPodcast: function(episode){
+            let episodeConverted = this.convertPodcastToSong(episode);
+            this.$emit('selectPlaylist', [episodeConverted]);
+            console.log("Pidiendo la reproducción de: " + episodeConverted.title);
+            this.$emit("playSong", episodeConverted);
+        },
+        convertPodcastToSong: function(episode) {
+            console.log(episode.image);
+            return {
+                title: episode.title,
+                file: episode.URI,
+                album: {
+                    title: this.podcast.title,
+                    photoUrl: episode.image,
+                    artist: {
+                        name: this.podcast.channel.name
+                    }
+                }
+            }
+        }
     },
     created() {
       // Llamada para traer los datos del artista
@@ -92,6 +112,10 @@
         if (response.status == 200) {
           console.log(response.body)
           this.podcast = response.body
+        // Pensar en hacer un sort
+        //   this.podcast.episodes.sort(function(a, b){
+        //       return a.title < b.title ? -1 : 1;
+        //   })
         }
       })
       // this.updateKey();
