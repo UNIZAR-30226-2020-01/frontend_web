@@ -44,8 +44,7 @@
                 </div>
               </li>
             </ul>
-            <ul class="lista" v-for="songs in album.songs" :key="songs.title" style="filter: blur(0px) contrast(200%) grayscale(0%);"
-              @click="selectAlbum(); playSong(songs);">
+            <ul class="lista" v-for="songs in album.songs" :key="songs.title" style="filter: blur(0px) contrast(200%) grayscale(0%);">
               <!-- TODO: Cambiar esto. es para pruebas -->
               <li style="filter: contrast(200%); margin-bottom:35px">
                 <div>
@@ -55,7 +54,7 @@
                         <i v-if="songs.is_fav" class="fa fa-star" style="color: rgb(181,146,20);"></i>
                         <i v-else class="fa fa-star"></i>
                       </div>
-                      <p class="name-song-list" @click="playNow(songs)" style="display: inline;">{{songs.title}} </p>
+                      <p class="name-song-list" @click="selectAlbum(); playSong(songs);" style="display: inline;">{{songs.title}} </p>
                     </div>
                     <div class="col-1">
                       <div class="tiempo">
