@@ -20,7 +20,9 @@
     </div>
 
     <div v-if="this.checkSongs" class="container-fluid">
+    <div class="jumbotron">
       <h1> Songs </h1>
+      </div>
       <ul class="lista" style="filter: blur(0px) contrast(200%) grayscale(0%);">
         <li>
           <div>
@@ -61,7 +63,7 @@
               </div>
               <div class="col tres">
                 <div>
-                  <div class="dropdown desp"><button class="btn btn-primary dropdown-toggle points"
+                  <div class="dropdown desp"><button class="btn btn-primary white dropdown-toggle points"
                             data-toggle="dropdown"
                             aria-expanded="false"
                             type="button"><i class="fa fa-ellipsis-v dropdown show"></i></button>
@@ -77,7 +79,9 @@
     </div>
 
     <div v-if="this.checkArtists" class="container-fluid">
+    <div class="jumbotron">
       <h1> Artists </h1>
+      </div>
       <ul class="list-inline text-center">
         <li class="list-inline-item artist-item" v-for="artist in artists" :key="artist.name">
           <router-link v-bind:to="'/artists/' + artist.id ">
@@ -97,7 +101,9 @@
     </div>
 
     <div v-if="this.checkAlbums" class="container-fluid">
+    <div class="jumbotron">
       <h1> Albums </h1>
+    </div>
         <ul class="list-inline text-center">
           <li class="list-inline-item album-item" v-for="album in albums" :key="album.title">
             <router-link v-bind:to="'/albums/' + album.id ">
@@ -116,7 +122,9 @@
     </div>
 
     <div v-if="this.checkPlaylists" class="container-fluid">
+    <div class="jumbotron">
       <h1> Playlists </h1>
+      </div>
         <ul class="list-inline text-center">
           <li class="list-inline-item artist-item" v-for="playlist in playlists" :key="playlist.name">
             <router-link v-bind:to="'/playlists/' + playlist.id ">
@@ -300,4 +308,5 @@ export default {
 @import "./../assets/css/searchBar.css";
 @import "./../assets/css/styles.css";
 @import "./../assets/css/artists.css";
+
 </style>

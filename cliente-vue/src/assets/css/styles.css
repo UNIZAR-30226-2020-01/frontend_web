@@ -10,41 +10,24 @@ body {
   font-family: 'Roboto';
 }
 
-.btn.btn-primary {
-  color: black;
-  margin: 10px;
-  border-style: none;
-  border-radius: 15px;
-  background-color: #FFD300;
-  border-color: transparent;
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #FFD300 !important;
 }
 
+.btn-primary.white,.btn-primary.white:hover, .btn-primary.white:active, .btn-primary.white:visited {
+  background-color:white !important;
+}
+
+.btn-primary.black,.btn-primary.black:hover, .btn-primary.black:active, .btn-primary.black:visited {
+  background-color:black !important;
+}
 .button:focus{
-  color: #FFD300;
-  background-color: #FFD300;
-  border-color: #FFD300;
-  box-shadow: 0 0 0 .2rem rgba(255,211,0,0.5);
-}
-.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-primary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 .2rem rgba(255,211,0,0.5);
+  color: ##ffbe00 !important;
+  background-color: #FFD300!important;
+  border-color: #FFD300 !important;
+  box-shadow: 0 0 0 .2rem rgba(255,211,0,0.5) !important;
 }
 
-.btn-primary.focus, .btn-primary.btn-block:focus {
-  color: #FFD300;
-  background-color: #FFD300;
-  border-color: #FFD300;
-  box-shadow: 0 0 0 .2rem rgba(255,211,0,0.5);
-}
-.btn-group {
-  display: block;
-}
-.btn-primary:hover {background-color: #FFD300}
-
-.btn-primary.btn-block:active {
-  background-color: #FFD300;
-  box-shadow: 0 5px #FFD300;
-  transform: translateY(4px);
-}
 #primero {
   font-size: 10vw;
   font-weight: 300;
@@ -79,13 +62,10 @@ body {
   top: 50px;
 }
 
-.btn.btn-primary.submit-button {
-  margin-left: 56%;
-  margin-top: 20px;
-  min-width: 44%;
+h1{
+  color:white;
 }
 
 .text-left.form {
   max-width: 500px;
 }
-

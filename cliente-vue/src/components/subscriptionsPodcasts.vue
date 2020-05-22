@@ -14,7 +14,7 @@
                                 <h6>{{podcast.channel.name}}</h6>
                                 <h6>{{podcast.number_episodes}} episodes</h6>
                             </div>
-                        </div><button class="btn btn-primary m-2" id="unsub_btn" type="button">Unsubscribe&nbsp;<i class="fa fa-minus"></i></button></div>
+                        </div><button class="btn btn-primary black" id="unsub_btn" type="button">Unsubscribe&nbsp;<i class="fa fa-minus"></i></button></div>
                   </router-link>
                 </li>
             </ul>
@@ -26,7 +26,7 @@
                     <div class="card" id="popular_podcast_card">
                         <div class="card-body"><img id="popular_cover" v-bind:src="tpodcast.image">
                             <h5>{{tpodcast.title}}: {{tpodcast.publisher}}</h5>
-                            <button class="btn btn-primary" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div>
+                            <button class="btn btn-primary black" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div>
                     </div>
                 </li>
             </ul>

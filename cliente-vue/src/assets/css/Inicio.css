@@ -10,6 +10,10 @@
   color:white;
 }
 
+#text_download{
+  color:black;
+}
+
 .login-dark {
   height: 400px;
   /*background: #475d62 url(../../assets/img/star-sky.jpg);*/

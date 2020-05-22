@@ -12,7 +12,7 @@
               <p class="number-songs">Number of songs: {{album.number_songs}}</p>
               <p class="day-release">Since: Day release: {{album.date}}</p>
             </div>
-            <div class="dropdown desp"><button class="btn btn-primary dropdown-toggle points"
+            <div class="dropdown desp"><button class="btn btn-primary white dropdown-toggle points"
                       data-toggle="dropdown"
                       aria-expanded="false"
                       type="button"><i class="fa fa-ellipsis-v dropdown show"></i></button>
@@ -64,7 +64,7 @@
                     </div>
                     <div class="col tres">
                       <div style="display: inline;">
-                        <div class="dropdown desp" style="display: inline;"><button class="btn btn-primary dropdown-toggle points" data-toggle="dropdown" aria-expanded="false" type="button"><i class="fa fa-ellipsis-v dropdown show"></i></button>
+                        <div class="dropdown desp" style="display: inline;"><button class="btn btn-primary white dropdown-toggle points" data-toggle="dropdown" aria-expanded="false" type="button"><i class="fa fa-ellipsis-v dropdown show"></i></button>
                           <div role="menu" class="dropdown-menu">
                             <a role="presentation" class="dropdown-item" href="#" @click="playNext(songs)">Play Next</a>
                           </div>

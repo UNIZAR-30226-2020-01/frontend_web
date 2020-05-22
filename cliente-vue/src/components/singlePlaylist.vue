@@ -12,7 +12,7 @@
               <p class="number-songs">Number of songs: {{playlist.number_songs}}</p>
               <!-- <p class="day-release">Since: Day release: {{playlist.date}}</p> -->
             </div>
-            <div class="dropdown desp"><button class="btn btn-primary dropdown-toggle points"
+            <div class="dropdown desp"><button class="btn btn-primary white dropdown-toggle points"
                       data-toggle="dropdown"
                       aria-expanded="false"
                       type="button"><i class="fa fa-ellipsis-v dropdown show"></i></button>
@@ -66,7 +66,7 @@
                     </div>
                     <div class="col tres">
                       <div>
-                        <div class="dropdown desp"><button class="btn btn-primary dropdown-toggle points"
+                        <div class="dropdown desp"><button class="btn btn-primary white dropdown-toggle points"
                                   data-toggle="dropdown"
                                   aria-expanded="false"
                                   type="button"><i class="fa fa-ellipsis-v dropdown show"></i></button>
