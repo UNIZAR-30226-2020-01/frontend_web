@@ -15,7 +15,7 @@
         placeholder="Songs, artists, albums..."
         style="width: 309px;"
         v-model="search"
-        @keyup.enter="searchAlbums(search);searchArtists(search);searchUsers(search);searchSongs(search)"
+        @keyup.enter="searchAlbums(search);searchArtists(search);searchPlaylist(search);searchSongs(search)"
       />
     </div>
 
@@ -267,10 +267,39 @@ export default {
         });
     },
     // Busca el parámetro en: nombre del usuario y en sus playlists
-    searchUsers: function(user) {
+    searchPlaylist: function(playlist) {
       this.$http
         .get(
           "https://s7-rest.francecentral.cloudapp.azure.com/playlists/?search=" +
+            playlist,
+          {
+            Authorization:
+              localStorage.getItem("type") + " " + localStorage.getItem("token")
+          }
+        )
+        .then(function(response) {
+          if (response.status == 200) {
+            console.log(response.body);
+            this.playlists = response.body;
+            this.playlists.forEach((playlist) => {
+              var list = playlist.url.split('/');
+              console.log(list);
+              playlist.id = list[list.length - 2];
+              playlist.url = playlist.url.toString().replace('http://', 'https://');
+              // Para cada cancion del playlist
+            });
+          } else {
+            console.log(
+              "Error al buscar un user. Codigo de error: " + response.status
+            );
+          }
+        });
+    },
+    // Busca el parámetro en: nombre del usuario y en sus playlists
+    searchUsers: function(user) {
+      this.$http
+        .get(
+          "https://s7-rest.francecentral.cloudapp.azure.com/s7_user/?search=" +
             user,
           {
             Authorization:
@@ -295,7 +324,8 @@ export default {
           }
         });
     },
-    playSong: function (song) {
+    playSong:
+     function (song) {
       this.$emit('selectPlaylist', [song])
       console.log("Pidiendo la reproducción de: " + song.title);
       this.$emit("playSong", song);
