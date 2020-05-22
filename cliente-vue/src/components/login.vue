@@ -81,7 +81,9 @@
 
       onSuccess(googleUser) {
           console.log(googleUser);
-          let auth = googleUser.getAuthResponse();
+          let auth = googleUser.getAuthResponse(true);
+          console.log('auth y auth.access_token:')
+          console.log(auth);
           console.log(auth.access_token);
 
           // Login al backend con googleUser
