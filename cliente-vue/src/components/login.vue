@@ -112,8 +112,9 @@
               }
             });
       },
-      onFailure() {
+      onFailure(err) {
         console.log("fallo de auth con Google");
+          console.log(err);
       },
       login: function() {
         console.log('Intento el login')
