@@ -81,8 +81,8 @@
 
       onSuccess(googleUser) {
           console.log(googleUser);
-
-          console.log(googleUser.tc.access_token);
+          auth = googleUser.getAuthResponse()
+          console.log(auth.access_token);
 
           // Login al backend con googleUser
           console.log('Intento el login con el token de Google')
@@ -92,7 +92,7 @@
               client_id: 'rPllY8pG9tdFdROaiX7ZwIsCdQ4xzwhskdW1oCaH',
               client_secret: 'GSBMVcRbAjz6C3l2QbfNhXs0jIF3uvBXGqNTdJ27d0fhuGeAJg4YoTMaqOeMS9HqDJtk9Kd8yar8ZVMZOOG5PZJKaRPQwvMnhnp7R1H3TixGA1ZYWPigRUUx2uOv9FkW',
               backend: 'google-oauth2',
-              token: googleUser.tc.access_token,
+              token: auth.access_token,
             })
             .then(function(response) {
               console.log(response.body);
