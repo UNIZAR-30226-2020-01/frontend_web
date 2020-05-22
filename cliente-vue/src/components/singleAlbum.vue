@@ -69,14 +69,30 @@
                             <a role="presentation" class="dropdown-item" href="#" @click="playNext(songs)">Play Next</a>
                           </div>
                         </div>
-                        
+
                       </div>
                       <div class="btn-group btn-group-sm dropright" style="display: inline;">
                             <button type="button" class="btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               Add to Playlist
                             </button>
                             <div class="dropdown-menu">
-                              <a role="presentation" class="dropdown-item" href="#">New Playlist</a>
+                              <a role="presentation" class="dropdown-item" href="#" @click="createPlaylist(titlePlaylist,files)">New Playlist</a>
+                              <input
+                                class="form-control-lg"
+                                type="text"
+                                placeholder="Title of playlist"
+                                style="width: 309px;"
+                                v-model="titlePlaylist"
+                              />
+                              <input
+                                class="form-control-lg"
+                                type="file"
+                                placeholder="Title of playlist"
+                                id="file"
+                                ref="myFiles"
+                                @change="previewFiles"
+                                multiple
+                              />
                               <a role="presentation" class="dropdown-item" href="#" v-for="playlist in playlists" :key="playlist.name" @click="addToPlaylist(songs,playlist)">{{playlist.title}}</a>
                             </div>
                           </div>
@@ -105,10 +121,16 @@
         key: 0,
         id: this.$route.params.id,
         album: {},
-        playlists: {}
+        playlists: {},
+        titlePlaylist: "",
+        files: [],
       }
     },
     methods: {
+      previewFiles(event) {
+        console.log(event.target.files[0]);
+        this.files = event.target.files[0];
+      },
       updateKey: function() {
         this.key = 1 - this.key
       },
