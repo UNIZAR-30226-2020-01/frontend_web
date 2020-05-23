@@ -15,7 +15,7 @@
         placeholder="Songs, artists, albums..."
         style="width: 309px;"
         v-model="search"
-        @keyup.enter="searchAlbums(search);searchArtists(search);searchPlaylist(search);searchSongs(search)"
+        @keyup.enter="searchAlbums(search);searchArtists(search);searchPlaylist(search);searchSongs(search);searchUsers(search)"
       />
     </div>
 
@@ -143,6 +143,24 @@
         </ul>
       </div>
 
+      <div v-if="this.checkUsers" class="container-fluid">
+      <div class="jumbotron">
+        <h1> Users </h1>
+        </div>
+          <ul class="list-inline text-center">
+            <li class="list-inline-item artist-item" v-for="user in users" :key="user.username">
+              <router-link v-bind:to="'/user/' + user.id ">
+              <div class="card text-center p-2 artist-card" >
+                <header class="card-header">
+                  <h3 class="card-title artist-name" style="font-size: 90%" >{{ user.username }}</h3>
+                  <h6 class="card-subtitle">User</h6>
+                </header>
+              </div>
+            </router-link>
+            </li>
+          </ul>
+        </div>
+
       <p v-if="this.checkSomething"> No results </p>
 
     <!-- <player></player> -->
@@ -158,6 +176,7 @@ export default {
       albums: [],
       playlists: [],
       songs: [],
+      users: [],
       search :"",
       execute: false,
     };
@@ -175,8 +194,11 @@ export default {
     checkPlaylists: function(){
       return (this.playlists.length != 0)
     },
+    checkUsers: function(){
+      return (this.users.length != 0)
+    },
     checkSomething: function(){
-      return (this.artists.length == 0) && (this.albums.length == 0) && (this.songs.length == 0) && (this.playlists.length == 0) && this.execute
+      return (this.artists.length == 0) && (this.albums.length == 0) && (this.songs.length == 0) && (this.playlists.length == 0) && (this.users.length == 0) && this.execute
     }
 
   },
@@ -309,12 +331,12 @@ export default {
         .then(function(response) {
           if (response.status == 200) {
             console.log(response.body);
-            this.playlists = response.body;
-            this.playlists.forEach((playlist) => {
-              var list = playlist.url.split('/');
+            this.users = response.body;
+            this.users.forEach((user) => {
+              var list = user.url.split('/');
               console.log(list);
-              playlist.id = list[list.length - 2];
-              playlist.url = playlist.url.toString().replace('http://', 'https://');
+              user.id = list[list.length - 2];
+              user.url = user.url.toString().replace('http://', 'https://');
               // Para cada cancion del playlist
             });
           } else {
