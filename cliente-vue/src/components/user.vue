@@ -114,6 +114,8 @@
         if (response.status == 200) {
           console.log(response.body);
           this.user = response.body;
+          this.user.url = this.user.url.replace('http://', 'https://');
+          console.log("url -----" + this.user.url.replace('http://', 'https://'))
           this.user.playlists.forEach((playlist) => {
             var list = playlist.url.split('/');
             console.log(list);

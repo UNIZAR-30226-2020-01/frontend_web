@@ -14,6 +14,10 @@ export default {
                         // Error
                         console.log("Se ha producido un error al seguir al usuario " + user.username + ". Codigo de error: " + response.status);
                     }
+                },
+                function(response){
+                    console.log("Se ha producido un error al seguir al usuario " + user.username + ". Codigo de error: " + response.status);
+                    console.log(response)
                 }
             );
         },
