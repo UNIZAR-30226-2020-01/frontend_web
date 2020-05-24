@@ -30,3 +30,8 @@
   margin-top: 30px;
 }
 
+#content-container{
+  display:block;
+  width:70%;
+  margin: auto;
+}

@@ -1,6 +1,6 @@
 <template>
   <div id="content" class="col">
-      <div class="container degradado" id="content-container" :key="this.key">
+      <div class="jumbotron" id="content-container" :key="this.key">
           <div class="artist-display"><img class="individual-img" :src="artist.image">
               <div class="artist-info">
                   <h1>{{ artist.name }}</h1>
@@ -10,7 +10,7 @@
                     <ul class="list-inline text-center">
                     <li class="list-inline-item album-item" v-for="album in artist.albums" :key="album.title">
                       <router-link v-bind:to="'/albums/' + album.url.substr(55,10) ">
-                      <div class="card text-center p-2 album-card">
+                      <div class="card text-center p-2 album-card" style="background-color: #101010; border-color: white;">
                         <header class="card-header">
                           <h3 class="card-title" style="font-size: 90%" >{{album.title}}</h3>
                           <h6 class="card-subtitle">Album</h6>
@@ -72,4 +72,5 @@ export default {
 
 <style>
   @import './../assets/css/artist_Indv.css';
+  
 </style>
