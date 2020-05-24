@@ -11,12 +11,14 @@
             <div>
               <p class="number-songs" @click="showFollowers = false;showFollowing = !showFollowing">Following: {{user.following.length}}</p>
               <p class="number-songs" @click="showFollowing = false;showFollowers = !showFollowers">Followers: {{user.followers.length}}</p>
-              <button v-if="!checkIfFollowing" type="button" class="btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @click="followUser(user)">
-                Follow
-              </button>
-              <button v-if="checkIfFollowing" type="button" class="btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @click="unfollowUser(user)">
-                Unfollow
-              </button>
+              <div @click="()=>{$router.go()}">
+                <button v-if="!checkIfFollowing" type="button" class="btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @click="followUser(user)">
+                  Follow
+                </button>
+                <button v-if="checkIfFollowing" type="button" class="btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @click="unfollowUser(user)">
+                  Unfollow
+                </button>
+            </div>
               <p v-if="checkIfFollowers"> Te sigue </p>
               <p v-if="showFollowers"> Followers </p>
               <p v-if="showFollowing"> Following </p>

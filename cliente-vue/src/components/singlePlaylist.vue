@@ -17,8 +17,6 @@
                       aria-expanded="false"
                       type="button"><i class="fa fa-ellipsis-v dropdown show"></i></button>
               <div role="menu" class="dropdown-menu">
-                <a role="presentation" class="dropdown-item" href="#">Share</a>
-                <a role="presentation" class="dropdown-item" href="#">Follow</a>
                 <a role="presentation" class="dropdown-item" href="#" @click="dateOrder">Order by date</a>
                 <a role="presentation" class="dropdown-item" href="#" @click="artistOrder">Order by artist</a>
                 <a role="presentation" class="dropdown-item" href="#" @click="alphOrder">Alphabetical order</a>
