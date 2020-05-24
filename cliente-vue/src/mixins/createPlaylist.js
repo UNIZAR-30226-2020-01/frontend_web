@@ -19,7 +19,7 @@ export default {
               ).then(
                   function(response) {
                       // Tratamiento de la respuesta
-                      if(response.status != 200){
+                      if(response.status != 201){
                           console.log('Error en la creacion de la playlist: ' + title);
                       }
                   }
