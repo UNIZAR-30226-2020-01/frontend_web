@@ -162,8 +162,8 @@
 <style>
 
   @import './../assets/css/Inicio.css';
-  /*@import './../assets/css/styles.css';*/
-  /*@import './../assets/css/bootstrap.min.css';*/
+  @import './../assets/css/styles.css';
+  @import './../assets/css/bootstrap.min.css';
 
   #jumbo-login{
     display:block;
@@ -186,33 +186,8 @@
     border-color: transparent;
   }
 
-  .button:focus{
-    color: #FFD300;
-    background-color: #FFD300;
-    border-color: #FFD300;
-    box-shadow: 0 0 0 .2rem rgba(255,211,0,0.5);
-  }
-  /*
-  .btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-primary.dropdown-toggle:focus {
-    box-shadow: 0 0 0 .2rem rgba(255,211,0,0.5);
-  }*/
-
-  .btn-primary.focus, .btn-primary.btn-block:focus {
-    color: #FFD300;
-    background-color: #FFD300;
-    border-color: #FFD300;
-    box-shadow: 0 0 0 .2rem rgba(255,211,0,0.5);
-  }
-  .btn-group {
-    display: block;
-  }
   .btn-primary:hover {background-color: #FFD300}
 
-  .btn-primary.btn-block:active {
-    background-color: #FFD300;
-    box-shadow: 0 5px #FFD300;
-    transform: translateY(4px);
-  }
 
   .btn.btn-primary.submit-button {
     margin-left: 56%;

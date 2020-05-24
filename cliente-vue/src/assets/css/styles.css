@@ -10,24 +10,38 @@ body {
   font-family: 'Roboto';
 }
 
-.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+
+.btn-primary, .btn-primary:active, .btn-primary:visited {
     background-color: #FFD300 !important;
+}
+.btn-primary:hover{
+  color: white !important;
+}
+.btn-primary:focus{
+  color: black !important;
+  border-color: white !important;
+  box-shadow: 0 0 0 .1rem rgba(255,255,255,1) !important;
 }
 
 .btn-primary.white,.btn-primary.white:hover, .btn-primary.white:active, .btn-primary.white:visited {
   background-color:white !important;
 }
-
-.btn-primary.black,.btn-primary.black:hover, .btn-primary.black:active, .btn-primary.black:visited {
-  background-color:black !important;
-}
-.button:focus{
+.btn-primary.white:focus{
   color: ##ffbe00 !important;
   background-color: #FFD300!important;
   border-color: #FFD300 !important;
   box-shadow: 0 0 0 .2rem rgba(255,211,0,0.5) !important;
 }
+.btn-primary.black,.btn-primary.black:hover, .btn-primary.black:active, .btn-primary.black:visited {
+  background-color:black !important;
+}
 
+.btn-primary.black:focus{
+  color: ##ffbe00 !important;
+  background-color: #FFD300!important;
+  border-color: #FFD300 !important;
+  box-shadow: 0 0 0 .2rem rgba(255,211,0,0.5) !important;
+}
 #primero {
   font-size: 10vw;
   font-weight: 300;

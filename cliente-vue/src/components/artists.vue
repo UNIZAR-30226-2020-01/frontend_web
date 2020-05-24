@@ -5,7 +5,7 @@
       <ul class="list-inline text-center">
         <li class="list-inline-item artist-item" v-for="artist in artists" :key="artist.name">
           <router-link v-bind:to="'/artists/' + artist.id ">
-          <div class="card text-center p-2 artist-card" >
+          <div class="card text-center p-2 artist-card" style="background-color: #101010;">
             <header class="card-header">
               <h3 class="card-title artist-name" style="font-size: 16px">{{artist.name}}</h3>
               <h6 class="card-subtitle">Artist</h6>
