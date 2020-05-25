@@ -15,6 +15,7 @@ import Inicio from './components/inicio.vue';
 import SubscriptionsPodcasts from './components/subscriptionsPodcasts.vue';
 import Following from './components/following.vue'
 import Search from './components/search.vue'
+import SearchPodcast from './components/searchPodcast.vue'
 import DiscoverPodcast from './components/discoverPodcast.vue'
 import DiscoverSongs from './components/discoverSongs.vue'
 import SinglePodcast from './components/singlePodcast.vue'
@@ -107,6 +108,10 @@ export default [
   {
     path: '/search',
     component: Search
+  },
+  {
+    path: '/searchPodcast',
+    component: SearchPodcast
   },
   {
     path: '/discover',

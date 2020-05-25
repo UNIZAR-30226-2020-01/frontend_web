@@ -22,10 +22,10 @@
                                 <div class="row">
                                     <div class="col col-4" id="chapter_cover_col"><img id="chapter_cover" :src="episode.image"></div>
                                     <div class="col" id="chapter_content_col">
-                                      <router-link vbind:podcast_episode="showEpisode(episode)" v-bind:to="'/popularPodcastSeries/singlePopularPodcast/' + episode.id ">
-                                        <h5>{{episode.title}}</h5>
-                                        <h6 class="text-muted mb-2">{{episode.description.substr(0,65)}} ...</h6>
-                                        <h6 class="text-muted mb-2">{{podcast.publisher}}</h6>
+                                      <router-link v-bind:to="'/popularPodcastSeries/singlePopularPodcast/' + episode.id ">
+                                        <h5 @click="showEpisode(episode)">{{episode.title}}</h5>
+                                        <h6 @click="showEpisode(episode)" class="text-muted mb-2">{{episode.description.substr(0,65)}} ...</h6>
+                                        <h6 @click="showEpisode(episode)" class="text-muted mb-2">{{podcast.publisher}}</h6>
                                         </router-link>
                                     </div>
                                 </div>
@@ -48,6 +48,7 @@
         key: 0,
         id: this.$route.params.id,
         podcast: {},
+        episodeInd: []
       }
     },
     methods: {
@@ -70,19 +71,19 @@
                     }
                 }
             }
-        }
-    },
-    computed:{
-      showEpisode: function(episode){
-        return {
-          Object: episode,
-        }
-      },
+        },
+        showEpisode: function(episode){
+          console.log('AEEEEEEEEEEEEAAAAAAAAAAAAAAAAAAA');
+          localStorage.setItem('episode', '');
+          localStorage.setItem('episode', JSON.stringify(episode));
+          console.log(localStorage.getItem('episode'));
+        },
     },
     created() {
       // Llamada para traer los datos del artista
       console.log('creating')
       console.log(this.$route.params)
+      localStorage.setItem('episode','')
       var url = 'https://s7-rest.francecentral.cloudapp.azure.com/podcast/'
       this.$http.get(url + this.id, {
         headers: {
