@@ -8,12 +8,14 @@
                         <br>
                         <h2 style="font-size: 100%">{{podcast.title}}</h2>
                         <h5 style="font-size: 100%">{{podcast.channel.name}}</h5>
-                        <h6>{{podcast.number_episodes}} Caps</h6><button class="btn btn-primary" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div>
+                        <h6>{{podcast.number_episodes}} Caps</h6><button class="btn btn-primary black" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div>
                         </div>
                 </div>
                 <div class="row">
                     <div class="col m-2">
-                        <h4 class="border-bottom">Related genres</h4>
+                        <div class="jumbotron">
+                            <h2>Related genres</h2>
+                        </div>
                         <ul class="list-inline">
                             <li class="list-inline-item m-1" v-for="genre in podcast.genre" :key="genre.name">
                                 <div class="card" id="related_podcast_card">
@@ -28,26 +30,22 @@
                 </div>
             </div>
             <div class="col m-2 col-8">
-                <h4 class="border-bottom">Chapters</h4>
+                <div class="jumbotron">
+                 <h2>Chapters</h2>
+                </div>
                 <ol>
-                    <li reversed v-for="episode in podcast.episodes" :key="episode.title" @click="selectPodcast(episode)">
-
-                        <div class="card border-0">
-                            <div class="card-body border-0">
-                                <div class="row">
-                                    <div class="col col-4" id="chapter_cover_col"><img id="chapter_cover" :src="episode.image"></div>
-                                    <div class="col" id="chapter_content_col">
-                                      <router-link v-bind:to="'/subscriptionsPodcasts/' + episode.id + '/singlePodcast' ">
-                                        <h5>{{episode.title}}</h5>
-                                        <h6 class="text-muted mb-2">{{episode.description.substr(0,65)}} ...</h6>
-                                        <h6 class="text-muted mb-2">{{podcast.channel.name}}</h6>
-                                        </router-link>
-                                    </div>
+                        <li reversed v-for="episode in podcast.episodes" :key="episode.title" @click="selectPodcast(episode)">
+                            <div class="row jumbotron white" style="box-shadow: 0 0 0 .1rem rgba(255,255,255,1)">
+                                <div class="col col-4 " id="chapter_cover_col"><img id="chapter_cover" :src="episode.image"></div>
+                                <div class="col" id="chapter_content_col">
+                                <router-link v-bind:to="'/subscriptionsPodcasts/' + episode.id + '/singlePodcast' ">
+                                    <h5>{{episode.title}}</h5>
+                                    <h6 class="text-muted mb-2">{{episode.description.substr(0,65)}} ...</h6>
+                                    <h6 class="text-muted mb-2">{{podcast.channel.name}}</h6>
+                                    </router-link>
                                 </div>
                             </div>
-                        </div>
-
-                    </li>
+                        </li>
                 </ol>
             </div>
         </div>
@@ -122,5 +120,14 @@
 
   @import './../assets/css/styles.css';
   @import './../assets/css/podcastSeries.css';
+  
+  .jumbotron.listjumbo{
+      position:relative;
+      background-color: white;
+      border-color:black;
+      color:black;
+      box-shadow: 0 0 0 .1rem rgba(0,0,0,1);
+      
+  }
 
 </style>

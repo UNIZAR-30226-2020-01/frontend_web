@@ -18,7 +18,7 @@
   float: left;
   max-width: 258px;
   border-style: solid;
-  border-color: black;
+  border-color: #101010;
   border-width: 4px;
 }
 
@@ -29,7 +29,7 @@
 }
 
 #subscribed-podcast-card {
-  border-color: black;
+  border-color: #101010;
   border: 4px;
   border-width: 2px;
   border-radius: 10px;
@@ -39,26 +39,26 @@
 
 #popular_podcast_card {
   border-width: 2px;
-  border-color: black;
+  border-color: #101010;
   border-radius: 50px;
 }
 
 #popular_cover {
-  border-color: black;
+  border-color: #101010;
   border-width: 2px;
   border-style: solid;
   border-radius: 50px;
 }
 
 #subscribed-podcast-card {
-  border-color: black;
+  border-color: #101010;
 }
 
 #links_PodcastsSeries {
-  color: black;
+  color: #101010;
 }
 
 #links_PodcastsSeries:hover{
-  color: #E5E130;
+  color: #FFD300;
 }
 
