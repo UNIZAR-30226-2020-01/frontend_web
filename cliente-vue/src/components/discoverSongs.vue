@@ -134,29 +134,29 @@ export default {
   created() {
     // Llamada para traer los datos del artista
     console.log('creating')
-    var url = 'https://s7-rest.francecentral.cloudapp.azure.com/songs/?ordering=-times_played'
+    var url = 'https://s7-rest.francecentral.cloudapp.azure.com/songs/?ordering=-times_played&limit=5&offset=0'
     this.$http.get(url, {
       headers: {
         Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
       }
     }).then(function(response) {
       if (response.status == 200) {
-        console.log(response.body);
-        this.mostPlayed = response.body;
+        console.log(response.body.results);
+        this.mostPlayed = response.body.results;
       }
     })
     // this.updateKey();
 
     console.log('creating')
-    url = 'https://s7-rest.francecentral.cloudapp.azure.com/songs/?ordering=-times_liked'
+    url = 'https://s7-rest.francecentral.cloudapp.azure.com/songs/?ordering=-times_liked&limit=5&offset=0'
     this.$http.get(url, {
       headers: {
         Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
       }
     }).then(function(response) {
       if (response.status == 200) {
-        console.log(response.body);
-        this.mostLiked = response.body;
+        console.log(response.body.results);
+        this.mostLiked = response.body.results;
       }
     })
   },

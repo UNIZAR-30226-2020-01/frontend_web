@@ -3,7 +3,7 @@ export default {
     getAllPodcasts: function() {
       // Esto es un mixin que utilizara un objeto Vue asi que podemos usar
       // peticiones HTTP con el atributo $http
-      this.$http.get('https://s7-rest.francecentral.cloudapp.azure.com/podcasts/', {
+      this.$http.get('https://s7-rest.francecentral.cloudapp.azure.com/user/podcasts/', {
         headers: {
           Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
         }
