@@ -1,8 +1,10 @@
 <template>
-
   <div class="col">
+    <br>
     <div class="container-fluid">
-      <h1> Genres </h1>
+      <div class="jumbotron">
+        <h1> Genres </h1>
+      </div>
         <ul class="list-inline text-center">
           <li class="list-inline-item album-item" v-for="genre in genres" :key="genre.name">
             <div class="card text-center p-2 album-card">
@@ -13,7 +15,16 @@
             </div>
           </li>
         </ul>
-    </div>
+      </div>
+
+
+        <br>
+        <div class="container-fluid">
+          <div class="jumbotron">
+            <h1> For you </h1>
+          </div>
+            <!-- hay que implementarlo -->
+        </div>
 </div>
 
 </template>

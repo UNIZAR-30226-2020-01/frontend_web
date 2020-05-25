@@ -30,7 +30,9 @@
               <li class="m-2" v-for="tpodcast in trending_podcasts" :key="tpodcast.title" >
                   <div class="card" id="popular_podcast_card">
                       <div class="card-body"><img id="popular_cover" v-bind:src="tpodcast.image">
+                        <router-link v-bind:to="'/popularPodcastSeries/' + tpodcast.id ">
                           <h5 style="font-size: 2vmin;">{{tpodcast.title}}: {{tpodcast.publisher}}</h5>
+                        </router-link>
                           <button class="btn btn-primary black" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div>
                   </div>
               </li>

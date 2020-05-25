@@ -10,6 +10,7 @@ import Playlists from './components/playlists.vue';
 import SinglePlaylist from './components/singlePlaylist.vue';
 import NewPodcasts from './components/newPodcasts.vue';
 import PodcastSeries from './components/podcastSeries.vue';
+import PopularPodcastSeries from './components/popularPodcastSeries.vue';
 import Inicio from './components/inicio.vue';
 import SubscriptionsPodcasts from './components/subscriptionsPodcasts.vue';
 import Following from './components/following.vue'
@@ -17,6 +18,7 @@ import Search from './components/search.vue'
 import DiscoverPodcast from './components/discoverPodcast.vue'
 import DiscoverSongs from './components/discoverSongs.vue'
 import SinglePodcast from './components/singlePodcast.vue'
+import SinglePopularPodcast from './components/singlePopularPodcast.vue'
 import User from './components/user.vue'
 // Exportamos el objeto de rutas
 export default [
@@ -76,6 +78,15 @@ export default [
   {
     path: '/subscriptionsPodcasts/:id/singlePodcast',
     component: SinglePodcast
+  },
+  {
+    path: '/popularPodcastSeries/:id',
+    component: PopularPodcastSeries
+  },
+  {
+    path: '/popularPodcastSeries/singlePopularPodcast/:id',
+    component: SinglePopularPodcast,
+    params: true
   },
   {
     path: '/inicio',

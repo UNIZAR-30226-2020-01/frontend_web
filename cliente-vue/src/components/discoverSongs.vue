@@ -1,5 +1,6 @@
 <template>
   <div class="col">
+    <br>
     <div class="container-fluid">
       <div class="jumbotron disc">
         <h1 class="text-center">Most played</h1>
