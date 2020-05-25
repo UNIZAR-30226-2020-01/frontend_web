@@ -4,6 +4,12 @@
   padding-top: 225px;
 }
 
+.jumbotron.white{
+  background-color: white;
+  color:black;
+  box-shadow: 0 0 0 .2rem rgba(0,0,0,1);
+}
+
 body {
   /*background: url(../../assets/img/piano.jpg) no-repeat fixed center;*/
   background-size: cover;
