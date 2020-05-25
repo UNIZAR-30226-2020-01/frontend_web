@@ -209,43 +209,7 @@
 <style>
 
   @import './../assets/css/album_Indv.css';
-/*
-  .individual-img-user {
-  opacity: 1;
-  display: block;
-  width: 100%;
-  height: auto;
-  transition: .5s ease;
-  backface-visibility: hidden;
-}
 
-.middle {
-  transition: .5s ease;
-  opacity: 0;
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-.divimageuser:hover .individual-img-user {
-  opacity: 0.3;
-}
-
-.divimageuser:hover .middle {
-  opacity: 1;
-}
-
-.div_change {
-  background-color: black;
-  color: white;
-  font-size: 16px;
-  padding: 16px 32px;
-  border-radius: 25px;
-}
-*/
 .img__img{
   height: 200px;
   width: 200px;
@@ -264,8 +228,11 @@
   text-align: center;
   width: 150px;
   border-radius: 25px;
-  bottom: 120px;
-  left: 70px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
   /* transition effect. not necessary */
   transition: opacity .2s, visibility .2s;

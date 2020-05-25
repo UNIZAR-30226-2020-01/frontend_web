@@ -5,10 +5,12 @@
       <div class="container albumfondo" id="content-container" :key="this.key">
         <div class="row">
           <div class="col-3 columna-album1">
-                <div class="divimagealbum"><img class="individual-img-album" :src="album.icon" @click="selectAlbum()">
-                  <h6 class="divimagealbum">{{album.title}}</h6>
+                <div class="divimagealbum img__wrap" @click="selectAlbum()"><img class="individual-img-album img__img" :src="album.icon" v>
+                  <i class="img__description fa fa-play"></i>
+                  
                 </div>
                 <div>
+                  <h6 class="divimagealbum">{{album.title}}</h6>
                   <p class="number-songs">Number of songs: {{album.number_songs}}</p>
                   <p class="day-release">Since: Day release: {{album.date}}</p>
                 </div>
@@ -220,7 +222,39 @@
   border-color: black;
 }
 
+.img__img{
+  height: 200px;
+  width: 200px;
+}
 
+.img__wrap {
+  cursor:pointer;
+  position: relative;
+}
 
+.img__description {
+  position: absolute;
+  color: black;
+  visibility: hidden;
+  opacity: 0;
+  text-align: center;
+  width: 45px;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* transition effect. not necessary */
+  transition: opacity .2s, visibility .2s;
+}
+
+.img__wrap:hover .img__description {
+  visibility: visible;
+  opacity: 1;
+}
+
+.img__wrap:hover .img__img {
+  opacity: 0.3;
+}
 
 </style>
