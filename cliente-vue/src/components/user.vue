@@ -5,7 +5,8 @@
       <div class="container albumfondo" id="content-container" :key="this.key">
         <div class="row">
           <div class="col-lg-4 columna-album1">
-            <div class="divimagealbum"><img class="individual-img-album" :src="user.icon">
+            <div class="img__wrap"><img class="img__img" :src="user.icon">
+              <p class="img__description">Change profile picture</p>
               <h6 class="divimagealbum">{{user.username}}</h6>
             </div>
             <div>
@@ -208,5 +209,79 @@
 <style>
 
   @import './../assets/css/album_Indv.css';
+/*
+  .individual-img-user {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.divimageuser:hover .individual-img-user {
+  opacity: 0.3;
+}
+
+.divimageuser:hover .middle {
+  opacity: 1;
+}
+
+.div_change {
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+  border-radius: 25px;
+}
+*/
+.img__img{
+  height: 200px;
+  width: 200px;
+}
+
+.img__wrap {
+  position: relative;
+}
+
+.img__description {
+  position: relative;
+  background-color: black;
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  text-align: center;
+  width: 150px;
+  border-radius: 25px;
+  bottom: 120px;
+  left: 70px;
+
+  /* transition effect. not necessary */
+  transition: opacity .2s, visibility .2s;
+}
+
+.img__wrap:hover .img__description {
+  visibility: visible;
+  opacity: 1;
+}
+
+.img__wrap:hover .img__img {
+  opacity: 0.3;
+}
+
+.img__wrap:hover .middle {
+  opacity: 1;
+}
 
 </style>
