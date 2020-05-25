@@ -12,6 +12,7 @@
               <p class="number-songs">Number of songs: {{album.number_songs}}</p>
               <p class="day-release">Since: Day release: {{album.date}}</p>
             </div>
+           
             <div class="dropdown desp"><button class="btn btn-primary white dropdown-toggle points"
                       data-toggle="dropdown"
                       aria-expanded="false"
@@ -21,13 +22,13 @@
                 <a role="presentation" class="dropdown-item" href="#" @click="artistOrder">Order by artist</a>
                 <a role="presentation" class="dropdown-item" href="#" @click="alphOrder">Alphabetical order</a>
               </div>
-            </div>
           </div>
+           </div>
           <div class="col">
             <ul class="lista" style="filter: blur(0px) contrast(200%) grayscale(0%);">
               <li>
                 <div>
-                  <div class="row">
+                  <div class="row jumbotron" id="jumbo_title">
                     <div class="col-4">
                         <p class="name-song">TITLE</p>
                     </div>
@@ -37,8 +38,7 @@
                     <div class="col tres">
                       <div></div>
                     </div>
-                  </div>
-                  <hr>
+                </div>
                 </div>
               </li>
             </ul>
@@ -201,5 +201,9 @@
 <style scoped>
 @import './../assets/css/styles.css';
 @import './../assets/css/album_Indv.css';
+
+#jumbo_title{
+  height:10px;
+}
 
 </style>

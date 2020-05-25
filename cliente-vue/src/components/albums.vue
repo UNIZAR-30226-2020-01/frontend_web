@@ -5,7 +5,7 @@
         <ul class="list-inline text-center">
           <li class="list-inline-item album-item" v-for="album in albums" :key="album.title">
             <router-link v-bind:to="'/albums/' + album.id ">
-            <div class="card text-center p-2 album-card">
+            <div class="card text-center p-2 album-card" style="background-color:#101010">
               <header class="card-header">
                 <h3 class="card-title" style="font-size: 90%" >{{album.title}}</h3>
                 <h6 class="card-subtitle">Album</h6>

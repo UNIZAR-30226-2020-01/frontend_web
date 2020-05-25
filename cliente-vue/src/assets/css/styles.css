@@ -11,6 +11,7 @@ body {
 }
 
 
+/*Botones normales*/
 .btn-primary, .btn-primary:active, .btn-primary:visited {
     background-color: #FFD300 !important;
 }
@@ -23,6 +24,7 @@ body {
   box-shadow: 0 0 0 .1rem rgba(255,255,255,1) !important;
 }
 
+/*Botones con fondo blanco*/
 .btn-primary.white,.btn-primary.white:hover, .btn-primary.white:active, .btn-primary.white:visited {
   background-color:white !important;
 }
@@ -30,17 +32,19 @@ body {
   color: ##ffbe00 !important;
   background-color: #FFD300!important;
   border-color: #FFD300 !important;
-  box-shadow: 0 0 0 .2rem rgba(255,211,0,0.5) !important;
+  box-shadow: 0 0 0 .1rem rgba(255,211,0,0.5) !important;
 }
+
+/*Botones con fondo negro*/
 .btn-primary.black,.btn-primary.black:hover, .btn-primary.black:active, .btn-primary.black:visited {
   background-color:black !important;
 }
 
 .btn-primary.black:focus{
-  color: ##ffbe00 !important;
-  background-color: #FFD300!important;
-  border-color: #FFD300 !important;
-  box-shadow: 0 0 0 .2rem rgba(255,211,0,0.5) !important;
+  color: black !important;
+  background-color: white!important;
+  border-color: #black !important;
+  box-shadow: 0 0 0 .1rem black!important;
 }
 #primero {
   font-size: 10vw;

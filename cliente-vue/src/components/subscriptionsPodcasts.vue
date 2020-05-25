@@ -3,34 +3,38 @@
 <div class="col">
     <div class="row">
         <div class="col col-8">
-            <h4 class="border-bottom">Subscriptions</h4>
-            <ul class="list-inline">
-                <li class="list-inline-item m-1" v-for="podcast in podcasts" :key="podcast.title" >
-                  <router-link v-bind:to="'/subscriptionsPodcasts/' + podcast.id ">
-                    <div class="card m-2" id="subscribed-podcast-card">
-                        <div class="card-body" id="subscribed_podc"><img id="subscribed_podc_cover" class="m-2 rounded" v-bind:src="podcast.image">
-                            <div id="div_subs_text">
-                                <h4 id="links_PodcastsSeries">{{podcast.title}}</h4>
-                                <h6 id="links_PodcastsSeries">{{podcast.channel.name}}</h6>
-                                <h6 id="links_PodcastsSeries">{{podcast.number_episodes}} episodes</h6>
-                                <button class="btn btn-primary black subsPodcastSubBtn" id="unsub_btn" type="button">Unsubscribe&nbsp;<i class="fa fa-minus" style="in"></i></button>
-                            </div>
-                        </div></div>
-                  </router-link>
-                </li>
-            </ul>
+          <div class="jumbotron subscription">
+            <h4>Subscriptions</h4>
+          </div>
+          <ul class="list-inline">
+              <li class="list-inline-item m-1" v-for="podcast in podcasts" :key="podcast.title" >
+                <router-link v-bind:to="'/subscriptionsPodcasts/' + podcast.id ">
+                  <div class="card m-2" id="subscribed-podcast-card">
+                      <div class="card-body" id="subscribed_podc"><img id="subscribed_podc_cover" class="m-2 rounded" v-bind:src="podcast.image">
+                          <div id="div_subs_text">
+                              <h4 id="links_PodcastsSeries">{{podcast.title}}</h4>
+                              <h6 id="links_PodcastsSeries">{{podcast.channel.name}}</h6>
+                              <h6 id="links_PodcastsSeries">{{podcast.number_episodes}} episodes</h6>
+                              <button class="btn btn-primary black subsPodcastSubBtn" id="unsub_btn" type="button">Unsubscribe&nbsp;<i class="fa fa-minus" style="in"></i></button>
+                          </div>
+                      </div></div>
+                </router-link>
+              </li>
+          </ul>
         </div>
         <div class="col col-4">
-            <h4 class="border-bottom">Popular</h4>
-            <ul class="list-unstyled">
-                <li class="m-2" v-for="tpodcast in trending_podcasts" :key="tpodcast.title" >
-                    <div class="card" id="popular_podcast_card">
-                        <div class="card-body"><img id="popular_cover" v-bind:src="tpodcast.image">
-                            <h5 style="font-size: 2vmin;">{{tpodcast.title}}: {{tpodcast.publisher}}</h5>
-                            <button class="btn btn-primary black" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div>
-                    </div>
-                </li>
-            </ul>
+          <div class="jumbotron subscription" id="jumbo_popular">
+            <h4>Popular</h4>
+          </div>
+          <ul class="list-unstyled">
+              <li class="m-2" v-for="tpodcast in trending_podcasts" :key="tpodcast.title" >
+                  <div class="card" id="popular_podcast_card">
+                      <div class="card-body"><img id="popular_cover" v-bind:src="tpodcast.image">
+                          <h5 style="font-size: 2vmin;">{{tpodcast.title}}: {{tpodcast.publisher}}</h5>
+                          <button class="btn btn-primary black" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div>
+                  </div>
+              </li>
+          </ul>
         </div>
     </div>
 </div>
@@ -69,6 +73,12 @@
     color:white;
     display:inline-block;
     position:relative;
+  }
+
+  .jumbotron.subscription{
+    display:block;
+    position:relative;
+    top:20px;
   }
 
 </style>

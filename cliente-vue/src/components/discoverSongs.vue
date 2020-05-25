@@ -1,8 +1,8 @@
 <template>
   <div class="col">
     <div class="container-fluid">
-    <div class="jumbotron">
-      <h1> Most played </h1>
+      <div class="jumbotron disc">
+        <h1 class="text-center">Most played</h1>
       </div>
       <ul class="lista" style="filter: blur(0px) contrast(200%) grayscale(0%);">
         <li>
@@ -62,9 +62,7 @@
 
 
     <div class="container-fluid">
-    <div class="jumbotron">
-      <h1> Most liked </h1>
-      </div>
+      <h1 class="jumbotron disc"> Most liked </h1>
       <ul class="lista" style="filter: blur(0px) contrast(200%) grayscale(0%);">
         <li>
           <div>
@@ -170,5 +168,10 @@ export default {
 @import "./../assets/css/styles.css";
 @import "./../assets/css/artists.css";
 @import './../assets/css/album_Indv.css';
+
+.jumbotron.disc{
+  position: relative;
+  top:20px;
+}
 
 </style>
