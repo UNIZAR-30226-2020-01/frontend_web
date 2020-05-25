@@ -21,7 +21,7 @@
                                 <div class="card" id="related_podcast_card">
                                     <div class="card-body"><img id="related_podcast_cover" src="./../assets/img/81aBBHak07L._SS500_.jpg">
                                         <h5 class="card-title m-2">{{genre.name}}</h5>
-                                        <h6 class="text-muted card-subtitle mb-2">Author</h6>
+                                        <h6 class="text-muted card-subtitle mb-2">Genre</h6>
                                     </div>
                                 </div>
                             </li>
