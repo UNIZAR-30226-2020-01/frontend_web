@@ -5,24 +5,24 @@
       <div class="container albumfondo" id="content-container" :key="this.key">
         <div class="row">
           <div class="col-3 columna-album1">
-            <div class="divimagealbum"><img class="individual-img-album" :src="album.icon" @click="selectAlbum()">
-              <h6 class="divimagealbum">{{album.title}}</h6>
-            </div>
-            <div>
-              <p class="number-songs">Number of songs: {{album.number_songs}}</p>
-              <p class="day-release">Since: Day release: {{album.date}}</p>
-            </div>
-           
-            <div class="dropdown desp"><button class="btn btn-primary white dropdown-toggle points"
-                      data-toggle="dropdown"
-                      aria-expanded="false"
-                      type="button"><i class="fa fa-ellipsis-v dropdown show"></i></button>
-              <div role="menu" class="dropdown-menu">
-                <a role="presentation" class="dropdown-item" href="#" @click="dateOrder">Order by date</a>
-                <a role="presentation" class="dropdown-item" href="#" @click="artistOrder">Order by artist</a>
-                <a role="presentation" class="dropdown-item" href="#" @click="alphOrder">Alphabetical order</a>
-              </div>
-          </div>
+                <div class="divimagealbum"><img class="individual-img-album" :src="album.icon" @click="selectAlbum()">
+                  <h6 class="divimagealbum">{{album.title}}</h6>
+                </div>
+                <div>
+                  <p class="number-songs">Number of songs: {{album.number_songs}}</p>
+                  <p class="day-release">Since: Day release: {{album.date}}</p>
+                </div>
+              
+                <div class="dropdown desp"><button class="btn btn-primary white dropdown-toggle points"
+                          data-toggle="dropdown"
+                          aria-expanded="false"
+                          type="button"><i class="fa fa-ellipsis-v dropdown show"></i></button>
+                  <div role="menu" class="dropdown-menu">
+                    <a role="presentation" class="dropdown-item" href="#" @click="dateOrder">Order by date</a>
+                    <a role="presentation" class="dropdown-item" href="#" @click="artistOrder">Order by artist</a>
+                    <a role="presentation" class="dropdown-item" href="#" @click="alphOrder">Alphabetical order</a>
+                  </div>
+                </div>
            </div>
           <div class="col">
             <ul class="lista" style="filter: blur(0px) contrast(200%) grayscale(0%);">
@@ -42,9 +42,8 @@
                 </div>
               </li>
             </ul>
-            <ul class="lista" v-for="songs in album.songs" :key="songs.title" style="filter: blur(0px) contrast(200%) grayscale(0%);">
-              <!-- TODO: Cambiar esto. es para pruebas -->
-              <li style="filter: contrast(200%); margin-bottom:35px">
+            <ul class="lista list--album--songs" v-for="songs in album.songs" :key="songs.title" style="filter: blur(0px) contrast(200%) grayscale(0%);">
+              <li id="albumSong" style="filter: contrast(200%); margin-bottom:35px">
                 <div>
                   <div class="row">
                     <div class="col-4">
@@ -205,5 +204,23 @@
 #jumbo_title{
   height:10px;
 }
+
+.individual-img-album{
+  border-style: solid;
+  border-color: black;
+  border-width: 5px;
+  border-radius: 5px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.list--album--songs li{
+  border-bottom-style: solid;
+  border-width: 2px;
+  border-color: black;
+}
+
+
+
 
 </style>
