@@ -8,6 +8,7 @@
   background-color: white;
   color:black;
   box-shadow: 0 0 0 .2rem rgba(0,0,0,1);
+  width: 100%;
 }
 
 body {
@@ -30,15 +31,29 @@ body {
   box-shadow: 0 0 0 .1rem rgba(255,255,255,1) !important;
 }
 
-/*Botones con fondo blanco*/
+/*Botones con fondo blanco sin borde*/
 .btn-primary.white,.btn-primary.white:hover, .btn-primary.white:active, .btn-primary.white:visited {
   background-color:white !important;
+  color: black !important;
 }
 .btn-primary.white:focus{
-  color: ##ffbe00 !important;
-  background-color: #FFD300!important;
-  border-color: #FFD300 !important;
-  box-shadow: 0 0 0 .1rem rgba(255,211,0,0.5) !important;
+  color: black !important;
+  background-color: white!important;
+  border-color: black !important;
+  box-shadow: 0 0 0 .1rem rgba(0,0,0,1) !important;
+}
+
+/*Botones con fondo blanco con borde*/
+.btn-primary.white.border,.btn-primary.white.border:hover, .btn-primary.white.border:active, .btn-primary.white.border:visited {
+  background-color:white !important;
+  color: black !important;
+  border-color: black !important;
+}
+.btn-primary.white.border:focus{
+  color: black !important;
+  background-color: white!important;
+  border-color: black !important;
+  box-shadow: 0 0 0 .1rem rgba(0,0,0,1) !important;
 }
 
 /*Botones con fondo negro*/

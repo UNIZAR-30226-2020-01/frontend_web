@@ -67,13 +67,12 @@
                             <a role="presentation" class="dropdown-item" href="#" @click="playNext(songs)">Play Next</a>
                           </div>
                         </div>
-
                       </div>
                       <div class="btn-group btn-group-sm dropright" style="display: inline;">
-                            <button type="button" class="btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button class="btn btn-primary white border" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               Add to Playlist
                             </button>
-                            <div class="dropdown-menu">
+                            <div class="dropdown-menu ">
                               <a role="presentation" class="dropdown-item" href="#" @click="createPlaylist(titlePlaylist,files)">New Playlist</a>
                               <input
                                 class="form-control-lg"
@@ -91,7 +90,7 @@
                                 @change="previewFiles"
                                 multiple
                               />
-                              <a role="presentation" class="dropdown-item" href="#" v-for="playlist in playlists" :key="playlist.name" @click="addToPlaylist(songs,playlist)">{{playlist.title}}</a>
+                              <a role="presentation" class="dropdown-item" href="#" v-for="playlist in playlists" :key="playlist.name" @click="addToPlaylist(songs,playlist)">{{playlist.title}}<div class="dropdown-divider"></div></a>
                             </div>
                           </div>
                     </div>
@@ -255,6 +254,17 @@
 
 .img__wrap:hover .img__img {
   opacity: 0.3;
+}
+.dropdown-menu{
+  background-color: white;
+  color:black;
+}
+.dropdown-item{
+ color:black !important;
+}
+
+.dropdown-divider{
+  color:black !important;
 }
 
 </style>
