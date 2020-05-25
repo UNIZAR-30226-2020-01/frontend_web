@@ -38,8 +38,8 @@
                                     <div class="col col-4" id="chapter_cover_col"><img id="chapter_cover" :src="episode.image"></div>
                                     <div class="col" id="chapter_content_col">
                                       <router-link v-bind:to="'/subscriptionsPodcasts/' + episode.id + '/singlePodcast' ">
-                                        <h4>{{episode.title}}</h4>
-                                        <h6 class="text-muted mb-2">{{episode.description.substr(0,10)}} ...</h6>
+                                        <h5>{{episode.title}}</h5>
+                                        <h6 class="text-muted mb-2">{{episode.description.substr(0,65)}} ...</h6>
                                         <h6 class="text-muted mb-2">{{podcast.channel.name}}</h6>
                                         </router-link>
                                     </div>

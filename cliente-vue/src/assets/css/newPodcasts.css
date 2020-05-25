@@ -16,13 +16,13 @@
 }
 
 #podcast_img {
-  float: left;
-  max-width: 110px;
-  max-height: 110px;
-  margin-right: 10px;
+  max-width: 150px;
+  max-height: 150px;
+  margin-bottom: -40px;
   border: 5px;
   border-color: white;
   border-style: solid;
   border-radius: 3px;
+  text-align: center;
 }
 

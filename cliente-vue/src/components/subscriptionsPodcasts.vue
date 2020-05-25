@@ -10,11 +10,12 @@
                     <div class="card m-2" id="subscribed-podcast-card">
                         <div class="card-body" id="subscribed_podc"><img id="subscribed_podc_cover" class="m-2 rounded" v-bind:src="podcast.image">
                             <div id="div_subs_text">
-                                <h4>{{podcast.title}}</h4>
-                                <h6>{{podcast.channel.name}}</h6>
-                                <h6>{{podcast.number_episodes}} episodes</h6>
+                                <h4 id="links_PodcastsSeries">{{podcast.title}}</h4>
+                                <h6 id="links_PodcastsSeries">{{podcast.channel.name}}</h6>
+                                <h6 id="links_PodcastsSeries">{{podcast.number_episodes}} episodes</h6>
+                                <button class="btn btn-primary black subsPodcastSubBtn" id="unsub_btn" type="button">Unsubscribe&nbsp;<i class="fa fa-minus" style="in"></i></button>
                             </div>
-                        </div><button class="btn btn-primary black" id="unsub_btn" type="button">Unsubscribe&nbsp;<i class="fa fa-minus"></i></button></div>
+                        </div></div>
                   </router-link>
                 </li>
             </ul>
@@ -25,7 +26,7 @@
                 <li class="m-2" v-for="tpodcast in trending_podcasts" :key="tpodcast.title" >
                     <div class="card" id="popular_podcast_card">
                         <div class="card-body"><img id="popular_cover" v-bind:src="tpodcast.image">
-                            <h5>{{tpodcast.title}}: {{tpodcast.publisher}}</h5>
+                            <h5 style="font-size: 2vmin;">{{tpodcast.title}}: {{tpodcast.publisher}}</h5>
                             <button class="btn btn-primary black" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div>
                     </div>
                 </li>
