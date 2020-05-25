@@ -234,11 +234,12 @@
 .img__description {
   position: absolute;
   color: black;
+  background-color: rgba(0,0,0, 0);
   visibility: hidden;
   opacity: 0;
   text-align: center;
   width: 45px;
-
+  font-size: 35px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
