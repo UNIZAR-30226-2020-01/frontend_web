@@ -15,6 +15,7 @@ import SubscriptionsPodcasts from './components/subscriptionsPodcasts.vue';
 import Following from './components/following.vue'
 import Search from './components/search.vue'
 import DiscoverPodcast from './components/discoverPodcast.vue'
+import DiscoverSongs from './components/discoverSongs.vue'
 import SinglePodcast from './components/singlePodcast.vue'
 import User from './components/user.vue'
 // Exportamos el objeto de rutas
@@ -83,6 +84,10 @@ export default [
   {
     path: '/following',
   component: Following
+  },
+  {
+    path: '/discoverSongs',
+  component: DiscoverSongs
   },
   {
     path: '/user/:id',

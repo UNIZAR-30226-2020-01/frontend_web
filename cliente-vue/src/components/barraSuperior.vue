@@ -16,7 +16,7 @@
                     <li class="nav-item" role="presentation"><router-link class="nav-link" to="/following">Following</router-link></li>
                     <li class="nav-item" role="presentation"><router-link class="nav-link" to="/artists/">Artists</router-link></li>
                     <li class="nav-item" role="presentation"><router-link class="nav-link" to="/albums/">Albums</router-link></li>
-                    <li class="nav-item" role="presentation"><router-link class="nav-link" to="">Discover</router-link></li>
+                    <li class="nav-item" role="presentation"><router-link class="nav-link" to="/discoverSongs">Discover</router-link></li>
                 </ul>
                 <!-- TODO: esto es provisional. Quitar o mejorar -->
                 <div><button type="button" class="btn btn-primary" @click="cerrarSesion()" v-show="isLoggedIn">Cerrar sesión</button></div>
