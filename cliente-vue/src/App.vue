@@ -5,11 +5,11 @@
       <barra-lateral v-bind:checkRouterObject="checkRouterObject" v-bind:showButtonPlayer="showButtonPlayer" @showPlayer="showPlayer" @MenuChanged="changePodcast_Songs">
         <router-view slot="router" @selectPlaylist="setPlaylist" @playnext="addToQueue" @playnow="playIndSong" @playSong="playSong"/>
 
-        <div class="col-3 align-self-baseline sticky-top" id="player-col" v-show="visible" slot="repro">
+        <div class="col-3 align-self-baseline sticky-top animate__animated animate__fadeInRightBig animate__faster" id="player-col" v-show="visible" slot="repro">
             <div class="wrapper">
-              <div class="player__container">
+              <div class="player__container" >
                 <div class="player__body">
-                  <div class="body__cover">
+                  <div class="body__cover" >
                     <transition name="animated" enter-active-class="animated flipInY delay" leave-active-class="animated flipInY">
                     <img v-if="animated" class=song__cover :src="currentTrack.album.icon" alt="Album cover">
                     </transition>
