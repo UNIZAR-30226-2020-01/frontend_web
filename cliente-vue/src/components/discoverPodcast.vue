@@ -6,7 +6,7 @@
         <h1> Genres </h1>
       </div>
         <ul class="list-inline text-center">
-          <li class="list-inline-item album-item" v-for="genre in genres" :key="genre.name">
+          <li data-aos="fade-up" class="list-inline-item album-item" v-for="genre in genres" :key="genre.name">
             <div class="card text-center p-2 album-card">
               <header class="card-header">
                 <h3 class="card-title" style="font-size: 90%" >{{genre.name}}</h3>
