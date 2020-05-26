@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col p-2"><img id="singlePodcast_Img" :src="podcast_episode.image">
                     <h1>{{podcast_episode.title}}</h1>
-                    <h6>Duration: {{Math.floor(podcast_episode.duration/60)}} minutes {{Math.floor((podcast_episode.duration%1)*60)}} seconds </h6>
+                    <h6>Duration: {{Math.floor(podcast_episode.duration/60)}} minutes {{podcast_episode.duration%60}} seconds </h6>
                 </div>
             </div>
             <div class="row">

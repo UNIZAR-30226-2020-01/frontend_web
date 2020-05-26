@@ -37,8 +37,8 @@
                     <div class="col-4">
                         <p class="name-song">TITLE</p>
                     </div>
-                    <div class="col-1 offset-lg-0">
-                      <div class="tiempo"><i class="far fa-clock"></i></div>
+                    <div class="col-2 offset-lg-0" >
+                      <div class="tiempo" style="text-align:center;"><i class="far fa-clock"></i></div>
                     </div>
                     <div class="col tres">
                       <div></div>
@@ -58,9 +58,9 @@
                       </div>
                       <p class="name-song-list" @click="selectAlbum(); playSong(songs);" style="display: inline;">{{songs.title}} </p>
                     </div>
-                    <div class="col-1">
+                    <div class="col-2">
                       <div class="tiempo">
-                        <p>{{songs.duration}}</p>
+                        <p>{{Math.floor(songs.duration/60)}} m {{songs.duration%60}} s</p>
                       </div>
                     </div>
                     <div class="col tres">

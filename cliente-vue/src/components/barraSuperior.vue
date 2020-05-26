@@ -1,7 +1,7 @@
 <template>
 
   <nav class="navbar navbar-dark navbar-expand-md sticky-top" style="background-color:#101010;" id="barra-nav">
-        <div class="container-fluid"><router-link class="navbar-brand" to="/">
+        <div class="container-fluid"><router-link class="navbar-brand" to="/playlists">
           <img id="spoti_logo_podcast" v-if="mostrarPodcast" src="./../assets/img/spoticast-v2.png"><img id="spoti_logo" v-else src="./../assets/img/spotiseven.png"></router-link><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span>
 
           </button>
