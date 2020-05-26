@@ -6,16 +6,17 @@
         <div class="row">
           <div class= "card white">
           <div class="col columna-album1">
+            <br>
                 <div class="divimagealbum img__wrap" @click="selectAlbum()"><img class="individual-img-album img__img" :src="album.icon" v>
                   <i class="img__description fa fa-play"></i>
-                  
+
                 </div>
                 <div>
                   <h6 class="divimagealbum">{{album.title}}</h6>
                   <p class="number-songs">Number of songs: {{album.number_songs}}</p>
                   <p class="day-release">Since: Day release: {{album.date}}</p>
                 </div>
-              
+
                 <div class="dropdown desp"><button class="btn btn-primary white dropdown-toggle points"
                           data-toggle="dropdown"
                           aria-expanded="false"

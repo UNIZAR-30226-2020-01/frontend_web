@@ -37,6 +37,7 @@
                   </div>
               </li>
           </ul>
+          <!-- <button @click="getMorePopular" class="btn btn-primary white"><i class="fas fa-chevron-circle-down" style="font-size: 22px;"></i></button> -->
         </div>
     </div>
 </div>
@@ -53,6 +54,7 @@
       return {
           podcasts: [],
           trending_podcasts: []
+          //indexPop : 1,
       }
     },
     mixins: [podcastMixin,trendingPodcastMixin],
@@ -61,6 +63,7 @@
       this.getAllTrendingPodcasts;
     },
     methods: {
+      getMorePopular: function(){}
     }
   }
 
