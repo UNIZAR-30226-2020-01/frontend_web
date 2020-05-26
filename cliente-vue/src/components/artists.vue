@@ -18,6 +18,7 @@
         </router-link>
         </li>
       </ul>
+      <button @click="getMoreArtists" class="btn btn-primary white"><i class="fas fa-chevron-circle-down" style="font-size: 22px;"></i></button>
     </div>
   <!-- <player></player> -->
 </div>
@@ -30,7 +31,8 @@
   export default {
     data() {
       return {
-        artists: []
+        artists: [],
+        indexArt: 1,
       }
     },
     // components:{
@@ -46,6 +48,25 @@
         console.log(list)
         let id = list[list.length - 1]
         return id
+      },
+      getMoreArtists: function() {
+        this.indexArt += 8;
+        this.$http.get('https://s7-rest.francecentral.cloudapp.azure.com/artists/?limit=8&offset=' + this.indexArt, {
+          headers: {
+                Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
+          }
+        }).then(
+          function(response){
+            if(response.status == 200){
+              // Todo ok
+              var moreArtist = response.body.results
+              moreArtist.forEach((art) => {
+                this.artists.push(art);
+              });
+              console.log(this.artists);
+            }
+          }
+        );
       }
     }
   }

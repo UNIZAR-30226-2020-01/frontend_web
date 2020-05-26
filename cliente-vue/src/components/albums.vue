@@ -17,6 +17,7 @@
           </router-link>
           </li>
         </ul>
+        <button @click="getMoreAlbums" class="btn btn-primary white"><i class="fas fa-chevron-circle-down" style="font-size: 22px;"></i></button>
     </div>
 </div>
 
@@ -28,7 +29,8 @@
   export default {
     data() {
       return {
-        albums: []
+        albums: [],
+        indexArt: 1
       };
     },
     mixins: [albumMixin],
@@ -41,6 +43,25 @@
         console.log(list)
         let id = list[list.length - 1]
         return id
+      },
+      getMoreAlbums: function(){
+        this.indexArt += 8
+        this.$http.get('https://s7-rest.francecentral.cloudapp.azure.com/albums/?limit=8&offset=' + this.indexArt, {
+          headers: {
+              Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
+          }
+        }).then(
+          function(response){
+            if(response.status == 200){
+              // Todo ok
+              var moreAlbums = response.body.results
+              moreAlbums.forEach((alb) => {
+                this.albums.push(alb);
+              });
+              console.log(this.albums);
+            }
+          }
+        );
       }
     }
   }

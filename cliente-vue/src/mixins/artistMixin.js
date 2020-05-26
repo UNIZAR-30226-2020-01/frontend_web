@@ -3,7 +3,7 @@ export default {
     getAllArtists: function() {
       // Esto es un mixin que utilizara un objeto Vue asi que podemos usar
       // peticiones HTTP con el atributo $http
-      this.$http.get('https://s7-rest.francecentral.cloudapp.azure.com/artists/?format=json', {
+      this.$http.get('https://s7-rest.francecentral.cloudapp.azure.com/artists/?limit=8&offset=0', {
         headers: {
               Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
         }
@@ -11,7 +11,7 @@ export default {
         function(response){
           if(response.status == 200){
             // Todo ok
-            this.artists = response.body;
+            this.artists = response.body.results;
             this.artists.forEach((artist) => {
               var list = artist.url.split('/');
               console.log(list);

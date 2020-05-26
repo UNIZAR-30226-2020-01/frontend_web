@@ -3,7 +3,7 @@ export default {
     getAllAlbums: function() {
       // Esto es un mixin que utilizara un objeto Vue asi que podemos usar
       // peticiones HTTP con el atributo $http
-      this.$http.get('https://s7-rest.francecentral.cloudapp.azure.com/albums/', {
+      this.$http.get('https://s7-rest.francecentral.cloudapp.azure.com/albums/?limit=8&offset=0', {
         headers: {
             Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
         }
@@ -11,7 +11,7 @@ export default {
         function(response){
           if(response.status == 200){
             // Todo ok
-            this.albums = response.body;
+            this.albums = response.body.results;
             this.albums.forEach((album) => {
               var list = album.url.split('/');
               console.log(list);
