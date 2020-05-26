@@ -2,6 +2,7 @@ export default {
   methods: {
     setFavorite: function(song, value) {
       console.log("Marcando como... " + value);
+      console.log(song)
       if(value){
         // Marcamos como favorito
         this.$http.get(song.url + 'set_favorite/', {

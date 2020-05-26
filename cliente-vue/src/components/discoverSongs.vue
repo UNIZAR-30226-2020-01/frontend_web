@@ -26,7 +26,7 @@
         </li>
       </ul>
       <ul class="lista" v-for="songs in mostPlayed" :key="songs.title" style="filter: blur(0px) contrast(200%) grayscale(0%);"
-        @click="playSong(songs)">
+        >
         <!-- TODO: Cambiar esto. es para pruebas -->
         <li style="filter: contrast(200%);">
           <div>
@@ -36,7 +36,7 @@
                   <i v-if="songs.is_fav" class="fa fa-star" style="color: rgb(181,146,20);"></i>
                   <i v-else class="fa fa-star"></i>
                 </div>
-                <p class="name-song-list" style="display: inline;">{{songs.title}} </p>
+                <p class="name-song-list" @click="selectMostPlayed(); playSong(songs);" style="display: inline;">{{songs.title}} </p>
               </div>
               <div class="col-lg-2">
                 <div class="tiempo">
@@ -59,7 +59,7 @@
         </li>
       </ul>
     </div>
-    
+
     <div class="container-fluid"  style="width:60%;">
       <h1 class="jumbotron disc"> Most liked </h1>
       <ul class="lista" style="filter: blur(0px) contrast(200%) grayscale(0%);">
@@ -83,7 +83,7 @@
         </li>
       </ul>
       <ul class="lista" v-for="songs in mostLiked" :key="songs.title" style="filter: blur(0px) contrast(200%) grayscale(0%);"
-        @click="playSong(songs)">
+      >
         <!-- TODO: Cambiar esto. es para pruebas -->
         <li style="filter: contrast(200%);">
           <div>
@@ -93,7 +93,7 @@
                   <i v-if="songs.is_fav" class="fa fa-star" style="color: rgb(181,146,20);"></i>
                   <i v-else class="fa fa-star"></i>
                 </div>
-                <p class="name-song-list" style="display: inline;">{{songs.title}} </p>
+                <p class="name-song-list" @click="selectMostLiked(); playSong(songs);" style="display: inline;">{{songs.title}} </p>
               </div>
               <div class="col-lg-2">
                 <div class="tiempo">
@@ -129,6 +129,20 @@ export default {
       mostLiked: {},
     };
   },
+  methods:{
+    playSong: function (song) {
+      console.log("Pidiendo la reproducción de: " + song.title);
+      this.$emit("playSong", song);
+    },
+    selectMostLiked: function() {
+      console.log('selecting')
+      this.$emit('selectPlaylist', this.mostLiked)
+    },
+    selectMostPlayed: function() {
+      console.log('selecting')
+      this.$emit('selectPlaylist', this.mostPlayed)
+    },
+  },
   created() {
     // Llamada para traer los datos del artista
     console.log('creating')
@@ -141,6 +155,11 @@ export default {
       if (response.status == 200) {
         console.log(response.body.results);
         this.mostPlayed = response.body.results;
+        this.mostPlayed.forEach((song) => {
+          song.howl = null
+          song.file = song.file.toString().replace('http://', 'https://')
+          song.url = song.url.toString().replace('http://', 'https://');
+        });
       }
     })
     // this.updateKey();
@@ -155,6 +174,12 @@ export default {
       if (response.status == 200) {
         console.log(response.body.results);
         this.mostLiked = response.body.results;
+        this.mostLiked.forEach((song) => {
+          song.howl = null
+          song.file = song.file.toString().replace('http://', 'https://')
+          song.url = song.url.toString().replace('http://', 'https://');
+        });
+
       }
     })
   },
