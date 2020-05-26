@@ -1,7 +1,7 @@
 <template>
   <div class="col">
     <br>
-    <div class="container-fluid">
+    <div class="container-fluid"  style="width:60%;">
       <div class="jumbotron disc">
         <h1 class="text-center">Most played</h1>
       </div>
@@ -59,10 +59,8 @@
         </li>
       </ul>
     </div>
-
-
-
-    <div class="container-fluid">
+    
+    <div class="container-fluid"  style="width:60%;">
       <h1 class="jumbotron disc"> Most liked </h1>
       <ul class="lista" style="filter: blur(0px) contrast(200%) grayscale(0%);">
         <li>

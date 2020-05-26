@@ -1,7 +1,7 @@
 <template>
   <div class="col">
     <br>
-    <div class="container-fluid">
+    <div class="container-fluid" style="width:60%;">
       <div class="jumbotron">
         <h1> Genres </h1>
       </div>
@@ -20,7 +20,7 @@
 
 
         <br>
-        <div class="container-fluid">
+        <div class="container-fluid" style="width:60%;">
           <div class="jumbotron">
             <h1> For you </h1>
           </div>

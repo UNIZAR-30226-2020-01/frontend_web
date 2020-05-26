@@ -34,13 +34,10 @@
 }
 
 .name-song {
-  font-family: 'Roboto';
-  font-style: oblique;
-  font-weight: 800;
+  font-weight: 400;
 }
 
 .name-song-list {
-  font-family: 'Roboto';
   color: black;
 }
 
@@ -54,32 +51,30 @@
 
 .day-release {
   color: black;
-  font-family: 'Roboto';
-  text-align: center;
-  font-style: italic;
+  text-align: left;
 }
 
 .number-songs {
   color: black;
-  font-family: 'Roboto';
-  text-align: center;
-  font-style: italic;
+  text-align: left;
 }
 
 .album-name {
   color: black;
-  font-family: 'Roboto';
   text-align: center;
+  position:relative;
+  width: 2000px;
+  height:200px;
 }
 
 .bio-album {
-  text-align: center;
+  text-align: left;
   clear: both;
   color: black;
 }
 
 .individual-img-album {
-  text-align: center;
+  text-align: left;
   height: 200px;
   width: 200px;
   border-radius: 25px;
