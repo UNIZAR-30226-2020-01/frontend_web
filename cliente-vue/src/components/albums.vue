@@ -56,6 +56,11 @@
               // Todo ok
               var moreAlbums = response.body.results
               moreAlbums.forEach((alb) => {
+                var list = alb.url.split('/');
+                console.log(list);
+                alb.id = list[list.length - 2];
+                console.log(alb.id);
+                alb.url.replace('http://', 'https://');
                 this.albums.push(alb);
               });
               console.log(this.albums);

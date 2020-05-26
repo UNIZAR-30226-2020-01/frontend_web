@@ -61,6 +61,10 @@
               // Todo ok
               var moreArtist = response.body.results
               moreArtist.forEach((art) => {
+                var list = art.url.split('/');
+                console.log(list);
+                art.id = list[list.length - 2];
+                art.url.replace('http://', 'https://');
                 this.artists.push(art);
               });
               console.log(this.artists);
