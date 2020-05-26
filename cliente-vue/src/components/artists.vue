@@ -3,7 +3,7 @@
   <div class="col">
     <div class="container-fluid">
       <ul class="list-inline text-center">
-        <li class="list-inline-item artist-item" v-for="artist in artists" :key="artist.name">
+        <li data-aos="fade-up" class="list-inline-item artist-item" v-for="artist in artists" :key="artist.name">
           <router-link v-bind:to="'/artists/' + artist.id ">
           <div class="card text-center p-2 artist-card" style="background-color: #101010;">
             <header class="card-header">
