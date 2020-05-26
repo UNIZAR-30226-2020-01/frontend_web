@@ -1,13 +1,13 @@
 <template>
 
-<div class="col">
+<div class="col animate__animated animate__fadeIn">
     <div class="row">
         <div class="col col-8">
           <div class="jumbotron subscription">
             <h4>Subscriptions</h4>
           </div>
           <ul class="list-inline">
-              <li class="list-inline-item m-1" v-for="podcast in podcasts" :key="podcast.title" >
+              <li data-aos="fade-up" class="list-inline-item m-1" v-for="podcast in podcasts" :key="podcast.title" >
                   <div class="card white" id="subscribed-podcast-card">
                       <div class="card-body" id="subscribed_podc"><img id="subscribed_podc_cover" class="m-2 rounded" v-bind:src="podcast.image">
                           <div id="div_subs_text">
@@ -27,7 +27,7 @@
             <h4>Popular</h4>
           </div>
           <ul class="list-unstyled">
-              <li class="m-2" v-for="tpodcast in trending_podcasts" :key="tpodcast.title" >
+              <li data-aos="fade-up" class="m-2" v-for="tpodcast in trending_podcasts" :key="tpodcast.title" >
                   <div class="card white" id="popular_podcast_card">
                       <div class="card-body"><img id="popular_cover" v-bind:src="tpodcast.image">
                         <router-link v-bind:to="'/popularPodcastSeries/' + tpodcast.id ">

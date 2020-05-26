@@ -1,6 +1,6 @@
 <template>
 
-  <div class="col">
+  <div class="col animate__animated animate__fadeIn">
     <div class="container-fluid">
         <ul class="list-inline text-center" id="lista_podcasts">
             <li class="list-inline-item" v-for="podcast in podcasts" :key="podcast.title">

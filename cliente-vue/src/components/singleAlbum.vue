@@ -1,6 +1,6 @@
 <template>
 
-  <div class="col">
+  <div class="col animate__animated animate__fadeIn">
     <div id="content">
       <div class="container albumfondo" id="content-container" :key="this.key">
         <div class="row">

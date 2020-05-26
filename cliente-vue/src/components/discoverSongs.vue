@@ -1,5 +1,5 @@
 <template>
-  <div class="col">
+  <div class="col animate__animated animate__fadeIn">
     <br>
     <div class="container-fluid"  style="width:60%;">
       <div class="jumbotron disc">
