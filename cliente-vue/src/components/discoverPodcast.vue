@@ -15,6 +15,7 @@
             </div>
           </li>
         </ul>
+        <button @click="getMoreGenres" class="btn btn-primary white"><i class="fas fa-chevron-circle-down" style="font-size: 22px;"></i></button>
       </div>
 
 
@@ -35,18 +36,41 @@
   export default {
     data() {
       return {
-        genres: []
+        genres: [],
+        indexGenre: 1,
       };
     },
     mixins: [DiscoverPodcast],
     created(){
       this.getAllGenresPodcasts;
     },
+    methods:{
+      getMoreGenres: function(){
+        this.indexGenre += 8;
+        var index = this.indexGenre
+        this.$http.get('https://s7-rest.francecentral.cloudapp.azure.com/genres/?limit=8&offset='+ index, {
+          headers: {
+            Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
+          }
+        }).then(
+          function(response){
+            if(response.status == 200){
+              // Todo ok
+              var moreGenres = response.body.results
+              moreGenres.forEach((gen) => {
+                this.genres.push(gen);
+              });
+              console.log(this.genres);
+            }
+          }
+        );
+      }
+    }
   }
 
 </script>
 
 <style>
-  @import './../assets/css/styles.css';
   @import './../assets/css/albums.css';
+  @import './../assets/css/styles.css';
 </style>

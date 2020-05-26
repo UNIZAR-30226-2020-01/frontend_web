@@ -3,7 +3,7 @@ export default {
     getAllGenresPodcasts: function() {
       // Esto es un mixin que utilizara un objeto Vue asi que podemos usar
       // peticiones HTTP con el atributo $http
-      this.$http.get('https://s7-rest.francecentral.cloudapp.azure.com/genres/', {
+      this.$http.get('https://s7-rest.francecentral.cloudapp.azure.com/genres/?limit=8&offset=0', {
         headers: {
           Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
         }
@@ -11,7 +11,7 @@ export default {
         function(response){
           if(response.status == 200){
             // Todo ok
-            this.genres = response.body;
+            this.genres = response.body.results;
             this.genres.forEach((podcast) => {
               var list = podcast.url.split('/');
               console.log(list);
