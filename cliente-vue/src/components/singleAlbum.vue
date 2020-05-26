@@ -268,4 +268,14 @@
   color:black !important;
 }
 
+.name-song-list{
+  cursor:pointer;
+}
+
+.name-song-list:hover{
+  cursor:pointer;
+  color: yellow;
+}
+
+
 </style>

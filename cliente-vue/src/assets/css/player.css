@@ -137,6 +137,7 @@ a {
 
 .list__link:focus, .list__link:hover {
   color: rgba(165,157,11,1);
+  cursor:pointer;
 }
 
 .list__link.list__link__active {

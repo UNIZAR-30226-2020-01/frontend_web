@@ -236,6 +236,7 @@
 
   /* transition effect. not necessary */
   transition: opacity .2s, visibility .2s;
+  cursor:pointer;
 }
 
 .img__wrap:hover .img__description {
