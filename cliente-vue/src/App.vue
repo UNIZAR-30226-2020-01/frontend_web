@@ -9,7 +9,7 @@
             <div class="wrapper">
               <div class="player__container" >
                 <div class="player__body">
-                  <div class="body__cover" >
+                  <div data-aos="zoom-out-up" class="body__cover">
                     <transition name="animated" enter-active-class="animated flipInY delay" leave-active-class="animated flipInY">
                     <img v-if="animated" class=song__cover :src="currentTrack.album.icon" alt="Album cover">
                     </transition>

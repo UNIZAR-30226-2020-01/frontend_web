@@ -3,7 +3,7 @@
   <div class="col">
     <div class="container-fluid">
         <ul class="list-inline text-center">
-          <li class="list-inline-item album-item" v-for="album in albums" :key="album.title">
+          <li data-aos="fade-up" class="list-inline-item album-item" v-for="album in albums" :key="album.title">
             <router-link v-bind:to="'/albums/' + album.id ">
             <div class="card text-center p-2 album-card" style="background-color:#101010">
               <header class="card-header">

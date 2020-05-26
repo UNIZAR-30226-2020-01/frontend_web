@@ -29,6 +29,7 @@
 }
 
 #subscribed-podcast-card {
+  position:relative;
   border-color: #101010;
   border: 4px;
   border-width: 2px;

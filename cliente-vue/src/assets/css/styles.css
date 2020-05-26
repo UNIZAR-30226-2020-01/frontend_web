@@ -67,6 +67,18 @@ body {
   border-color: #black !important;
   box-shadow: 0 0 0 .1rem black!important;
 }
+
+/*Cards*/
+
+.card{
+  background-color: #101010!important;
+  color:White!important;
+}
+
+.card.white{
+  background-color: white!important;
+  color:black!important;
+}
 #primero {
   font-size: 10vw;
   font-weight: 300;

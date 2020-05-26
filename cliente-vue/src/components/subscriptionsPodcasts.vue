@@ -8,7 +8,7 @@
           </div>
           <ul class="list-inline">
               <li class="list-inline-item m-1" v-for="podcast in podcasts" :key="podcast.title" >
-                  <div class="card m-2" id="subscribed-podcast-card">
+                  <div class="card white" id="subscribed-podcast-card">
                       <div class="card-body" id="subscribed_podc"><img id="subscribed_podc_cover" class="m-2 rounded" v-bind:src="podcast.image">
                           <div id="div_subs_text">
                             <router-link v-bind:to="'/subscriptionsPodcasts/' + podcast.id ">
@@ -28,7 +28,7 @@
           </div>
           <ul class="list-unstyled">
               <li class="m-2" v-for="tpodcast in trending_podcasts" :key="tpodcast.title" >
-                  <div class="card" id="popular_podcast_card">
+                  <div class="card white" id="popular_podcast_card">
                       <div class="card-body"><img id="popular_cover" v-bind:src="tpodcast.image">
                         <router-link v-bind:to="'/popularPodcastSeries/' + tpodcast.id ">
                           <h5 id="links_PodcastsSeries" style="font-size: 2vmin;">{{tpodcast.title}}: {{tpodcast.publisher}}</h5>
