@@ -75,6 +75,11 @@ body {
   color:White!important;
 }
 
+.card:hover{
+  color: yellow !important;
+  text-align: center;
+}
+
 .card.white{
   background-color: white!important;
   border-color:black;

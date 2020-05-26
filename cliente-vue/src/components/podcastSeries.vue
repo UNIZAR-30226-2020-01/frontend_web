@@ -1,5 +1,5 @@
 <template>
-    <div class="col">
+    <div class="col animate__animated animate__fadeIn">
         <div class="row">
             <div class="col">
                 <div class="row">
@@ -17,7 +17,7 @@
                             <h2>Related genres</h2>
                         </div>
                         <ul class="list-inline">
-                            <li class="list-inline-item m-1" v-for="genre in podcast.genre" :key="genre.name">
+                            <li class="list-inline-item m-1 animate__animated animate__fadeInLeft" v-for="genre in podcast.genre" :key="genre.name">
                                 <div class="card" id="related_podcast_card">
                                     <div class="card-body"><img id="related_podcast_cover" src="./../assets/img/81aBBHak07L._SS500_.jpg">
                                         <h5 class="card-title m-2">{{genre.name}}</h5>
@@ -34,12 +34,12 @@
                  <h2>Chapters</h2>
                 </div>
                 <ol>
-                    <li reversed v-for="episode in podcast.episodes" :key="episode.title" @click="selectPodcast(episode)">
-                        <div class="row jumbotron white">
+                    <li class="chapter animate__animated animate__fadeInUp" reversed v-for="episode in podcast.episodes" :key="episode.title" @click="selectPodcast(episode)">
+                        <div class="row">
                             <div class="col col-4 " id="chapter_cover_col"><img id="chapter_cover" :src="episode.image"></div>
-                            <div class="col" id="chapter_content_col">
+                            <div class="col chapter_content_col">
                             <router-link v-bind:to="'/subscriptionsPodcasts/' + episode.id + '/singlePodcast' ">
-                                <h5>{{episode.title}}</h5>
+                                <h5 class="chapter_title">{{episode.title}}</h5>
                                 <h6 class="text-muted mb-2">{{episode.description.substr(0,65)}} ...</h6>
                                 <h6 class="text-muted mb-2">{{podcast.channel.name}}</h6>
                                 </router-link>
@@ -128,6 +128,27 @@
       color:black;
       box-shadow: 0 0 0 .1rem rgba(0,0,0,1);
       
+  }
+
+  .chapter_content_col{
+        border-radius: 5px;
+        border-style: solid;
+        border-color: black;
+        border-width: 3px;
+        margin-right: 30px;
+        margin: 5px;
+  }
+
+  .chapter{
+      margin: 5px;
+  }
+
+  .chapter_title{
+      color: black;
+  }
+
+  .chapter_title:hover{
+      color: #FFD300;
   }
 
 </style>

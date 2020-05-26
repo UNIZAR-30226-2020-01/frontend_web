@@ -1,5 +1,5 @@
 <template>
-    <div class="col">
+    <div class="col animate__animated animate__fadeIn">
         <div class="row">
             <div class="col">
                 <div class="row">
@@ -8,27 +8,39 @@
                         <br>
                         <h2 style="font-size: 100%">{{podcast.title}}</h2>
                         <h5 style="font-size: 100%">{{podcast.publisher}}</h5>
-                        <h6>{{podcast.number_episodes}} Caps</h6><button class="btn btn-primary" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div>
+                        <h6>{{podcast.number_episodes}} Caps</h6><button class="btn btn-primary black" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div>
                         </div>
                 </div>
             </div>
             <div class="col m-2 col-8">
                 <h4 class="border-bottom">Chapters</h4>
                 <ol>
-                    <li reversed v-for="episode in podcast.episodes" :key="episode.title" @click="selectPodcast(episode)">
-                        <div class="card border-0">
-                            <div class="card-body border-0">
+                    <li class="chapter animate__animated animate__fadeInUp" reversed v-for="episode in podcast.episodes" :key="episode.title" @click="selectPodcast(episode)">
+
+
                                 <div class="row">
                                     <div class="col col-4" id="chapter_cover_col"><img id="chapter_cover" :src="episode.image"></div>
-                                    <div class="col" id="chapter_content_col">
+                                    <div class="col chapter_content_col">
                                       <router-link v-bind:to="'/popularPodcastSeries/singlePopularPodcast/' + episode.id ">
-                                        <h5 @click="showEpisode(episode)">{{episode.title}}</h5>
+                                        <h5 class="chapter_title" @click="showEpisode(episode)">{{episode.title}}</h5>
                                         <h6 @click="showEpisode(episode)" class="text-muted mb-2">{{episode.description.substr(0,65)}} ...</h6>
                                         <h6 @click="showEpisode(episode)" class="text-muted mb-2">{{podcast.publisher}}</h6>
                                         </router-link>
+
+                                </div>
+<!--
+                                <div class="row">
+                                    <div class="col col-4 " id="chapter_cover_col"><img id="chapter_cover" :src="episode.image"></div>
+                                    <div class="col chapter_content_col">
+                                    <router-link v-bind:to="'/subscriptionsPodcasts/' + episode.id + '/singlePodcast' ">
+                                        <h5 class="chapter_title">{{episode.title}}</h5>
+                                        <h6 class="text-muted mb-2">{{episode.description.substr(0,65)}} ...</h6>
+                                        <h6 class="text-muted mb-2">{{podcast.channel.name}}</h6>
+                                        </router-link>
                                     </div>
                                 </div>
-                            </div>
+-->
+
                         </div>
 
                     </li>
@@ -114,5 +126,27 @@
 
   @import './../assets/css/styles.css';
   @import './../assets/css/podcastSeries.css';
+
+    .chapter_content_col{
+        border-radius: 5px;
+        border-style: solid;
+        border-color: black;
+        border-width: 3px;
+        margin-right: 30px;
+        margin: 5px;
+  }
+
+  .chapter{
+      margin: 5px;
+  }
+
+  .chapter_title{
+      color: black;
+  }
+
+  .chapter_title:hover{
+      color: #FFD300;
+  }
+
 
 </style>
