@@ -4,7 +4,8 @@
     <div id="content">
       <div class="container albumfondo" id="content-container" :key="this.key">
         <div class="row">
-          <div class="col-3 columna-album1">
+          <div class= "card white">
+          <div class="col columna-album1">
                 <div class="divimagealbum img__wrap" @click="selectAlbum()"><img class="individual-img-album img__img" :src="album.icon" v>
                   <i class="img__description fa fa-play"></i>
                   
@@ -25,6 +26,7 @@
                     <a role="presentation" class="dropdown-item" href="#" @click="alphOrder">Alphabetical order</a>
                   </div>
                 </div>
+           </div>
            </div>
           <div class="col">
             <ul class="lista" style="filter: blur(0px) contrast(200%) grayscale(0%);">
