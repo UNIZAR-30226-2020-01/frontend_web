@@ -1,5 +1,5 @@
 .number-songs {
-  text-align: center;
+  text-align: left;
 }
 
 .lista {
@@ -30,7 +30,7 @@
 
 
 .tiempo {
-  text-align: right;
+  text-align: left;
 }
 
 .name-song {
@@ -42,11 +42,11 @@
 }
 
 .col.columna-esp {
-  max-width: 100px;
+  /*max-width: 100px;*/
 }
 
 .col.columna-album1 {
-  max-width: 300px;
+  /*max-width: 300px;*/
 }
 
 .day-release {
@@ -61,10 +61,8 @@
 
 .album-name {
   color: black;
-  text-align: center;
+  text-align: left;
   position:relative;
-  width: 2000px;
-  height:200px;
 }
 
 .bio-album {
@@ -75,8 +73,10 @@
 
 .individual-img-album {
   text-align: left;
-  height: 200px;
-  width: 200px;
+  max-height: 200px;
+  max-width: 200px;
+  min-height: 100px;
+  min-width: 100px;
   border-radius: 25px;
   margin-left: auto;
   margin-right: auto;
