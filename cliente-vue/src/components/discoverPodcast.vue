@@ -24,6 +24,17 @@
           <div class="jumbotron">
             <h1> For you </h1>
           </div>
+          <ul class="list-unstyled">
+              <li data-aos="fade-up" class="m-2" v-for="tpodcast in foryouPodcast" :key="tpodcast.title" >
+                  <div class="card white" id="popular_podcast_card">
+                      <div class="card-body"><img id="popular_cover" v-bind:src="tpodcast.image">
+                        <router-link v-bind:to="'/popularPodcastSeries/' + tpodcast.id ">
+                          <h5 id="links_PodcastsSeries" style="font-size: 2vmin;">{{tpodcast.title}}: {{tpodcast.publisher}}</h5>
+                        </router-link>
+                          <button class="btn btn-primary black" @click="subscribedPodcast(tpodcast), ()=>{$router.go()}" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div>
+                  </div>
+              </li>
+          </ul>
             <!-- hay que implementarlo -->
         </div>
 </div>
@@ -37,12 +48,30 @@
     data() {
       return {
         genres: [],
+        foryouPodcast: [],
         indexGenre: 1,
       };
     },
     mixins: [DiscoverPodcast],
     created(){
       this.getAllGenresPodcasts;
+      this.$http.get('https://s7-rest.francecentral.cloudapp.azure.com/user/recomendedPodcast', {
+        headers: {
+          Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
+        }
+      }).then(
+        function(response){
+          if(response.status == 200){
+            // Todo ok
+            this.foryouPodcast = response.body;
+            this.foryouPodcast.forEach((podcast) => {
+              podcast.url = "https://s7-rest.francecentral.cloudapp.azure.com/podcast/" + podcast.id;
+              podcast.URI = podcast.audio;
+            });
+            console.log(this.foryouPodcast);
+          }
+        }
+      );
     },
     methods:{
       getMoreGenres: function(){
@@ -64,7 +93,25 @@
             }
           }
         );
-      }
+      },
+      subscribedPodcast: function(podcast) {
+        console.log('Token ' + localStorage.getItem('token'));
+        console.log(podcast);
+        var ruta = 'https://s7-rest.francecentral.cloudapp.azure.com/user/podcasts/followPodcast/?id='
+          this.$http.post(ruta + podcast.id, {}, {
+            headers: {
+              Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
+            }
+          }
+          ).then(
+              function(response) {
+                  // Tratamiento de la respuesta
+                  if(response.status != 200){
+                      console.log('Error de subscripcion en ' + podcast.title);
+                  }
+              }
+          );
+      },
     }
   }
 

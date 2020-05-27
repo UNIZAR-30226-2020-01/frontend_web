@@ -33,7 +33,7 @@
                         <router-link v-bind:to="'/popularPodcastSeries/' + tpodcast.id ">
                           <h5 id="links_PodcastsSeries" style="font-size: 2vmin;">{{tpodcast.title}}: {{tpodcast.publisher}}</h5>
                         </router-link>
-                          <button class="btn btn-primary black" @click="subscribedPodcast(tpodcast)" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div>
+                          <button class="btn btn-primary black" @click="subscribedPodcast(tpodcast), ()=>{$router.go()}" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div>
                   </div>
               </li>
           </ul>

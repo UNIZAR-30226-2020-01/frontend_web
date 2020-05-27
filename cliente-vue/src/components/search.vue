@@ -82,7 +82,7 @@
               </div>
               <div class="col-lg-2">
                 <div class="tiempo">
-                  <p>{{ songs.duration }}</p>
+                  <p>{{Math.floor(songs.duration/60)}} m {{songs.duration%60}} s</p>
                 </div>
               </div>
               <div class="col tres">
