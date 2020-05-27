@@ -74,7 +74,7 @@
             }).then(
                 function (response) {
                     if (response.status == 200){
-                        //episode.URI = response.body.real_uri
+                        episode.URI = response.body.real_uri
                         let episodeConverted = this.convertPodcastToSong(episode);
                         this.$emit('selectPlaylist', [episodeConverted]);
                         console.log("Pidiendo la reproducción de: " + episodeConverted.title);
