@@ -13,10 +13,8 @@ export default {
             // Todo ok
             this.trending_podcasts = response.body;
             this.trending_podcasts.forEach((podcast) => {
-              var list = podcast.url.split('/');
-              console.log(list);
-              podcast.id = list[list.length - 2];
-              podcast.url.replace('http://', 'https://');
+              podcast.url = "https://s7-rest.francecentral.cloudapp.azure.com/podcast/" + podcast.id;
+              podcast.URI = podcast.audio;
             });
             console.log(this.podcast);
           }

@@ -59,7 +59,8 @@
     },
     mixins: [podcastMixin,trendingPodcastMixin],
     created(){
-      this.getAllPodcasts;
+      console.log("peti");
+      this.getUserPodcasts;
       this.getAllTrendingPodcasts;
     },
     methods: {
