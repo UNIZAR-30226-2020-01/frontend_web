@@ -8,7 +8,11 @@
                         <br>
                         <h2 style="font-size: 100%">{{podcast.title}}</h2>
                         <h5 style="font-size: 100%">{{podcast.channel.name}}</h5>
+<<<<<<< Updated upstream
                         <h6>{{podcast.number_episodes}} Chapter{{ podcast.number_episodes > 1 ? 's' : ''}}</h6><button class="btn btn-primary black" id="sub_btn" type="button" @click="subscribedPodcast(podcast)">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div>
+=======
+                        <h6>{{podcast.number_episodes}} Caps</h6><button @click="subscribedPodcast(podcast)" class="btn btn-primary black" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div>
+>>>>>>> Stashed changes
                         </div>
                 </div>
                 <div class="row">
@@ -96,9 +100,32 @@
             }
         },
         subscribedPodcast: function(podcast) {
+<<<<<<< Updated upstream
         console.log('Token ' + localStorage.getItem('token'));
         console.log(podcast);
         var ruta = 'https://s7-rest.francecentral.cloudapp.azure.com/user/podcasts/followPodcast/?id='
+=======
+          console.log('Token ' + localStorage.getItem('token'));
+          console.log(podcast);
+          var ruta = 'https://s7-rest.francecentral.cloudapp.azure.com/user/podcasts/followPodcast/?id='
+            this.$http.post(ruta + podcast.id_listenotes, {}, {
+              headers: {
+                Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
+              }
+            }
+            ).then(
+                function(response) {
+                    // Tratamiento de la respuesta
+                    if(response.status != 200){
+                        console.log('Error de subscripcion en ' + podcast.title);
+                    }
+                }
+            );
+      },
+      unsubscribedPodcast: function(podcast) {
+        console.log('Token ' + localStorage.getItem('token'));
+        var ruta = 'https://s7-rest.francecentral.cloudapp.azure.com/user/podcasts/unfollowPodcast/?id='
+>>>>>>> Stashed changes
           this.$http.post(ruta + podcast.id_listenotes, {}, {
             headers: {
               Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
@@ -109,9 +136,13 @@
                   // Tratamiento de la respuesta
                   if(response.status != 200){
                       console.log('Error de subscripcion en ' + podcast.title);
+<<<<<<< Updated upstream
 
                   }
                   this.$router.go();
+=======
+                  }
+>>>>>>> Stashed changes
               }
           );
       },

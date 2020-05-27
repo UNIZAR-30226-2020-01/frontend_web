@@ -7,12 +7,14 @@
       </div>
         <ul class="list-inline text-center">
           <li data-aos="fade-up" class="list-inline-item album-item" v-for="genre in genres" :key="genre.name">
+            <router-link v-bind:to="'/genre/' + genre.id ">
             <div class="card text-center p-2 album-card">
               <header class="card-header">
                 <h3 class="card-title" style="font-size: 90%" >{{genre.name}}</h3>
                 <h6 class="card-subtitle">Podcast Genre</h6>
               </header>
             </div>
+          </router-link>
           </li>
         </ul>
         <button @click="getMoreGenres" class="btn btn-primary white"><i class="fas fa-chevron-circle-down" style="font-size: 22px;"></i></button>
@@ -31,7 +33,7 @@
                         <router-link v-bind:to="'/popularPodcastSeries/' + tpodcast.id ">
                           <h5 id="links_PodcastsSeries" style="font-size: 2vmin;">{{tpodcast.title}}: {{tpodcast.publisher}}</h5>
                         </router-link>
-                          <button class="btn btn-primary black" @click="subscribedPodcast(tpodcast), ()=>{$router.go()}" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div>
+                          <button class="btn btn-primary black" @click="subscribedPodcast(tpodcast)" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div>
                   </div>
               </li>
           </ul>
@@ -87,6 +89,10 @@
               // Todo ok
               var moreGenres = response.body.results
               moreGenres.forEach((gen) => {
+                var list = gen.url.split('/');
+                console.log(list);
+                gen.id = list[list.length - 2];
+                gen.url.replace('http://', 'https://');
                 this.genres.push(gen);
               });
               console.log(this.genres);
