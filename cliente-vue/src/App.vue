@@ -49,7 +49,7 @@
                       <!-- <li><a class="list__link" @click="loop = !loop"><i class="fa fa-plus"></i></a></li> -->
                       <li><a class="list__link">
                       <div v-if="currentTrack.is_fav != undefined" @click="setFavorite(currentTrack,!currentTrack.is_fav)" >
-                        <i v-if="currentTrack.is_fav" class="fa fa-star" style="color: rgb(181,146,20);"></i>
+                        <i v-if="currentTrack.is_fav" class="fa fa-star yellow"></i>
                         <i v-else class="fa fa-star"></i>
                       </div>
                       </a></li>
