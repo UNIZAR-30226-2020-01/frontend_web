@@ -16,7 +16,7 @@
                               <h6 id="links_PodcastsSeries">{{podcast.channel.name}}</h6>
                               <h6 id="links_PodcastsSeries">{{podcast.number_episodes}} episodes</h6>
                             </router-link>
-                              <button class="btn btn-primary black subsPodcastSubBtn" @click="unsubscribedPodcast(podcast), ()=>{$router.go()}" id="unsub_btn" type="button">Unsubscribe&nbsp;<i class="fa fa-minus" style="in"></i></button>
+                              <button class="btn btn-primary black subsPodcastSubBtn" @click="unsubscribedPodcast(podcast)" id="unsub_btn" type="button">Unsubscribe&nbsp;<i class="fa fa-minus" style="in"></i></button>
                           </div>
                       </div></div>
               </li>
@@ -33,7 +33,7 @@
                         <router-link v-bind:to="'/popularPodcastSeries/' + tpodcast.id ">
                           <h5 id="links_PodcastsSeries" style="font-size: 2vmin;">{{tpodcast.title}}: {{tpodcast.publisher}}</h5>
                         </router-link>
-                          <button class="btn btn-primary black" @click="subscribedPodcast(tpodcast), ()=>{$router.go()}" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div>
+                          <button class="btn btn-primary black" @click="subscribedPodcast(tpodcast)" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div>
                   </div>
               </li>
           </ul>
@@ -78,7 +78,9 @@
                   // Tratamiento de la respuesta
                   if(response.status != 200){
                       console.log('Error de subscripcion en ' + podcast.title);
+
                   }
+                  this.$router.go();
               }
           );
       },
@@ -95,7 +97,9 @@
                   // Tratamiento de la respuesta
                   if(response.status != 200){
                       console.log('Error de subscripcion en ' + podcast.title);
+
                   }
+                  this.$router.go();
               }
           );
       },
