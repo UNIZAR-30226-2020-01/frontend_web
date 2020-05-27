@@ -16,7 +16,7 @@
                               <h6 id="links_PodcastsSeries">{{podcast.channel.name}}</h6>
                               <h6 id="links_PodcastsSeries">{{podcast.number_episodes}} episodes</h6>
                             </router-link>
-                              <button class="btn btn-primary black subsPodcastSubBtn" id="unsub_btn" type="button">Unsubscribe&nbsp;<i class="fa fa-minus" style="in"></i></button>
+                              <button class="btn btn-primary black subsPodcastSubBtn" @click="unsubscribedPodcast(podcast), ()=>{$router.go()}" id="unsub_btn" type="button">Unsubscribe&nbsp;<i class="fa fa-minus" style="in"></i></button>
                           </div>
                       </div></div>
               </li>
@@ -63,7 +63,40 @@
       this.getAllTrendingPodcasts;
     },
     methods: {
-      getMorePopular: function(){}
+      subscribedPodcast: function(podcast) {
+        console.log('Token ' + localStorage.getItem('token'));
+        var ruta = 'https://s7-rest.francecentral.cloudapp.azure.com/user/podcasts/followPodcast/?id='
+          this.$http.post(ruta + podcast.id, {}, {
+            headers: {
+              Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
+            }
+          }
+          ).then(
+              function(response) {
+                  // Tratamiento de la respuesta
+                  if(response.status != 200){
+                      console.log('Error de subscripcion en ' + podcast.title);
+                  }
+              }
+          );
+      },
+      unsubscribedPodcast: function(podcast) {
+        console.log('Token ' + localStorage.getItem('token'));
+        var ruta = 'https://s7-rest.francecentral.cloudapp.azure.com/user/podcasts/unfollowPodcast/?id='
+          this.$http.post(ruta + podcast.id_listenotes, {}, {
+            headers: {
+              Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
+            }
+          }
+          ).then(
+              function(response) {
+                  // Tratamiento de la respuesta
+                  if(response.status != 200){
+                      console.log('Error de subscripcion en ' + podcast.title);
+                  }
+              }
+          );
+      },
     }
   }
 
