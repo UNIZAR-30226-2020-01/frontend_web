@@ -49,6 +49,9 @@
         mostrarMenuPodcasts: false
       }
     },
+    created() {
+      this.mostrarMenuPodcasts = this.$route.path.toString().toLowerCase().match(/^.*podcast.*$/ig) != null;
+    },
     methods:{
     //   open_player_btn: function(){
     //     let x = document.getElementById("player-col");

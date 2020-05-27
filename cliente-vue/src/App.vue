@@ -129,6 +129,7 @@ export default {
   },
   created: function () {
 
+    this.mostrarPodcast = this.$route.path.toString().toLowerCase().match(/^.*podcast.*$/ig) != null;
     // TODO: Cambiar si eso
     Howler.volume(0.5);
     // this.playlist.forEach( (track) => {
