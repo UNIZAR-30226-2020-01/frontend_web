@@ -10,7 +10,7 @@
                 <ul v-if="mostrarPodcast" class="nav navbar-nav mx-auto">
                     <li class="nav-item" role="presentation"><router-link class="nav-link" to="/newPodcasts/">New Podcasts</router-link></li>
                     <li class="nav-item" role="presentation"><router-link class="nav-link" to="/subscriptionsPodcasts/">Subscription</router-link></li>
-                    <li class="nav-item" role="presentation"><router-link class="nav-link" to="/discover">Discover</router-link></li>
+                    <li class="nav-item" role="presentation"><router-link class="nav-link" to="/discoverPodcast">Discover</router-link></li>
                 </ul>
                 <ul v-else class="nav navbar-nav mx-auto">
                     <li class="nav-item" role="presentation"><router-link class="nav-link" to="/following">Following</router-link></li>

@@ -120,7 +120,7 @@ export default [
     component: SearchPodcast
   },
   {
-    path: '/discover',
+    path: '/discoverPodcast',
     component: DiscoverPodcast
   },
   {
