@@ -8,7 +8,10 @@
                         <br>
                         <h2 style="font-size: 100%">{{podcast.title}}</h2>
                         <h5 style="font-size: 100%">{{podcast.publisher}}</h5>
-                        <h6>{{podcast.number_episodes}} Caps</h6><button class="btn btn-primary black" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div>
+                        <h6>{{podcast.number_episodes}} Caps</h6>
+                        <button @click="subscribedPodcast(podcast)" class="btn btn-primary black" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div> 
+                        <!-- <button v-if="isSub" @click="subscribedPodcast(podcast)" class="btn btn-primary black" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button> -->
+                        <!-- <button v-else @click="unsubscribedPodcast(podcast)" class="btn btn-primary black" id="sub_btn" type="button">Unubscribe&nbsp;<i class="fa fa-minus"></i></button> -->
                         </div>
                 </div>
             </div>
@@ -53,12 +56,15 @@
 <script>
   // import Player from './player.vue'
   //import artistMixins from '../mixins/artistMixin'
+  import podcastMixin from '../mixins/podcastMixin';
   export default {
+    mixins: [podcastMixin],
     data() {
       return {
         key: 0,
         id: this.$route.params.id,
         podcast: {},
+        podcasts: [],
         episodeInd: []
       }
     },
@@ -73,7 +79,7 @@
             console.log(episode.image);
             return {
                 title: episode.title,
-                file: episode.URI,
+                file: episode.audio,
                 album: {
                     title: this.podcast.title,
                     icon: episode.image,
@@ -89,6 +95,41 @@
           localStorage.setItem('episode', JSON.stringify(episode));
           console.log(localStorage.getItem('episode'));
         },
+        subscribedPodcast: function(podcast) {
+          console.log('Token ' + localStorage.getItem('token'));
+          console.log(podcast);
+          var ruta = 'https://s7-rest.francecentral.cloudapp.azure.com/user/podcasts/followPodcast/?id='
+            this.$http.post(ruta + podcast.id, {}, {
+              headers: {
+                Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
+              }
+            }
+            ).then(
+                function(response) {
+                    // Tratamiento de la respuesta
+                    if(response.status != 200){
+                        console.log('Error de subscripcion en ' + podcast.title);
+                    }
+                }
+            );
+      },
+      unsubscribedPodcast: function(podcast) {
+        console.log('Token ' + localStorage.getItem('token'));
+        var ruta = 'https://s7-rest.francecentral.cloudapp.azure.com/user/podcasts/unfollowPodcast/?id='
+          this.$http.post(ruta + podcast.id_listenotes, {}, {
+            headers: {
+              Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
+            }
+          }
+          ).then(
+              function(response) {
+                  // Tratamiento de la respuesta
+                  if(response.status != 200){
+                      console.log('Error de subscripcion en ' + podcast.title);
+                  }
+              }
+          );
+      },
     },
     created() {
       // Llamada para traer los datos del artista
@@ -115,9 +156,26 @@
         //       return a.title < b.title ? -1 : 1;
         //   })
         }
-      })
+      });
+      this.getUserPodcasts;
       // this.updateKey();
     },
+    computed: {
+      isSub: function() {
+        if (this.podcasts != [] && this.podcast != null){
+          let titulos = [];
+          for(let pod in this.podcasts){
+            titulos.push(pod.title)
+          }
+          titulos.forEach((pod) => pod.title);
+          let tit = this.podcast.title;
+          console.log(titulos)
+          console.log(tit)
+          return titulos.indexOf(tit) != -1;
+        }
+        return true;
+      }
+    }
   }
 
 </script>
