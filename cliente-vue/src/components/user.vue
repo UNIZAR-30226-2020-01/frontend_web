@@ -1,16 +1,15 @@
 <template>
 
-  <div class="col">
+  <div class="col animate__animated animate__fadeIn">
     <div id="content">
       <div class="container albumfondo" id="content-container" :key="this.key">
         <div class="row">
           <div class="col-lg-4 columna-album1">
-            <div class="img__wrap"><img class="img__img" :src="user.icon">
+              <img class="img__img" :src="user.icon">
               <h6 class="divimagealbum">{{user.username}}</h6>
-            </div>
             <div>
-              <p style="text-align: center;" class="number-songs" @click="showFollowers = false;showFollowing = !showFollowing">Following: {{user.following.length}}</p>
-              <p style="text-align: center;" class="number-songs" @click="showFollowing = false;showFollowers = !showFollowers">Followers: {{user.followers.length}}</p>
+              <p style="text-align: center;" class="number-songs link_nolinxd" @click="showFollowers = false;showFollowing = !showFollowing">Following: {{user.following.length}}</p>
+              <p style="text-align: center;" class="number-songs link_nolinxd" @click="showFollowing = false;showFollowers = !showFollowers">Followers: {{user.followers.length}}</p>
               <div @click="()=>{$router.go()}">
                 <button v-if="!checkIfFollowing" type="button" class="btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @click="followUser(user)">
                   Follow
@@ -19,13 +18,13 @@
                   Unfollow
                 </button>
             </div>
-              <p v-if="checkIfFollowers"> Te sigue </p>
-              <p v-if="showFollowers"> Followers </p>
-              <p v-if="showFollowing"> Following </p>
+              <p class="animate__animated animate__fadeInUp" v-if="checkIfFollowers"> Te sigue </p>
+              <p class="animate__animated animate__fadeInUp" v-if="showFollowers"> Followers </p>
+              <p class="animate__animated animate__fadeInUp" v-if="showFollowing"> Following </p>
               <!-- <p class="day-release">Since: Day release: {{playlist.date}}</p> -->
               <div v-if="this.showFollowers" class="container-fluid">
                   <ul class="list-inline text-center">
-                    <li class="list-inline-item artist-item" @click="()=>{$router.go()}" v-for="us in user.followers" :key="us.username">
+                    <li class="link_nolinxd animate__animated animate__fadeInUp list-inline-item artist-item" @click="()=>{$router.go()}" v-for="us in user.followers" :key="us.username">
                       <router-link v-bind:to="'/user/' + us.id " >
                       <div class="card text-center p-2 artist-card" >
                         <header class="card-header">
@@ -39,7 +38,7 @@
                 </div>
                 <div v-if="this.showFollowing" class="container-fluid">
                     <ul class="list-inline text-center">
-                      <li class="list-inline-item artist-item" @click="()=>{$router.go()}" v-for="us in user.following" :key="us.username">
+                      <li class="link_nolinxd animate__animated animate__fadeInUp list-inline-item artist-item" @click="()=>{$router.go()}" v-for="us in user.following" :key="us.username">
                         <router-link v-bind:to="'/user/' + us.id " >
                         <div class="card text-center p-2 artist-card" >
                           <header class="card-header">
@@ -212,6 +211,10 @@
 .img__img{
   height: 200px;
   width: 200px;
+  border-style: solid;
+  border-color: #101010;
+  border-width: 4px;
+  border-radius: 4px;
 }
 
 

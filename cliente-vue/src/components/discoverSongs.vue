@@ -5,7 +5,7 @@
       <div class="jumbotron">
         <h1 class="text-center">Most played</h1>
       </div>
-      <ul class="lista" style="filter: contrast(200%); margin-bottom:35px">
+      <ul class="lista">
         <li >
           <div>
             <div class="row">
@@ -30,10 +30,10 @@
           </div>
         </li>
       </ul>
-      <ul class="lista" v-for="songs in mostPlayed" :key="songs.title" style="filter: blur(0px) contrast(200%) grayscale(0%);"
+      <ul class="lista" v-for="songs in mostPlayed" :key="songs.title"
         >
         <!-- TODO: Cambiar esto. es para pruebas -->
-        <li style="filter: contrast(200%);">
+        <li>
           <div>
             <div class="row">
               <div class="col-lg-2">
@@ -43,7 +43,7 @@
               </div>
               <div class="col-lg-6">
                 <div @click="setFavorite(songs,!songs.is_fav)" style="display: inline;">
-                  <i v-if="songs.is_fav" class="fa fa-star yellow"></i>
+                  <i v-if="songs.is_fav" class="fa fa-star amraillo" style="color:  #FFD300;"></i>
                   <i v-else class="fa fa-star"></i>
                 </div>
                 <p class="name-song-list" @click="selectMostPlayed(); playSong(songs);" style="display: inline;">{{songs.title}} </p>
@@ -93,10 +93,10 @@
           </div>
         </li>
       </ul>
-      <ul class="lista" v-for="songs in mostLiked" :key="songs.title" style="filter: blur(0px) contrast(200%) grayscale(0%);"
+      <ul class="lista" v-for="songs in mostLiked" :key="songs.title" 
       >
         <!-- TODO: Cambiar esto. es para pruebas -->
-        <li style="filter: contrast(200%);">
+        <li>
           <div>
             <div class="row">
               <div class="col-lg-6">
@@ -211,6 +211,10 @@ export default {
 .jumbotron.disc{
   position: relative;
   top:20px;
+}
+
+.naranja{
+  color: #FFD300;
 }
 
 </style>
