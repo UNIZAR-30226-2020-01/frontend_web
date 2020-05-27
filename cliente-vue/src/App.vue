@@ -46,7 +46,13 @@
                         <a class="list__link"><i class="fa fa-retweet"></i></a>
                       </li>
                       <li @click="loop = !loop" v-show="loop"><a class="list__link"><i class="fa fa-retweet"></i></a></li>
-                      <li><a class="list__link" @click="loop = !loop"><i class="fa fa-plus"></i></a></li>
+                      <!-- <li><a class="list__link" @click="loop = !loop"><i class="fa fa-plus"></i></a></li> -->
+                      <li><a class="list__link">
+                      <div v-if="currentTrack.is_fav != undefined" @click="setFavorite(currentTrack,!currentTrack.is_fav)" >
+                        <i v-if="currentTrack.is_fav" class="fa fa-star" style="color: rgb(181,146,20);"></i>
+                        <i v-else class="fa fa-star"></i>
+                      </div>
+                      </a></li>
                     </ul>
                   </div>
                 </div>
@@ -103,6 +109,8 @@
 <script>
 import BarraSuperior from './components/barraSuperior.vue'
 import BarraLateral from './components/barraLateral.vue'
+import favoriteMixin from './mixins/favoriteMixin.js'
+
 // import Player from './components/controlPlayer.vue'
 import {Howl, Howler} from 'howler'
 export default {
@@ -112,6 +120,7 @@ export default {
     'barra-lateral': BarraLateral,
     // 'player-component': Player,
   },
+  mixins: [favoriteMixin],
   data(){
     return {
       animated: true,
