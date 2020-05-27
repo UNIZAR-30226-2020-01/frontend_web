@@ -37,28 +37,7 @@
                   }
                 "
               >
-                <button
-                  v-if="!checkIfFollowing"
-                  type="button"
-                  class="btn btn-primary"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  @click="followUser(user)"
-                >
-                  Follow
-                </button>
-                <button
-                  v-if="checkIfFollowing"
-                  type="button"
-                  class="btn btn-primary"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  @click="unfollowUser(user)"
-                >
-                  Unfollow
-                </button>
+
               </div>
               <p v-if="checkIfFollowers">Te sigue</p>
               <p v-if="showFollowers">Followers</p>

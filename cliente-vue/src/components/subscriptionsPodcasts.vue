@@ -33,7 +33,7 @@
                         <router-link v-bind:to="'/popularPodcastSeries/' + tpodcast.id ">
                           <h5 id="links_PodcastsSeries" style="font-size: 2vmin;">{{tpodcast.title}}: {{tpodcast.publisher}}</h5>
                         </router-link>
-                          <button class="btn btn-primary black" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div>
+                          <button class="btn btn-primary black" @click="subscribedPodcast(tpodcast)" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div>
                   </div>
               </li>
           </ul>
@@ -66,6 +66,7 @@
     methods: {
       subscribedPodcast: function(podcast) {
         console.log('Token ' + localStorage.getItem('token'));
+        console.log(podcast);
         var ruta = 'https://s7-rest.francecentral.cloudapp.azure.com/user/podcasts/followPodcast/?id='
           this.$http.post(ruta + podcast.id, {}, {
             headers: {

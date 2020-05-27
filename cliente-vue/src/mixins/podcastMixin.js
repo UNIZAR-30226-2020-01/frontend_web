@@ -27,8 +27,7 @@ export default {
           console.log(response);
         }
       );
-    }
-  },
+    },
   getUserPodcasts: function() {
     // Esto es un mixin que utilizara un objeto Vue asi que podemos usar
     // peticiones HTTP con el atributo $http
@@ -59,4 +58,5 @@ export default {
       }
     );
   }
+}
 }
