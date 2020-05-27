@@ -65,10 +65,21 @@
     },
     methods: {
         selectPodcast: function(episode){
-            let episodeConverted = this.convertPodcastToSong(episode);
-            this.$emit('selectPlaylist', [episodeConverted]);
-            console.log("Pidiendo la reproducción de: " + episodeConverted.title);
-            this.$emit("playSong", episodeConverted);
+            this.$http.get('https://s7-rest.francecentral.cloudapp.azure.com/episode/' + episode.id_listenotes, {
+                headers: {
+                    Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
+                }
+            }).then(
+                function (response) {
+                    if (response.status == 200){
+                        //episode.URI = response.body.real_uri
+                        let episodeConverted = this.convertPodcastToSong(episode);
+                        this.$emit('selectPlaylist', [episodeConverted]);
+                        console.log("Pidiendo la reproducción de: " + episodeConverted.title);
+                        this.$emit("playSong", episodeConverted);
+                    }
+                }
+            );
         },
         convertPodcastToSong: function(episode) {
             console.log(episode.image);
