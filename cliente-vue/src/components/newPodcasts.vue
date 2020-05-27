@@ -1,7 +1,7 @@
 <template>
 
   <div class="col animate__animated animate__fadeIn">
-    <div class="container-fluid">
+    <div class="container-fluid" style="width:80%;">
         <ul class="list-inline text-center" id="lista_podcasts">
             <li class="list-inline-item" v-for="podcast in podcasts" :key="podcast.title">
                 <div class="card" id="podcast">

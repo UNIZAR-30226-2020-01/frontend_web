@@ -4,10 +4,10 @@
     <div id="content">
       <div class="container albumfondo" id="content-container" :key="this.key">
         <div class="row">
-          <div class= "card white" style="max-height:450px !important;">
+          <div class= "card white" style="height:450px !important; width: 250px !important">
           <div class="columna-album1">
             <br>
-            <div class="divimagealbum img__wrap"><img class="individual-img-album" :src="playlist.icon" @click="selectPlaylist()">
+            <div class="divimagealbum img__wrap"  @click="selectPlaylist()"><img class="individual-img-album img__img" :src="playlist.icon">
               <i class="img__description fa fa-play"></i>
             </div>
             <div>
@@ -189,6 +189,6 @@ import favoriteMixin from '../mixins/favoriteMixin.js'
 <style>
 
   @import './../assets/css/album_Indv.css';
-  @import './../assets/css/styles.css'
+  @import './../assets/css/styles.css';
 
 </style>
