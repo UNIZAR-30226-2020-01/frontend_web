@@ -82,10 +82,10 @@
                       </div>
                       <div class="col-md-6 item text">
                           <h3>SpotySeven</h3>
-                          <p>SpotiSeven is an open-source music player with no publicity and completely free, providing an Android App and a web player. It has been made by a little development team formed by 7 students 
+                          <p>SpotiSeven is an open-source music player with no publicity and completely free, providing an Android App and a web player. It has been made by a little development team formed by 7 students
                             of Computer Science from Unizar, university based in Zaragoza, Spain.</p>
                       </div>
-                      <div class="col item social"><a href="https://twitter.com/SevenSpoti"><i class="icon fa fa-twitter"></a></div>
+                      <div class="col item social"><a href="https://twitter.com/SevenSpoti" target="_blank"><i class="fab fa-twitter"></i></a></div>
                   </div>
                   <p class="copyright">SpotiSeven© 2020, Zaragoza, Aragon, Spain</p>
               </div>
