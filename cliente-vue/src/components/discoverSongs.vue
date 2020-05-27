@@ -142,6 +142,10 @@ export default {
       console.log('selecting')
       this.$emit('selectPlaylist', this.mostPlayed)
     },
+    playNext: function(songs) {
+      console.log('adding to play next')
+      this.$emit('playnext', songs)
+    },
   },
   created() {
     // Llamada para traer los datos del artista

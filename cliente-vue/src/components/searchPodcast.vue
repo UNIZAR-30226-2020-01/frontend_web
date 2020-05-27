@@ -137,7 +137,6 @@ export default {
             this.podcasts = response.body;
             this.podcasts.forEach((user) => {
               var list = user.url.split("/");
-              this.execute = true;
               user.id = list[list.length - 2];
               user.url = user.url.toString().replace("http://", "https://");
               // Para cada cancion del playlist
@@ -164,6 +163,7 @@ export default {
         .then(function(response) {
           if (response.status == 200) {
             console.log(response.body);
+            this.execute = true;
             this.podcastsEpisodes = response.body;
             this.podcastsEpisodes.forEach((user) => {
               var list = user.url.split("/");
