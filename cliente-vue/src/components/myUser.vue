@@ -1,18 +1,40 @@
 <template>
-  <div class="col">
+  <div class="col animate__animated animate__fadeIn">
     <div id="content">
       <div class="container albumfondo" id="content-container" :key="this.key">
         <div class="row">
           <div class="col-lg-4 columna-album1">
             <div class="myimg__wrap">
               <img class="myimg__img" :src="user.icon" />
-              <p class="myimg__description">Change profile picture</p>
+
+
+              <div class="div_ambos">
+                <p class="myimg__description">Change profile picture:    </p>  
+                <form>                                      
+                <input
+                                  class="file_Input"
+                                  type="file"
+
+                                />  
+                </form>
+              </div>
+              <!--<p class="myimg__description">Change profile picture:    </p>                                        
+              <input
+                                class="file_Input"
+                                type="file"
+                                placeholder="Change profile picture"
+                                id="file"
+                                ref="myFiles"
+                                @change="previewFiles"
+                              />  -->
+                            
               <h6 class="divimagealbum">{{ user.username }}</h6>
             </div>
             <div>
               <p
                 style="text-align: center;"
-                class="number-songs"
+                class="number-songs link_nolinxd"
+                
                 @click="
                   showFollowers = false;
                   showFollowing = !showFollowing;
@@ -22,7 +44,7 @@
               </p>
               <p
                 style="text-align: center;"
-                class="number-songs"
+                class="number-songs link_nolinxd"
                 @click="
                   showFollowing = false;
                   showFollowers = !showFollowers;
@@ -39,14 +61,14 @@
               >
 
               </div>
-              <p v-if="checkIfFollowers">Te sigue</p>
-              <p v-if="showFollowers">Followers</p>
-              <p v-if="showFollowing">Following</p>
+              <p class="animate__animated animate__fadeInUp" v-if="checkIfFollowers">Te sigue</p>
+              <p class="animate__animated animate__fadeInUp" v-if="showFollowers">Followers</p>
+              <p class="animate__animated animate__fadeInUp" v-if="showFollowing">Following</p>
               <!-- <p class="day-release">Since: Day release: {{playlist.date}}</p> -->
               <div v-if="this.showFollowers" class="container-fluid">
                 <ul class="list-inline text-center">
                   <li
-                    class="list-inline-item artist-item"
+                    class="link_nolinxd animate__animated animate__fadeInUp list-inline-item artist-item"
                     @click="
                       () => {
                         $router.go();
@@ -73,8 +95,8 @@
               </div>
               <div v-if="this.showFollowing" class="container-fluid">
                 <ul class="list-inline text-center">
-                  <li
-                    class="list-inline-item artist-item"
+                  <li 
+                    class="link_nolinxd animate__animated animate__fadeInUp list-inline-item artist-item"
                     @click="
                       () => {
                         $router.go();
@@ -290,13 +312,76 @@ export default {
 }
 
 .myimg__description {
-  position: relative;
+
+  background-color: black;
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  text-align: center;
+  border-radius: 25px;
+
+
+
+  /* transition effect. not necessary */
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+.file_Input {
+
   background-color: black;
   color: #fff;
   visibility: hidden;
   opacity: 0;
   text-align: center;
   width: 150px;
+  border-radius: 25px;
+  margin: 5px;
+
+
+
+  /* transition effect. not necessary */
+  transition: opacity 0.2s, visibility 0.2s;
+  cursor: pointer;
+}
+
+.myimg__wrap:hover .myimg__description {
+  visibility: visible;
+  opacity: 1;
+}
+
+.myimg__wrap:hover .file_Input{
+    visibility: visible;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.myimg__wrap:hover .myimg__img {
+  opacity: 0.3;
+}
+
+.myimg__wrap:hover .mymiddle {
+  opacity: 1;
+}
+
+.myimg__img{
+  border-style: solid;
+  border-color: #101010;
+  border-width: 4px;
+  border-radius: 4px;
+}
+
+.link_nolinxd:hover{
+  color: #FFD300;
+  cursor: pointer;
+}
+
+.div_ambos{
+  position: relative;
+  background-color: black;
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  text-align: center;
   border-radius: 25px;
 
   position: absolute;
@@ -306,19 +391,11 @@ export default {
 
   /* transition effect. not necessary */
   transition: opacity 0.2s, visibility 0.2s;
-  cursor: pointer;
 }
 
-.myimg__wrap:hover .img__description {
-  visibility: visible;
+.myimg__wrap:hover .div_ambos{
+    visibility: visible;
   opacity: 1;
 }
 
-.myimg__wrap:hover .img__img {
-  opacity: 0.3;
-}
-
-.myimg__wrap:hover .middle {
-  opacity: 1;
-}
 </style>
