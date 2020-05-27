@@ -8,7 +8,7 @@
                         <br>
                         <h2 style="font-size: 100%">{{podcast.title}}</h2>
                         <h5 style="font-size: 100%">{{podcast.publisher}}</h5>
-                        <h6>{{podcast.total_episodes}} Caps</h6>
+                        <h6>{{podcast.total_episodes}} Chapter{{ podcast.total_episodes > 1 ? 's' : ''}}</h6>
                         <button @click="subscribedPodcast(podcast)" class="btn btn-primary black" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div>
                         <!-- <button v-if="isSub" @click="subscribedPodcast(podcast)" class="btn btn-primary black" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button> -->
                         <!-- <button v-else @click="unsubscribedPodcast(podcast)" class="btn btn-primary black" id="sub_btn" type="button">Unubscribe&nbsp;<i class="fa fa-minus"></i></button> -->

@@ -8,7 +8,7 @@
             <div
                 class="collapse navbar-collapse" id="navcol-1">
                 <ul v-if="mostrarPodcast" class="nav navbar-nav mx-auto">
-                    <li class="nav-item" role="presentation"><router-link class="nav-link" to="/newPodcasts/">NewPodcasts</router-link></li>
+                    <li class="nav-item" role="presentation"><router-link class="nav-link" to="/newPodcasts/">New Podcasts</router-link></li>
                     <li class="nav-item" role="presentation"><router-link class="nav-link" to="/subscriptionsPodcasts/">Subscription</router-link></li>
                     <li class="nav-item" role="presentation"><router-link class="nav-link" to="/discover">Discover</router-link></li>
                 </ul>
@@ -19,7 +19,7 @@
                     <li class="nav-item" role="presentation"><router-link class="nav-link" to="/discoverSongs">Popular</router-link></li>
                 </ul>
                 <!-- TODO: esto es provisional. Quitar o mejorar -->
-                <div><button type="button" class="btn btn-primary" @click="cerrarSesion()" v-show="isLoggedIn">Cerrar sesión</button></div>
+                <div><button type="button" class="btn btn-primary" @click="cerrarSesion()" v-show="isLoggedIn">Log out</button></div>
         </div>
         </div>
     </nav>
@@ -27,8 +27,6 @@
 </template>
 
 <script>
-
-  //import { bus } from '../main'
 
   export default {
     props: {

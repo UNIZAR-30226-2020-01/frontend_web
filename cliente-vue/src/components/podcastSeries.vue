@@ -8,7 +8,7 @@
                         <br>
                         <h2 style="font-size: 100%">{{podcast.title}}</h2>
                         <h5 style="font-size: 100%">{{podcast.channel.name}}</h5>
-                        <h6>{{podcast.number_episodes}} Caps</h6><button class="btn btn-primary black" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div>
+                        <h6>{{podcast.number_episodes}} Chapter{{ podcast.number_episodes > 1 ? 's' : ''}}</h6><button class="btn btn-primary black" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div>
                         </div>
                 </div>
                 <div class="row">

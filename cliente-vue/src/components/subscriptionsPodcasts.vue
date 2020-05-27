@@ -14,7 +14,7 @@
                             <router-link v-bind:to="'/subscriptionsPodcasts/' + podcast.id ">
                               <h4 id="links_PodcastsSeries">{{podcast.title}}</h4>
                               <h6 id="links_PodcastsSeries">{{podcast.channel.name}}</h6>
-                              <h6 id="links_PodcastsSeries">{{podcast.number_episodes}} episodes</h6>
+                              <h6 id="links_PodcastsSeries">{{podcast.number_episodes}} Chapter{{ podcast.number_episodes > 1 ? 's' : ''}}</h6>
                             </router-link>
                               <button class="btn btn-primary black subsPodcastSubBtn" @click="unsubscribedPodcast(podcast)" id="unsub_btn" type="button">Unsubscribe&nbsp;<i class="fa fa-minus" style="in"></i></button>
                           </div>
