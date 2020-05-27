@@ -4,11 +4,14 @@
     <div id="content">
       <div class="container albumfondo" id="content-container" :key="this.key">
         <div class="row">
-          <div class="col-lg-4 columna-album1">
-            <div class="divimagealbum"><img class="individual-img-album" :src="playlist.icon" @click="selectPlaylist()">
-              <h6 class="divimagealbum">{{playlist.title}}</h6>
+          <div class= "card white" style="max-height:450px !important;">
+          <div class="columna-album1">
+            <br>
+            <div class="divimagealbum img__wrap"><img class="individual-img-album" :src="playlist.icon" @click="selectPlaylist()">
+              <i class="img__description fa fa-play"></i>
             </div>
             <div>
+              <h6 class="divimagealbum">{{playlist.title}}</h6>
               <p class="number-songs">Number of songs: {{playlist.number_songs}}</p>
               <!-- <p class="day-release">Since: Day release: {{playlist.date}}</p> -->
             </div>
@@ -23,20 +26,19 @@
               </div>
             </div>
           </div>
+          </div>
           <div class="col">
-            <ul class="lista" style="filter: blur(0px) contrast(200%) grayscale(0%);">
+            <ul class="lista">
               <li>
                 <div>
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <div class="col">
+                  <div class="row jumbotron" id="jumbo_title">
+                    <div class="col-4">
                         <p class="name-song">TITLE</p>
-                      </div>
                     </div>
-                    <div class="col-lg-2 offset-lg-0">
-                      <div class="tiempo"><i class="far fa-clock"></i></div>
+                    <div class="col-2 offset-lg-0">
+                      <div class="tiempo" style="text-align:center;"><i class="far fa-clock"></i></div>
                     </div>
-                    <div class="col-lg-4 tres">
+                    <div class="col tres">
                       <div></div>
                     </div>
                   </div>
@@ -44,30 +46,30 @@
                 </div>
               </li>
             </ul>
-            <ul class="lista" v-for="songs in playlist.songs" :key="songs.title" style="filter: blur(0px) contrast(200%) grayscale(0%);">
-              <!-- TODO: Cambiar esto. es para pruebas -->
-              <li style="filter: contrast(200%);">
+            <ul class="lista list--album--songs" v-for="songs in playlist.songs" :key="songs.title">
+              <li id="albumSong">
                 <div>
                   <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-4">
                       <div @click="setFavorite(songs,!songs.is_fav)" style="display: inline;">
-                        <i v-if="songs.is_fav" class="fa fa-star" style="color: rgb(181,146,20);"></i>
+                        <i v-if="songs.is_fav" class="fa fa-star yellow"></i>
                         <i v-else class="fa fa-star"></i>
                       </div>
                       <p class="name-song-list" style="display: inline;" @click="selectPlaylist(); playSong(songs);">{{songs.title}} </p>
                     </div>
-                    <div class="col-lg-2">
+                    <div class="col-2">
                       <div class="tiempo">
                         <p>{{songs.duration}}</p>
                       </div>
                     </div>
                     <div class="col tres">
-                      <div>
-                        <div class="dropdown desp"><button class="btn btn-primary white dropdown-toggle points"
+                      <div style="display: inline;">
+                        <div class="dropdown desp" style="display: inline;"><button class="btn btn-primary white dropdown-toggle points"
                                   data-toggle="dropdown"
                                   aria-expanded="false"
                                   type="button"><i class="fa fa-ellipsis-v dropdown show"></i></button>
-                          <div role="menu" class="dropdown-menu"><a role="presentation" class="dropdown-item" href="#" @click="playNext(songs)">Play Next</a></div>
+                          <div role="menu" class="dropdown-menu">
+                            <a role="presentation" class="dropdown-item" href="#" @click="playNext(songs)">Play Next</a></div>
                         </div>
                       </div>
                     </div>
@@ -187,5 +189,6 @@ import favoriteMixin from '../mixins/favoriteMixin.js'
 <style>
 
   @import './../assets/css/album_Indv.css';
+  @import './../assets/css/styles.css'
 
 </style>

@@ -71,8 +71,7 @@
                 >
                   <i
                     v-if="songs.is_fav"
-                    class="fa fa-star"
-                    style="color: rgb(181,146,20);"
+                    class="fa fa-star yellow"
                   ></i>
                   <i v-else class="fa fa-star"></i>
                 </div>

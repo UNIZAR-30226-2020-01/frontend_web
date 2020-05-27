@@ -43,7 +43,7 @@
               </div>
               <div class="col-lg-6">
                 <div @click="setFavorite(songs,!songs.is_fav)" style="display: inline;">
-                  <i v-if="songs.is_fav" class="fa fa-star" style="color: rgb(181,146,20);"></i>
+                  <i v-if="songs.is_fav" class="fa fa-star yellow"></i>
                   <i v-else class="fa fa-star"></i>
                 </div>
                 <p class="name-song-list" @click="selectMostPlayed(); playSong(songs);" style="display: inline;">{{songs.title}} </p>
@@ -101,7 +101,7 @@
             <div class="row">
               <div class="col-lg-6">
                 <div @click="setFavorite(songs,!songs.is_fav)" style="display: inline;">
-                  <i v-if="songs.is_fav" class="fa fa-star" style="color: rgb(181,146,20);"></i>
+                  <i v-if="songs.is_fav" class="fa fa-star yellow"></i>
                   <i v-else class="fa fa-star"></i>
                 </div>
                 <p class="name-song-list" @click="selectMostLiked(); playSong(songs);" style="display: inline;">{{songs.title}} </p>

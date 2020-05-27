@@ -4,17 +4,16 @@
     <div id="content">
       <div class="container albumfondo" id="content-container" :key="this.key">
         <div class="row">
-          <div class= "card white">
+          <div class= "card white" style="max-height:450px !important;">
           <div class="col columna-album1">
             <br>
                 <div class="divimagealbum img__wrap" @click="selectAlbum()"><img class="individual-img-album img__img" :src="album.icon" v>
                   <i class="img__description fa fa-play"></i>
-
                 </div>
                 <div>
                   <h6 class="divimagealbum">{{album.title}}</h6>
                   <p class="number-songs">Number of songs: {{album.number_songs}}</p>
-                  <p class="day-release">Since: Day release: {{album.date}}</p>
+                  <p class="day-release">Release date: {{album.date}}</p>
                 </div>
 
                 <div class="dropdown desp"><button class="btn btn-primary white dropdown-toggle points"
@@ -30,7 +29,7 @@
            </div>
            </div>
           <div class="col">
-            <ul class="lista" style="filter: blur(0px) contrast(200%) grayscale(0%);">
+            <ul class="lista">
               <li>
                 <div>
                   <div class="row jumbotron" id="jumbo_title">
@@ -46,13 +45,13 @@
                 </div>
               </li>
             </ul>
-            <ul class="lista list--album--songs" v-for="songs in album.songs" :key="songs.title" style="filter: blur(0px) contrast(200%) grayscale(0%);">
-              <li id="albumSong" style="filter: contrast(200%); margin-bottom:35px">
+            <ul class="lista list--album--songs" v-for="songs in album.songs" :key="songs.title">
+              <li id="albumSong">
                 <div>
                   <div class="row">
                     <div class="col-4">
                       <div @click="setFavorite(songs,!songs.is_fav)" style="display: inline;">
-                        <i v-if="songs.is_fav" class="fa fa-star" style="color: rgb(181,146,20);"></i>
+                        <i v-if="songs.is_fav" class="fa fa-star yellow"></i>
                         <i v-else class="fa fa-star"></i>
                       </div>
                       <p class="name-song-list" @click="selectAlbum(); playSong(songs);" style="display: inline;">{{songs.title}} </p>
@@ -203,81 +202,5 @@
 <style scoped>
 @import './../assets/css/styles.css';
 @import './../assets/css/album_Indv.css';
-
-#jumbo_title{
-  height:10px;
-}
-
-.individual-img-album{
-  border-style: solid;
-  border-color: black;
-  border-width: 5px;
-  border-radius: 5px;
-  position: relative;
-  margin: 0 auto;
-}
-
-.list--album--songs li{
-  border-bottom-style: solid;
-  border-width: 2px;
-  border-color: black;
-}
-
-.img__img{
-  height: 200px;
-  width: 200px;
-}
-
-.img__wrap {
-  cursor:pointer;
-  position: relative;
-}
-
-.img__description {
-  position: absolute;
-  color: black;
-  background-color: rgba(0,0,0, 0);
-  visibility: hidden;
-  opacity: 0;
-  text-align: center;
-  width: 45px;
-  font-size: 35px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  /* transition effect. not necessary */
-  transition: opacity .2s, visibility .2s;
-}
-
-.img__wrap:hover .img__description {
-  visibility: visible;
-  opacity: 1;
-}
-
-.img__wrap:hover .img__img {
-  opacity: 0.3;
-}
-.dropdown-menu{
-  background-color: white;
-  color:black;
-}
-.dropdown-item{
- color:black !important;
-}
-
-.dropdown-divider{
-  color:black !important;
-}
-
-.name-song-list{
-  cursor:pointer;
-}
-
-.name-song-list:hover{
-  cursor:pointer;
-  color: yellow;
-}
-
 
 </style>

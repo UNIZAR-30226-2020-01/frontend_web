@@ -85,6 +85,14 @@ body {
   border-color:black;
   color:black!important;
 }
+
+.fa-star{
+  color: black;
+}
+
+.fa.yellow{
+  color:#FFD300 !important;
+}
 #primero {
   font-size: 10vw;
   font-weight: 300;

@@ -65,7 +65,7 @@ a {
 .info__song {
   font-size: 1.15rem;
   font-weight: 400;
-  color: #a59d0b;
+  color: #FFD300;
 }
 
 .body__buttons {
@@ -95,7 +95,7 @@ a {
 }
 
 .list--buttons a:focus, .list--buttons a:hover {
-  color: rgba(165,157,11,0.95);
+  color: #FFD300;
   opacity: 1;
   box-shadow: 0 6px 9px rgba(33, 33, 33, 0.1), 0 6px 16px rgba(33, 33, 33, 0.15);
 }
@@ -107,7 +107,7 @@ a {
   padding-bottom: 0.82rem;
   padding-left: 1rem;
   font-size: 1.25rem;
-  color: rgba(165,157,11,0.95);
+  color:#FFD300;
 }
 
 .list--buttons li:nth-of-type(3) a {
@@ -116,7 +116,7 @@ a {
   padding-bottom: 0.82rem;
   padding-left: 1rem;
   font-size: 1.25rem;
-  color: rgba(165,157,11,0.95);
+  color: #FFD300;
 }
 
 
@@ -126,7 +126,7 @@ a {
 }
 
 .list--buttons li:first-of-type a:focus, .list--buttons li:first-of-type a:hover, .list--buttons li:last-of-type a:focus, .list--buttons li:last-of-type a:hover {
-  color: rgba(165,157,11,1);
+  color: #FFD300;
   opacity: 0.85;
 }
 
@@ -136,14 +136,14 @@ a {
 }
 
 .list__link:focus, .list__link:hover {
-  color: rgba(165,157,11,1);
+  color: #FFD300;
   cursor:pointer;
 }
 
 .list__link.list__link__active {
   -webkit-transition: all 0.25s cubic-bezier(0.4, 0, 1, 1);
   transition: all 0.25s cubic-bezier(0.4, 0, 1, 1);
-  color: rgba(165,157,11,1);
+  color: #FFD300;
 }
 
 .player__footer {
@@ -164,13 +164,13 @@ a {
 }
 
 .list--footer a:focus, .list--footer a:hover {
-  color: rgba(165,157,11,1);
+  color: #FFD300;
   opacity: 1;
   box-shadow: 0 6px 9px rgba(33, 33, 33, 0.1), 0 6px 16px rgba(33, 33, 33, 0.15);
 }
 
 .list--footer li:nth-of-type(3) a {
   font-size: 0.95rem;
-  color: rgba(165,157,11,1);
+  color: #FFD300;
 }
 
