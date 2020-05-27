@@ -56,21 +56,17 @@
         <h1>Podcasts Episodes</h1>
       </div>
       <ol>
-          <li reversed v-for="episode in podcastsEpisodes" :key="episode.title" @click="selectPodcast(episode)">
-              <div class="card border-0">
-                  <div class="card-body border-0">
+          <li class="chapter" reversed v-for="episode in podcastsEpisodes" :key="episode.title" @click="selectPodcast(episode)">
+
                       <div class="row">
                           <div class="col col-4" id="chapter_cover_col"><img id="chapter_cover" :src="episode.image"></div>
-                          <div class="col" id="chapter_content_col">
+                          <div class="col chapter_content_col">
                             <router-link v-bind:to="'/subscriptionsPodcasts/' + episode.id + '/singlePodcast' ">
-                              <h5>{{episode.title}}</h5>
+                              <h5 class="chapter_title">{{episode.title}}</h5>
                               <h6 class="text-muted mb-2">{{episode.description.substr(0,65)}} ...</h6>
                               </router-link>
                           </div>
                       </div>
-                  </div>
-              </div>
-
           </li>
       </ol>
     </div>
@@ -196,4 +192,25 @@ export default {
 @import "./../assets/css/styles.css";
 @import "./../assets/css/artists.css";
 @import './../assets/css/newPodcasts.css';
+
+  .chapter_content_col{
+        border-radius: 5px;
+        border-style: solid;
+        border-color: black;
+        border-width: 3px;
+        margin-right: 30px;
+        margin: 5px;
+  }
+
+  .chapter{
+      margin: 5px;
+  }
+
+  .chapter_title{
+      color: black;
+  }
+
+  .chapter_title:hover{
+      color: #FFD300;
+  }
 </style>

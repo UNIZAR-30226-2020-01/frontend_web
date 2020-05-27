@@ -5,7 +5,8 @@
       <div class="container albumfondo" id="content-container" :key="this.key">
         <div class="row">
           <div class="col-lg-4 columna-album1">
-            <div class="img__wrap"><img class="img__img" :src="user.icon">
+            <div class="myimg__wrap"><img class="myimg__img" :src="user.icon">
+              <p class="myimg__description">Change profile picture</p>
               <h6 class="divimagealbum">{{user.username}}</h6>
             </div>
             <div>
@@ -209,10 +210,46 @@
 
   @import './../assets/css/album_Indv.css';
 
-.img__img{
+.myimg__img{
   height: 200px;
   width: 200px;
 }
 
+.myimg__wrap {
+  position: relative;
+}
+
+.myimg__description {
+  position: relative;
+  background-color: black;
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  text-align: center;
+  width: 150px;
+  border-radius: 25px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* transition effect. not necessary */
+  transition: opacity .2s, visibility .2s;
+  cursor:pointer;
+}
+
+.myimg__wrap:hover .img__description {
+  visibility: visible;
+  opacity: 1;
+}
+
+.myimg__wrap:hover .img__img {
+  opacity: 0.3;
+}
+
+.myimg__wrap:hover .middle {
+  opacity: 1;
+}
 
 </style>

@@ -2,6 +2,7 @@
     <div class="row">
       <div class="col-2" id="sidebar" v-if="mostrarSidebar">
         <ul class="list-unstyled" id="lista-lateral">
+          <li><router-link to="/myUser">MyUser</router-link></li>
           <li v-if="!mostrarMenuPodcasts"><router-link to="/search">Search</router-link></li>
           <li v-if="mostrarMenuPodcasts"><router-link to="/searchPodcast">Search</router-link></li>
           <li v-if="!mostrarMenuPodcasts"><router-link to="/playlists">Your library</router-link></li>

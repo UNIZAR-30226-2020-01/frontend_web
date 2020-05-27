@@ -21,6 +21,7 @@ import DiscoverSongs from './components/discoverSongs.vue'
 import SinglePodcast from './components/singlePodcast.vue'
 import SinglePopularPodcast from './components/singlePopularPodcast.vue'
 import User from './components/user.vue'
+import MyUser from './components/myUser.vue'
 // Exportamos el objeto de rutas
 export default [
   // Cada objeto es una ruta
@@ -104,6 +105,10 @@ export default [
   {
     path: '/user/:id',
   component: User
+  },
+  {
+    path: '/myUser',
+  component: MyUser
   },
   {
     path: '/search',
