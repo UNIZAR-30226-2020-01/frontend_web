@@ -41,7 +41,6 @@
                       <div class="tiempo" style="text-align:center;"><i class="far fa-clock"></i></div>
                     </div>
                     <div class="col tres">
-                      <div></div>
                     </div>
                 </div>
                 </div>

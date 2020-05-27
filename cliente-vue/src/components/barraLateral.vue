@@ -2,6 +2,7 @@
     <div class="row">
       <div class="col-2" id="sidebar" v-if="mostrarSidebar">
         <ul class="list-unstyled" id="lista-lateral">
+          <button v-if="mostarButton" class="btn btn-primary fixed-bottom" type="button" v-on:click="open_player_btn"><i class="fas fa-music" style="color: rgb(0,0,0);"></i></button>
           <li><router-link to="/myUser">MyUser</router-link></li>
           <li v-if="!mostrarMenuPodcasts"><router-link to="/search">Search</router-link></li>
           <li v-if="mostrarMenuPodcasts"><router-link to="/searchPodcast">Search</router-link></li>
@@ -17,7 +18,7 @@
         </ul>
         <div>
         </div>
-        <button v-if="mostarButton" class="btn btn-primary fixed-bottom" type="button" v-on:click="open_player_btn"><i class="fas fa-music" style="color: rgb(0,0,0);"></i></button>
+        
       </div>
       <slot name="router"></slot>
       <slot name="repro"></slot>

@@ -2,11 +2,11 @@
   <div class="col animate__animated animate__fadeIn">
     <br>
     <div class="container-fluid"  style="width:60%;">
-      <div class="jumbotron disc">
+      <div class="jumbotron">
         <h1 class="text-center">Most played</h1>
       </div>
-      <ul class="lista" style="filter: blur(0px) contrast(200%) grayscale(0%);">
-        <li>
+      <ul class="lista" style="filter: contrast(200%); margin-bottom:35px">
+        <li >
           <div>
             <div class="row">
               <div class="col-lg-6">
