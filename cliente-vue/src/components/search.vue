@@ -376,6 +376,10 @@ export default {
           if (response.status == 200) {
             console.log(response.body);
             this.songs = response.body;
+            this.songs.forEach(song => {
+              song.file = song.file.toString().replace('http://', 'https://')
+              song.url = song.url.toString().replace('http://', 'https://');
+            })
           } else {
             console.log(
               "Error al buscar un song. Codigo de error: " + response.status

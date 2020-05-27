@@ -9,7 +9,7 @@
           <li v-if="!mostrarMenuPodcasts"><router-link to="/playlists">Your library</router-link></li>
           <li @click=changeMenu()>
             <div v-if="!mostrarMenuPodcasts">
-              <router-link to="/newPodcasts">Podcasts</router-link>
+              <router-link to="/discoverPodcast">Podcasts</router-link>
             </div>
             <div v-else>
               <router-link to="/playlists">Songs</router-link>
@@ -18,7 +18,7 @@
         </ul>
         <div>
         </div>
-        
+
       </div>
       <slot name="router"></slot>
       <slot name="repro"></slot>

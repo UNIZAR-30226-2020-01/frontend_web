@@ -36,14 +36,13 @@
               <div class="card" id="podcast">
                   <div id="podcast_header" class="card-header">
                       <h5 class="card-title">{{podcast.title}}</h5>
-                      <h6 class="text-muted mb-2 card-subtitle">Subtitle</h6>
+                      <h6 class="text-muted mb-2 card-subtitle">Podcast</h6>
                   </div>
                   <div class="card-body"><img id="podcast_img" class="card-img"  v-bind:src="podcast.image">
                       <p class="text-justify card-text">{{podcast.description}}<br><br></p>
                   </div>
                   <div class="card-footer podcast_footer">
-                      <p id="podcast_duration" class="card-text podcast_footer_info float-left">Duration: 2h</p>
-                      <p id="podcast_date" class="card-text podcast_footer_info float-right">Date: 19/12/12</p>
+                      <p id="podcast_duration" class="card-text podcast_footer_info float-left">{{podcast.number_episodes}} episodes</p>
                   </div>
               </div>
             </router-link>
