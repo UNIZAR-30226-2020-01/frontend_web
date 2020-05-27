@@ -8,7 +8,7 @@
                         <br>
                         <h2 style="font-size: 100%">{{podcast.title}}</h2>
                         <h5 style="font-size: 100%">{{podcast.channel.name}}</h5>
-                        <h6>{{podcast.number_episodes}} Chapter{{ podcast.number_episodes > 1 ? 's' : ''}}</h6><button class="btn btn-primary black" id="sub_btn" type="button">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div>
+                        <h6>{{podcast.number_episodes}} Chapter{{ podcast.number_episodes > 1 ? 's' : ''}}</h6><button class="btn btn-primary black" id="sub_btn" type="button" @click="subscribedPodcast(podcast)">Subscribe&nbsp;<i class="fa fa-plus"></i></button></div>
                         </div>
                 </div>
                 <div class="row">
@@ -31,7 +31,7 @@
             </div>
             <div class="col m-2 col-8">
                 <div class="jumbotron">
-                 <h2>Chapters</h2>
+                 <h2>Chapter{{ podcast.number_episodes > 1 ? 's' : ''}}</h2>
                 </div>
                 <ol>
                     <li class="chapter animate__animated animate__fadeInUp" reversed v-for="episode in podcast.episodes" :key="episode.title" @click="selectPodcast(episode)">
@@ -94,7 +94,27 @@
                     }
                 }
             }
-        }
+        },
+        subscribedPodcast: function(podcast) {
+        console.log('Token ' + localStorage.getItem('token'));
+        console.log(podcast);
+        var ruta = 'https://s7-rest.francecentral.cloudapp.azure.com/user/podcasts/followPodcast/?id='
+          this.$http.post(ruta + podcast.id_listenotes, {}, {
+            headers: {
+              Authorization: localStorage.getItem('type') + ' ' + localStorage.getItem('token'),
+            }
+          }
+          ).then(
+              function(response) {
+                  // Tratamiento de la respuesta
+                  if(response.status != 200){
+                      console.log('Error de subscripcion en ' + podcast.title);
+
+                  }
+                  this.$router.go();
+              }
+          );
+      },
     },
     created() {
       // Llamada para traer los datos del artista
