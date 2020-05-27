@@ -13,6 +13,7 @@ export default {
                     if(response.status == 200){
                         // Ha ido bien
                         console.log("Se ha modificado la imagen del usuario");
+                        this.$router.go();
                         // Esto nos devuelve el usuario
                         console.log(response.status);
                     }

@@ -19,9 +19,9 @@
                         <ul class="list-inline">
                             <li class="list-inline-item m-1 animate__animated animate__fadeInLeft" v-for="genre in podcast.genre" :key="genre.name">
                                 <div class="card" id="related_podcast_card">
-                                    <div class="card-body"><img id="related_podcast_cover" src="./../assets/img/81aBBHak07L._SS500_.jpg">
+                                    <div class="card-body">
                                         <h5 class="card-title m-2">{{genre.name}}</h5>
-                                        <h6 class="text-muted card-subtitle mb-2">Genre</h6>
+                                        <h6 class="text-muted card-subtitle mb-2">Podcast Genre</h6>
                                     </div>
                                 </div>
                             </li>
@@ -120,14 +120,14 @@
 
   @import './../assets/css/styles.css';
   @import './../assets/css/podcastSeries.css';
-  
+
   .jumbotron.listjumbo{
       position:relative;
       background-color: white;
       border-color:black;
       color:black;
       box-shadow: 0 0 0 .1rem rgba(0,0,0,1);
-      
+
   }
 
   .chapter_content_col{

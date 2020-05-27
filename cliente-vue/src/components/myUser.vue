@@ -9,16 +9,16 @@
 
 
               <div class="div_ambos">
-                <p class="myimg__description">Change profile picture:    </p>  
-                <form>                                      
+                <p class="myimg__description">Change profile picture:    </p>
+                <form>
                 <input
                                   class="file_Input"
                                   type="file"
-
-                                />  
+                                  @change="previewFiles"
+                                />
                 </form>
               </div>
-              <!--<p class="myimg__description">Change profile picture:    </p>                                        
+              <!--<p class="myimg__description">Change profile picture:    </p>
               <input
                                 class="file_Input"
                                 type="file"
@@ -27,14 +27,14 @@
                                 ref="myFiles"
                                 @change="previewFiles"
                               />  -->
-                            
+
               <h6 class="divimagealbum">{{ user.username }}</h6>
             </div>
             <div>
               <p
                 style="text-align: center;"
                 class="number-songs link_nolinxd"
-                
+
                 @click="
                   showFollowers = false;
                   showFollowing = !showFollowing;
@@ -95,7 +95,7 @@
               </div>
               <div v-if="this.showFollowing" class="container-fluid">
                 <ul class="list-inline text-center">
-                  <li 
+                  <li
                     class="link_nolinxd animate__animated animate__fadeInUp list-inline-item artist-item"
                     @click="
                       () => {
@@ -169,6 +169,7 @@
 
 <script>
 import followingMixin from "../mixins/followingActions";
+import changeUserInfo from "../mixins/changeUserInfo";
 export default {
   data() {
     return {
@@ -178,13 +179,21 @@ export default {
       followersCurrentUser: [],
       showFollowing: false,
       showFollowers: false,
+      files: [],
     };
   },
-  mixins: [followingMixin],
+  mixins: [followingMixin,changeUserInfo],
   methods: {
     refresh: function() {
       console.log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
       this.$router.go();
+    },
+    previewFiles(event) {
+      console.log(event.target.files[0]);
+      this.files = event.target.files[0];
+      console.log(this.file);
+      this.changeUserImage(this.files);
+      //this.$router.go();
     },
   },
   created() {

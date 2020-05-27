@@ -9,6 +9,11 @@
         <li >
           <div>
             <div class="row">
+              <div class="col-lg-2">
+                <div class="tiempo">
+                  <p>Times played</p>
+                </div>
+              </div>
               <div class="col-lg-6">
                 <div class="col">
                   <p class="name-song">TITLE</p>
@@ -31,6 +36,11 @@
         <li style="filter: contrast(200%);">
           <div>
             <div class="row">
+              <div class="col-lg-2">
+                <div class="tiempo">
+                  <p>{{songs.times_played}}</p>
+                </div>
+              </div>
               <div class="col-lg-6">
                 <div @click="setFavorite(songs,!songs.is_fav)" style="display: inline;">
                   <i v-if="songs.is_fav" class="fa fa-star" style="color: rgb(181,146,20);"></i>
@@ -53,6 +63,7 @@
                   </div>
                 </div>
               </div>
+
             </div>
             <hr>
           </div>
