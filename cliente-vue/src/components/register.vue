@@ -1,5 +1,6 @@
 <template>
   <div class="container" id="form">
+    <div class="jumbotron">
     <h1 class="text-center">Register</h1>
     <form class="text-left form" method="post" v-on:submit.prevent="register()">
       <label for="user">Username</label>
@@ -25,6 +26,7 @@
       ¿Ya tienes cuenta?
       <router-link to="/login">Inicia sesión aqui</router-link>
     </p>
+  </div>
   </div>
 </template>
 
