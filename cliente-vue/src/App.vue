@@ -76,18 +76,18 @@
                       <div class="col-sm-6 col-md-3 item">
                           <h3>About</h3>
                           <ul>
-                              <li><a href="#">SpotySeven is a&nbsp;</a></li>
                               <li><a href="#">Team</a></li>
                               <li><a href="#">Careers</a></li>
                           </ul>
                       </div>
                       <div class="col-md-6 item text">
                           <h3>SpotySeven</h3>
-                          <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
+                          <p>SpotiSeven is an open-source music player with no publicity and completely free, providing an Android App and a web player. It has been made by a little development team formed by 7 students 
+                            of Computer Science from Unizar, university based in Zaragoza, Spain.</p>
                       </div>
-                      <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+                      <div class="col item social"><a href="https://twitter.com/SevenSpoti"><i class="icon fa fa-twitter"></a></div>
                   </div>
-                  <p class="copyright">SpotySeven Ã‚Â© 2020</p>
+                  <p class="copyright">SpotiSeven© 2020, Zaragoza, Aragon, Spain</p>
               </div>
           </footer>
       </div>
